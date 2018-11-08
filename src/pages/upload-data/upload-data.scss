@@ -1,0 +1,27 @@
+page-upload-data {
+    a{
+        color:#333;
+        display: block;
+        width:94%;
+        margin:0 auto;
+        padding:1rem 0;
+        border-bottom:1px solid #E7E7E9;
+        span{
+            display: inline-block;
+            width:50%;
+        }
+        span:nth-child(2){
+            padding-right:2rem;
+            text-align: right;
+            background-image: url("../../assets/icon/jinru01_03.png");
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+        .Uploaded{
+            color:#3EBAB4;
+        }
+        .error{
+            color:#F29018;
+        }
+    }
+}

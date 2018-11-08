@@ -1,0 +1,46 @@
+page-yes-pass-tuan-more .top-box {
+  width: 94%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 1rem 0; }
+  page-yes-pass-tuan-more .top-box p {
+    float: left;
+    width: 49.8%; }
+    page-yes-pass-tuan-more .top-box p span:first-child {
+      color: #999999; }
+    page-yes-pass-tuan-more .top-box p span:nth-child(2) {
+      color: #333; }
+  page-yes-pass-tuan-more .top-box p:first-child {
+    border-right: 1px solid #E7E7E9; }
+  page-yes-pass-tuan-more .top-box p:nth-child(2) {
+    text-align: right; }
+page-yes-pass-tuan-more .titless {
+  display: block;
+  padding: 1rem 0;
+  width: 94%;
+  margin: 0 auto;
+  color: #3EBAB4;
+  border-bottom: 1px solid #E7E7E9;
+  font-size: 1.5rem; }
+page-yes-pass-tuan-more .main-box {
+  width: 94%;
+  margin: 1rem auto 0 auto;
+  padding-bottom: 1rem; }
+  page-yes-pass-tuan-more .main-box div {
+    margin-top: 0.5rem; }
+    page-yes-pass-tuan-more .main-box div span {
+      display: inline-block; }
+    page-yes-pass-tuan-more .main-box div span:first-child {
+      color: #A3A3A3;
+      width: 30%; }
+    page-yes-pass-tuan-more .main-box div span:nth-child(2) {
+      width: 70%; }
+  page-yes-pass-tuan-more .main-box p {
+    color: #A3A3A3;
+    margin-top: 0.5rem; }
+  page-yes-pass-tuan-more .main-box img {
+    display: block;
+    width: 90%;
+    margin: 0.5rem auto 0 auto; }
+
+/*# sourceMappingURL=yes-pass-tuan-more.css.map */

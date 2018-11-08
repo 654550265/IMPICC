@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>申请保险</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps style="display: none"></gps>
+    <div class="puts-box">
+        <div class="put-box">
+            <span>类型</span>
+            <select [(ngModel)]="ID">
+                <option *ngFor="let n of animalArr;let indexs=index" value="{{n.AnimtalType}}">{{n.AnimtalTypeName}}</option>
+                <option value="3">牛</option>
+            </select>
+        </div>
+        <div class="put-box">
+            <span>数量</span><input type="text" placeholder="请输入您的动物数量" [(ngModel)]="Bank" (blur)="unameBlur()" (focus)="unamefocus()">
+        </div>
+    </div>
+</ion-content>
+<ion-footer *ngIf="!showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="gotoApp()">提交</div>
+    </ion-toolbar>
+</ion-footer>

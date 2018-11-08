@@ -1,0 +1,41 @@
+$text:'san' 'dun' 'my';
+page-tabs {
+    .tab-button-text{
+        color:#999;
+    }
+    .tab-button-icon.icon.icon-md{
+        height: 30px;
+        min-width: 35px;
+    }
+    @for $i from 1 to 4{
+        .tab-button-icon.icon.ion-ios-#{nth($text,$i)}-outline {
+            background-image: url("../assets/icon/#{nth($text,$i)}.png");
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            background-position: center;
+        }
+        .tab-button-icon.icon.ion-ios-#{nth($text,$i)}{
+            background-image: url("../assets/icon/#{nth($text,$i)}-active.png");
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            background-position: center;
+        }
+        .tabs-md .tab-button[aria-selected=false] .tab-button-icon.icon.ion-md-#{nth($text,$i)}{
+            background-image: url("../assets/icon/#{nth($text,$i)}.png");
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            background-position: center;
+        }
+        .tabs-md .tab-button[aria-selected=true] .tab-button-icon.icon.ion-md-#{nth($text,$i)}{
+            background-image: url("../assets/icon/#{nth($text,$i)}-active.png");
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            background-position: center;
+        }
+    }
+    .tab-button.has-title.has-icon.disable-hover[aria-selected="true"]{
+        .tab-button-text{
+            color:#3EBAB4;
+        }
+    }
+}

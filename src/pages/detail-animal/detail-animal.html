@@ -1,0 +1,110 @@
+<!--
+  Generated template for the DetailAnimalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>标的信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="lists">
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>理赔员&emsp;</span><span>{{lipeiyuan}}</span>
+        </p>
+        <p>
+            <!--{{x.name.CreateTime}}-->
+            <span>日期&emsp;</span><span>{{lists.Time}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">标的信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">被保险人身份证</span><span>{{idCard}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动物标签号</span><span>{{lists.AnimalId}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动 物 类 型</span><span>{{lists.AnimalTypeName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动 物 品 种</span><span>{{lists.AnimalVarietyName}}</span>
+            </div>
+            <div *ngIf="lists.AnimalAge!=''">
+                <span style="margin-right: 0.7rem;">年&emsp;&emsp;&emsp;&emsp;龄</span><span>{{lists.AnimalAge}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">体&emsp;&emsp;&emsp;&emsp;重</span><span>{{lists.AnimalWeight}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">单 位 保 额</span><span>{{lists.InsuranceAmount}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">核 定 金 额</span><span>{{lists.FinalMoney}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">查 勘 地 点</span><span>{{lists.FindAddress}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">防 疫 情 况</span><span>{{lists.FangyiType}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">死 亡 原 因</span><span>{{DieMessage}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">无 害 处 理</span><span>{{lists.WuHaiHua}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.4rem">定 位 信 息</span><span>{{lists.GPS}}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tit">现场勘查图</div>
+    <div class="over-box">
+        <div class="put-box no-bottom" *ngFor="let s of Scene">
+            <p>&emsp;</p>
+            <span>现场勘查图</span>
+            <img src="{{s}}" (click)="looks(s)">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="tit">无害化处理</div>
+    <div class="over-box">
+        <div class="put-box no-bottom" *ngFor="let s of Harmless">
+            <p>&emsp;</p>
+            <span>无害化处理</span>
+            <img src="{{s}}" (click)="looks(s)">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="tit">死亡证明</div>
+    <div class="over-box">
+        <div class="put-box no-bottom">
+            <p>&emsp;</p>
+            <span>死亡证明</span>
+            <img src="{{ForDie}}" (click)="looks(ForDie)">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="tit">其他</div>
+    <div class="over-box" *ngIf="Other.length>0&&Other!='null'&&Other!=''">
+        <div class="put-box no-bottom" *ngFor="let s of Other">
+            <p>&emsp;</p>
+            <span>其他</span>
+            <img src="{{s}}" (click)="looks(s)">
+        </div>
+        <div class="clear"></div>
+    </div>
+</ion-content>

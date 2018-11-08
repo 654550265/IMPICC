@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>申报理赔</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps></gps>
+    <div class="gary-box"></div>
+    <div class="puts-box">
+        <div class="put-box">
+            <span>身份证号码</span><input type="text" placeholder="请输入您的身份证号码" [(ngModel)]="list.FramPeopleId">
+        </div>
+        <div class="put-box pos-put-box">
+            <span class="FramPeopleId">动物标签号</span>
+            <input type="tel" class="animalNum" placeholder="请输入动物的标签号" [(ngModel)]="list.AnimalId">
+            <img class="saoyisao" src="assets/icon/saoyisao.png" (click)="saoyisao()">
+            <img class="bluetoo" src="assets/icon/bluetoo.png" (click)="blueTooth()">
+        </div>
+        <div class="put-box">
+            <span>所属银行</span><input type="text" placeholder="请输入您的开户行" [(ngModel)]="list.Bank">
+        </div>
+        <div class="zhengjian">
+            <a><span>*</span>动物类型</a><select [(ngModel)]="AnimtalTypes" (change)="AnimalTypeChange()">
+            <option *ngFor="let s of AnimtalList" value="{{s.AnimtalType}}">{{s.AnimtalTypeName}}</option>
+        </select>
+        </div>
+        <div class="put-box">
+            <span>死亡原因</span>
+            <div class="dieType">
+                <select class="sel-left" [(ngModel)]="dieType" (change)="dieTypeChange()">
+                    <option *ngFor="let t of DieTypeList" value="{{t.id}}">{{t.name}}</option>
+                </select>
+                <select [(ngModel)]="list.DieMessage" class="sel-right">
+                    <option *ngFor="let s of item" value="{{s.id}}">{{s.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="put-box">
+            <span>理赔员</span>
+            <select [(ngModel)]="list.ClaimAdjuster">
+                <option *ngFor="let x of ClaimAdjusterList" value="{{x.Name}}">{{x.Text}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="over-box">
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(6)">x</h4>
+            <span>现场勘察</span>
+            <img src="{{isSence?Scene:'assets/icon/pic-updata_03.png'}}" (click)="Bscene(6)">
+        </div>
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(7)">x</h4>
+            <span>无害化处理</span>
+            <img src="{{isHarmless?Harmless:'assets/icon/pic-updata_03.png'}}" (click)="Bscene(7)">
+        </div>
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(8)">x</h4>
+            <span>死亡证明</span>
+            <img src="{{isDie?Die:'assets/icon/pic-updata_03.png'}}" (click)="Bscene(8)">
+        </div>
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(4)">x</h4>
+            <span>本人银行卡</span>
+            <img src="{{isBank?Bank:'assets/icon/pic-updata_03.png'}}" (click)="Bscene(4)">
+        </div>
+    </div>
+    <p class="up">如有疑问可远程咨询保险员</p>
+    <div class="voic" (click)="goto()">
+        <img src="assets/icon/voic.png">
+    </div>
+</ion-content>
+<ion-footer [ngClass]="keyboar?'hide':''">
+    <ion-toolbar>
+        <div class="save-btn" (click)="savess()">提交</div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,14 @@
+page-bao-tong-xun-list {
+  background-color: #FFFFFF; }
+  page-bao-tong-xun-list a {
+    display: block;
+    line-height: 5rem;
+    color: #333; }
+    page-bao-tong-xun-list a p {
+      width: 94%;
+      margin: 0 auto;
+      border-bottom: 1px solid #E7E7E9; }
+  page-bao-tong-xun-list a:active {
+    background-color: #f5f5f5; }
+
+/*# sourceMappingURL=bao-tong-xun-list.css.map */

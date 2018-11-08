@@ -1,0 +1,106 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content style="padding-bottom: 20px;">
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>理赔员&emsp;</span><span>{{lipeiyuan}}</span>
+        </p>
+        <p>
+            <!--{{x.name.CreateTime}}-->
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">被保险人信息</p>
+        <div class="main-box" *ngFor="let s of list;let item=index">
+            <div>
+                <span style="margin-right: 0.7rem;">保&emsp;单&emsp;号</span><span>{{s.insuranceId}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">被 保 险 人</span><span>{{s.name}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身 份 证 号</span><span>{{s.idCard}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">开&emsp;户&emsp;行</span><span>{{s.bankName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">银 行 账 号</span><span>{{s.bankAccount}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">账 户 形 式</span><span>{{s.accountType}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">起 保 时 间</span><span>{{s.startTime}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">终 保 时 间</span><span>{{s.endTime}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">报&emsp;案&emsp;号</span><span>{{s.BanNum}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">报 案 日 期</span><span>{{s.reportDate}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">出 险 日 期</span><span>{{s.outDate}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">联 系 电 话</span><span>{{s.contactNumber}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">住&emsp;&emsp;&emsp;&emsp;址</span><span>{{s.address}}</span>
+            </div>
+            <div *ngIf="s.remarks!=''">
+                <span style="margin-right: 0.7rem;">标 的 特 征</span><span>{{s.remarks}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.4rem">定 位 信 息</span><span>{{s.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="s.FramIDFont!='null'&&s.FramIDFont!=''">
+                    <p>身份证正面</p>
+                    <img src="{{s.FramIDFont}}" (click)="looks(s.FramIDFont)">
+                </div>
+                <div class="float-lf" *ngIf="s.FramIDBack!='null'&&s.FramIDBack!=''">
+                    <p>身份证反面</p>
+                    <img src="{{s.FramIDBack}}" (click)="looks(s.FramIDBack)">
+                </div>
+                <div class="float-lf" *ngIf="s.BankCardImg!='null'&&s.BankCardImg!=''">
+                    <p>银行卡</p>
+                    <img src="{{s.BankCardImg}}" (click)="looks(s.BankCardImg)">
+                </div>
+                <div class="float-lf" *ngIf="s.VaccinationCertificateImg!='null'&&s.VaccinationCertificateImg!=''">
+                    <p>防疫资格证</p>
+                    <img src="{{s.VaccinationCertificateImg}}" (click)="looks(s.VaccinationCertificateImg)">
+                </div>
+                <div class="float-lf" *ngIf="s.InstitutionCodeImg!='null'&&s.InstitutionCodeImg!=''">
+                    <p>机构代码证</p>
+                    <img src="{{s.InstitutionCodeImg}}" (click)="looks(s.InstitutionCodeImg)">
+                </div>
+                <div class="float-lf" *ngFor="let x of imgArr">
+                    <p>兽医资格证</p>
+                    <img src="{{x}}" (click)="looks(x)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let s of lists;let items=index" style="border-bottom: 1px solid #E7E7E9;padding: 20px 20px 10px;box-sizing: border-box;height: auto;overflow: hidden;" class="myTb" (click)="goToAnimal(items)">
+        <div class="someLeft" style="float:left;">
+            <div style="font-size: 20px;">
+                <span>标签号:</span><span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>动物类型:{{s.name.AnimalTypeName}}</span>
+                <span style="margin-left: 20px;">动物品种:{{s.name.AnimalVarietyName}}</span>
+            </div>
+        </div>
+        <img src="./assets/icon/jinru01_03.png" alt="" class="fr" style="width: 3%;float: right;margin-top: 11px;">
+    </div>
+</ion-content>

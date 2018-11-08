@@ -1,0 +1,124 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>审核未通过</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <div class="top-box">
+            <a *ngFor="let x of list;" [ngClass]="x.acv?'active':''" (click)="slide(x)">{{x.name}}</a>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-slides [pager]="false">
+        <!--云端数据-->
+        <ion-slide>
+            <ion-content style="background-color: #f5f5f5;">
+                <ion-refresher (ionRefresh)="doRefresh($event)">
+                    <ion-refresher-content></ion-refresher-content>
+                </ion-refresher>
+                <div class="box">
+                    <div class="title-box" *ngFor="let z of NoPassList;let indexsss=index">
+                        <div class="title" [ngClass]="z.active?'active':''" (click)="chooseOne(indexsss)">
+                            <span>理赔员</span>
+                            <span>{{ChenName}}</span>
+                        </div>
+                        <div (click)="gotoY(indexsss)">
+                            <div class="message">
+                                <p>
+                                    <span>姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                                    <span>{{z.Name}}</span>
+                                </p>
+                                <p>
+                                    <span style="letter-spacing:2.5px">农户身份证号</span>
+                                    <span>{{z.IdNumber}}</span>
+                                </p>
+                                <p>
+                                    <span>动&emsp;物&emsp;标&emsp;签</span>
+                                    <span>{{z.Pin}}</span>
+                                </p>
+                                <!--<p>-->
+                                    <!--<span>死&emsp;亡&emsp;原&emsp;因</span>-->
+                                    <!--<span>{{z.DieMessage}}</span>-->
+                                <!--</p>-->
+                                <p>
+                                    <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                                    <span>{{z.CreateTime.split(' ')[0]}}</span>
+                                </p>
+                                <img src="assets/icon/nopass_03.png">
+                            </div>
+                            <div class="no-pass-box">
+                                <p>未通过原因:</p>
+                                <p>&emsp;&emsp;{{z.Remark}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="center-box" [ngClass]="isNoPassList?'':'hide'">暂无数据</p>
+                <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+            </ion-content>
+            <ion-footer>
+                <ion-toolbar>
+                    <div class="yunduan-bottom-box">
+                        <div class="left">
+                            <p class="yunduan-left-p" [ngClass]="isChooseAll?'active':''" (click)="chooseAll()">全选</p>
+                            <p>以选中<span>{{num}}</span>条数据</p>
+                        </div>
+                        <a class="right" (click)="NoPassMessageUpDataService()">数据下载</a>
+                    </div>
+                </ion-toolbar>
+            </ion-footer>
+        </ion-slide>
+        <!--本地数据-->
+        <ion-slide>
+            <ion-content style="background-color: #f5f5f5;">
+                <div class="box">
+                    <div class="title-box" *ngFor="let z of NoPassListLocal;let indexsss=index">
+                        <div class="title" [ngClass]="z.active?'active':''">
+                            <div (click)="chooseOneLocs(indexsss)">
+                                <span>理赔员</span>
+                                <span>{{ChenName}}</span>
+                            </div>
+                            <a class="del" (click)="deleteFs(indexsss)">删除</a>
+                        </div>
+                        <div (click)="gotoYLocal(indexsss)">
+                            <div class="message">
+                                <p>
+                                    <span style="letter-spacing:2.5px">农户身份证号</span>
+                                    <span>{{z.name.FramPeopleID}}</span>
+                                </p>
+                                <p>
+                                    <span>所&emsp;属&emsp;银&emsp;行</span>
+                                    <span>{{z.name.bankName}}</span>
+                                </p>
+                                <p>
+                                    <span>动&emsp;物&emsp;标&emsp;签</span>
+                                    <span>{{z.name.pin}}</span>
+                                </p>
+                                <img src="assets/icon/nopass_03.png">
+                            </div>
+                            <div class="no-pass-box">
+                                <p>未通过原因:</p>
+                                <p>&emsp;&emsp;{{z.name.Reason}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="center-box" [ngClass]="LocalisNoPassList?'':'hide'">暂无数据</p>
+            </ion-content>
+            <ion-footer>
+                <ion-toolbar>
+                    <div class="yunduan-bottom-box">
+                        <div class="left">
+                            <p class="yunduan-left-p" [ngClass]="isChooseAllLoc?'active':''" (click)="chooseAllLocs()">
+                                全选</p>
+                            <p>以选中<span>{{nums}}</span>条数据</p>
+                        </div>
+                        <a class="right" (click)="LocalMessageUpDatas()">数据上传</a>
+                    </div>
+                </ion-toolbar>
+            </ion-footer>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

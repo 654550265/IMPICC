@@ -1,0 +1,91 @@
+page-li-pei-no-pass .slide-zoom {
+  height: 100%; }
+page-li-pei-no-pass .top-box {
+  width: 100%;
+  font-size: 1.6rem;
+  z-index: 99; }
+  page-li-pei-no-pass .top-box a {
+    padding: 1rem 0;
+    display: inline-block;
+    color: #333;
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid #999999; }
+  page-li-pei-no-pass .top-box .active {
+    color: #3EBAB4;
+    border-bottom: 1px solid #3EBAB4; }
+page-li-pei-no-pass .box {
+  width: 100%; }
+page-li-pei-no-pass .title-box {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 1rem;
+  position: relative; }
+  page-li-pei-no-pass .title-box .del {
+    position: absolute;
+    top: 0.5rem;
+    right: 3%;
+    width: 15%;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+    padding: 0.5rem;
+    border-radius: 5px; }
+  page-li-pei-no-pass .title-box .del:active {
+    background-color: #bf0606; }
+  page-li-pei-no-pass .title-box .title {
+    width: 94%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.4rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #EBEBED;
+    padding-left: 2.5rem;
+    background-image: url("../assets/icon/acv_06.png");
+    background-repeat: no-repeat;
+    background-size: 1.9rem;
+    background-position: 0 1rem; }
+    page-li-pei-no-pass .title-box .title span {
+      display: inline-block; }
+    page-li-pei-no-pass .title-box .title span:first-child {
+      color: #3EBAB4; }
+    page-li-pei-no-pass .title-box .title span:nth-child(2) {
+      margin-left: 1rem; }
+  page-li-pei-no-pass .title-box .active {
+    background-image: url("../assets/icon/acv_03.png"); }
+  page-li-pei-no-pass .title-box .message {
+    width: 94%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2rem;
+    position: relative;
+    border-bottom: 1px solid #EBEBED;
+    padding-bottom: 1rem; }
+    page-li-pei-no-pass .title-box .message p:first-child span:nth-child(2) {
+      margin-left: 0.2rem; }
+    page-li-pei-no-pass .title-box .message p {
+      margin-top: 1rem; }
+      page-li-pei-no-pass .title-box .message p span {
+        display: inline-block; }
+      page-li-pei-no-pass .title-box .message p span:first-child {
+        color: #999; }
+      page-li-pei-no-pass .title-box .message p span:nth-child(2) {
+        color: #333;
+        margin-left: 0.5rem; }
+    page-li-pei-no-pass .title-box .message img {
+      position: absolute;
+      width: 35%;
+      top: 0;
+      right: 0; }
+  page-li-pei-no-pass .title-box .no-pass-box {
+    width: 94%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.4rem; }
+    page-li-pei-no-pass .title-box .no-pass-box p:first-child {
+      color: #f29018;
+      padding: 1rem 0; }
+    page-li-pei-no-pass .title-box .no-pass-box p:nth-child(2) {
+      padding-bottom: 1rem; }
+
+/*# sourceMappingURL=li-pei-no-pass.css.map */

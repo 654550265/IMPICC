@@ -1,0 +1,130 @@
+page-choose-farm0 {
+    background-color: #FFFFFF;
+    .scroll-content{
+        padding-bottom: 44px;
+    }
+    img {
+        display: block;
+    }
+    .over-box {
+        height: 17.5rem;
+        margin-top: 1rem;
+        .no-bottom {
+            position: relative;
+            float: left;
+            width: 30%;
+            margin-right: 5%;
+            padding: 0;
+            height: 8rem;
+            overflow: inherit;
+            img {
+                height: 8rem;
+                width: 100%;
+            }
+            h4 {
+                position: absolute;
+                width: 2rem;
+                height: 2rem;
+                text-align: center;
+                line-height: 1.9rem;
+                right: -0.5rem;
+                top: -0.5rem;
+                margin: 0;
+                background-color: #000;
+                color: #fff;
+                border-radius: 50%;
+            }
+            span {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: #fff;
+                text-align: center;
+                line-height: 2rem;
+                background-image: none;
+                padding: 0;
+                width: 100%;
+            }
+            p {
+                height: 2rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: #000;
+                width: 100%;
+                opacity: .6;
+            }
+        }
+        .no-bottom:nth-child(3n+0) {
+            margin-right: 0;
+        }
+    }
+    .height-8 {
+        height: 8rem;
+    }
+    textarea {
+        margin-bottom: 1rem;
+    }
+    .other-box {
+        width: 30%;
+        float: left;
+        position: relative;
+        margin-top: 1.5rem;
+        height: 7rem;
+        .x {
+            background-color: #000;
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            width: 2rem;
+            line-height: 2rem;
+            font-size: 1.4rem;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            margin: 0;
+            z-index: 13;
+        }
+        h5 {
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #000;
+            opacity: .6;
+            width: 100%;
+            height: 2rem;
+            z-index: 10;
+        }
+        img {
+            width: 100%;
+            height: 7rem;
+        }
+        span {
+            position: absolute;
+            font-size: 1.6rem;
+            line-height: 2rem;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            z-index: 11;
+        }
+    }
+    .tit {
+        height: 4.4rem;
+        line-height: 4.4rem;
+        position: relative;
+        img{
+            position: absolute;
+            width: 3rem;
+            height: 3rem;
+            top: 0.6rem;
+            right: 0.6rem;
+        }
+    }
+    .puts-box .put-box input{
+        width: 57%;
+    }
+}

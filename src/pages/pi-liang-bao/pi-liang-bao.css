@@ -1,0 +1,153 @@
+page-pi-liang-bao {
+  background-color: #FFFFFF; }
+  page-pi-liang-bao .tit {
+    height: 4.4rem;
+    line-height: 4.4rem;
+    position: relative; }
+    page-pi-liang-bao .tit img {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      top: 0.6rem;
+      right: 0; }
+  page-pi-liang-bao img {
+    display: block; }
+  page-pi-liang-bao .big-put-box-lh {
+    height: 24rem;
+    width: 94%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    border-top: 1px solid #6F6F6F; }
+    page-pi-liang-bao .big-put-box-lh .put-box {
+      width: 30%;
+      float: left;
+      position: relative;
+      padding: 0;
+      height: 7rem;
+      margin-right: 5%;
+      margin-top: 1.5rem;
+      overflow: inherit; }
+      page-pi-liang-bao .big-put-box-lh .put-box .sart-lh-sart {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      page-pi-liang-bao .big-put-box-lh .put-box .x {
+        background-color: #000;
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        width: 2rem;
+        line-height: 2rem;
+        font-size: 1.4rem;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0; }
+      page-pi-liang-bao .big-put-box-lh .put-box img {
+        width: 100%;
+        height: 7rem; }
+      page-pi-liang-bao .big-put-box-lh .put-box p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        opacity: .6;
+        width: 100%;
+        height: 2rem; }
+      page-pi-liang-bao .big-put-box-lh .put-box span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-image: none;
+        padding: 0;
+        width: 100%;
+        color: #fff;
+        text-align: center; }
+    page-pi-liang-bao .big-put-box-lh .put-box:nth-child(4n+0) {
+      margin-right: 0; }
+  page-pi-liang-bao .other-box {
+    width: 30%;
+    float: left;
+    position: relative;
+    margin-top: 1.5rem;
+    height: 7rem; }
+    page-pi-liang-bao .other-box .x {
+      background-color: #000;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 2rem;
+      line-height: 2rem;
+      font-size: 1.4rem;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      margin: 0;
+      z-index: 13; }
+    page-pi-liang-bao .other-box h5 {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: .6;
+      width: 100%;
+      height: 2rem;
+      z-index: 10; }
+    page-pi-liang-bao .other-box img {
+      width: 100%;
+      height: 7rem; }
+    page-pi-liang-bao .other-box span {
+      position: absolute;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      z-index: 11; }
+  page-pi-liang-bao .puts-box {
+    margin-bottom: 1rem; }
+    page-pi-liang-bao .puts-box .pos-put-box {
+      position: relative; }
+      page-pi-liang-bao .puts-box .pos-put-box .saoyisao {
+        width: 8%;
+        position: absolute;
+        top: 0.7rem;
+        right: 0; }
+      page-pi-liang-bao .puts-box .pos-put-box .bluetoo {
+        width: 8%;
+        position: absolute;
+        top: 0.7rem;
+        right: 10%; }
+    page-pi-liang-bao .puts-box .FramPeopleId {
+      width: 30%; }
+    page-pi-liang-bao .puts-box .textlh {
+      background-image: none;
+      width: 60%;
+      padding-left: 0; }
+  page-pi-liang-bao .liangput {
+    padding: 1.1rem 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50% !important; }
+  page-pi-liang-bao .add-list {
+    width: 94%;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    color: #333;
+    border: 1px dashed #333;
+    padding: 1rem 0;
+    font-size: 1.8rem; }
+  page-pi-liang-bao .animal-id {
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    border-radius: 0.5rem;
+    border: 1px solid #6F6F6F; }
+
+/*# sourceMappingURL=pi-liang-bao.css.map */

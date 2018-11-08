@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>修改</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p (click)="a()">
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage;let indexs=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><input type="text" placeholder="{{Chengbaoyuan}}" [(ngModel)]="Chengbaoyuan">
+            </div>
+            <div>
+                <span style="letter-spacing: 0.19rem ">姓名/单位</span><input type="text" placeholder="{{x.name.FramName}}" [(ngModel)]="x.form.FramName">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身份证号码</span><input type="text" placeholder="{{x.name.FramPeopleID}}" [(ngModel)]="x.form.FramPeopleID">
+            </div>
+            <p>身份证正面</p>
+            <img src="{{FramMessage[0].form.idfrontUrl==undefined?x.name.idfrontUrl:FramMessage[0].form.idfrontUrl}}" (click)="font(indexs)">
+            <p>身份证反面</p>
+            <img src="{{FramMessage[0].form.idbackUrl==undefined?x.name.idbackUrl:FramMessage[0].form.idbackUrl}}" (click)="backFont(indexs)">
+            <p>银行卡</p>
+            <img src="{{FramMessage[0].form.bankUrl==undefined?x.name.bankUrl:FramMessage[0].form.bankUrl}}" (click)="Bank(indexs)">
+        </div>
+    </div>
+    <div *ngFor="let s of FramChenMessage;let indexss=index">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><input type="text" placeholder="{{s.name.AnimalId}}" [(ngModel)]="s.form.AnimalId">
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><input type="text" placeholder="{{s.name.AnimalType=='1'?'羊':'牛'}}" [(ngModel)]="s.form.AnimalType">
+            </div>
+            <!--<div>-->
+            <!--<span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span><span>320922199209075437</span>-->
+            <!--</div>-->
+            <div>
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><input type="text" placeholder="{{s.name.AnimalAge}}" [(ngModel)]="s.form.AnimalAge">
+            </div>
+            <!--<div>-->
+            <!--<span>保&emsp;险&emsp;数&emsp;量</span><span>江苏无锡</span>-->
+            <!--</div>-->
+            <div>
+                <span>农户自缴保险费</span><input type="text" placeholder="{{s.name.SelfPayPremium}}" [(ngModel)]="s.form.SelfPayPremium">
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><input type="text" placeholder="{{s.name.TotalPremium}}" [(ngModel)]="s.form.TotalPremium">
+            </div>
+            <div>
+                <span>坐&emsp;&emsp;&emsp;&emsp;&emsp;标</span><span>{{s.name.GPS}}</span>
+            </div>
+            <p>植入部位</p>
+            <img src="{{s.form.positonUrl==undefined?s.name.positonUrl:s.form.positonUrl}}" (click)="buwei(indexss)">
+            <p>正面</p>
+            <img src="{{s.form.frontUrl==undefined?s.name.frontUrl:s.form.frontUrl}}" (click)="zhengmian(indexss)">
+            <p>左侧面</p>
+            <img src="{{s.form.leftUrl==undefined?s.name.leftUrl:s.form.leftUrl}}" (click)="zouMian(indexss)">
+            <p>右侧面</p>
+            <img src="{{s.form.rightUrl==undefined?s.name.rightUrl:s.form.rightUrl}}" (click)="youmian(indexss)">
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveBtnSave()">保存</div>
+    </ion-toolbar>
+</ion-footer>

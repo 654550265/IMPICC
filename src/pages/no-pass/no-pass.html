@@ -1,0 +1,142 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage;let indexs=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.19rem ">姓名/单位</span><input type="text" placeholder="{{x.name.FramName}}"
+                                                                          [(ngModel)]="x.form.FramName"
+                                                                          (blur)="unameBlur()"
+                                                                          (focus)="unamefocus()"
+                                                                          disabled="{{isChange}}">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">证件号码</span><input type="text" placeholder="{{x.name.FramPeopleID}}"
+                                                                       [(ngModel)]="x.form.FramPeopleID"
+                                                                       (blur)="unameBlur()"
+                                                                       (focus)="unamefocus()" disabled="{{isChange}}">
+            </div>
+            <div *ngIf="x.name.FramTel!=null && x.name.FramTel!=''">
+                <span>电&emsp;&emsp;&emsp;话</span><input type="text" placeholder="{{x.name.FramTel}}"
+                                                        [(ngModel)]="x.form.FramTel" (blur)="unameBlur()"
+                                                        (focus)="unamefocus()" disabled="{{isChange}}">
+            </div>
+            <div>
+                <span>银&emsp;&emsp;&emsp;行</span><input type="text" placeholder="{{x.name.FramBank}}"
+                                                        [(ngModel)]="x.form.FramBank" (blur)="unameBlur()"
+                                                        (focus)="unamefocus()" disabled="{{isChange}}">
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="x.name.idfrontUrl!=null">
+                    <h4 (click)="changpic(1,indexs)">x</h4>
+                    <p>身份证正面</p>
+                    <img
+                        src="{{x.name.idfrontUrl}}"
+                        (click)="photo1(indexs)">
+                </div>
+                <div class="float-lf" *ngIf="x.name.idbackUrl!=null">
+                    <h4 (click)="changpic(2,indexs)">x</h4>
+                    <p>身份证反面</p>
+                    <img src="{{x.name.idbackUrl}}"
+                         (click)="photo2(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpic(3,indexs)">x</h4>
+                    <p>银行卡</p>
+                    <img src="{{x.name.bankUrl}}"
+                         (click)="photo3(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpic(4,indexs)">x</h4>
+                    <p>防疫证书</p>
+                    <img src="{{x.name.VaccinationCertificateImg}}"
+                         (click)="photo4(indexs)">
+                </div>
+                <div class="float-lf" *ngIf="x.name.InstitutionCodeImg!=null">
+                    <h4 (click)="changpic(5,indexs)">x</h4>
+                    <p>机构代码证</p>
+                    <img src="{{x.name.InstitutionCodeImg}}"
+                         (click)="photo5(indexs)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let s of FramChenMessage;let indexss=index">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><input type="text" placeholder="{{s.name.AnimalId}}"
+                                                                 [(ngModel)]="s.form.AnimalId" (blur)="unameBlur()"
+                                                                 (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><input type="text" placeholder="{{s.name.AnimalAge}}"
+                                                                    [(ngModel)]="s.form.AnimalAge" (blur)="unameBlur()"
+                                                                    (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>农户自缴保险费</span><input type="text" placeholder="{{s.name.SelfPayPremium}}"
+                                           [(ngModel)]="s.form.SelfPayPremium"
+                                           (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><input type="text" placeholder="{{s.name.TotalPremium}}"
+                                                               [(ngModel)]="s.form.TotalPremium" (blur)="unameBlur()"
+                                                               (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>未&ensp;通&ensp;过&ensp;原&ensp;因</span><span>{{s.name.Reason}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <h4 (click)="changpicLoc(1,indexss)">x</h4>
+                    <p>植入部位</p>
+                    <img
+                        src="{{s.name.positonUrl}}"
+                        (click)="NoPassPhoto1(indexss)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpicLoc(2,indexss)">x</h4>
+                    <p>正面</p>
+                    <img src="{{s.name.frontUrl}}"
+                         (click)="NoPassPhoto2(indexss)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpicLoc(3,indexss)">x</h4>
+                    <p>左侧面</p>
+                    <img src="{{s.name.leftUrl}}"
+                         (click)="NoPassPhoto3(indexss)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpicLoc(4,indexss)">x</h4>
+                    <p>右侧面</p>
+                    <img src="{{s.name.rightUrl}}"
+                         (click)="NoPassPhoto4(indexss)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer *ngIf="!showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="NoPasssaveBtnSaveLoc()">保存</div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>防疫证明文件拍照上传</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="puts-box">
+        <div class="put-box" (click)="fangyi()">
+            <span>防疫资格证</span>
+            <img src="{{isfangyi?fangyis:'assets/icon/pic-updata_03.png'}}">
+        </div>
+        <div class="put-box" (click)="shouyi()">
+            <span>兽医资格证</span>
+            <img src="{{isshouyi?shouyis:'assets/icon/pic-updata_03.png'}}">
+        </div>
+    </div>
+    <!--<div class="data-box">-->
+        <!--<div class="data-title-box">-->
+            <!--<p>9月18号</p>-->
+            <!--<ul>-->
+                <!--<li style="background-image: url('assets/icon/ceshi1.png')"></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="data-title-box">-->
+            <!--<p>9月18号</p>-->
+            <!--<ul>-->
+                <!--<li style="background-image: url('assets/icon/ceshi2.png')"></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="presentActionSheet()">上传</div>
+    </ion-toolbar>
+</ion-footer>

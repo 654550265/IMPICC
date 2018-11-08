@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>选择农户</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <a *ngFor="let x of list;let item=index" (click)="gotomod(item)">
+        <p>{{x.Text}}</p>
+    </a>
+</ion-content>

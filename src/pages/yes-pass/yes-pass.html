@@ -1,0 +1,189 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage;let item=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span>承保员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span>姓名/单位</span><span>{{x.FramName?x.FramName:x.Name}}</span>
+            </div>
+            <div>
+                <span>证件号码</span><span>{{x.FramPeopleID?x.FramPeopleID:x.IdNumber}}</span>
+            </div>
+            <div *ngIf="x.FramTel!=''">
+                <span>电话号码</span><span>{{x.FramTel?x.FramTel:x.Tel}}</span>
+            </div>
+            <div>
+                <span>所属银行</span><span>{{x.FramBank?x.FramBank:x.BankName}}</span>
+            </div>
+            <div *ngIf="x.Branch">
+                <span>所属分行</span><span>{{x.Branch?x.Branch:x.Bankbranch}}</span>
+            </div>
+            <div>
+                <span>经营模式</span><span *ngIf="x.BusinessModel=='1,自办'">自办</span><span
+                *ngIf="x.BusinessModel=='2,代办'">代办</span><span *ngIf="x.BusinessModel=='3,联办'">联办</span>
+            </div>
+            <div>
+                <span>与投保人关系</span><span *ngIf="x.RelationShip=='1,本人'">本人</span><span
+                *ngIf="x.RelationShip=='2,管理'">管理</span><span *ngIf="x.RelationShip=='3,其他'">其他</span>
+            </div>
+            <div *ngIf="x.CoppPercent!=0">
+                <span>份额</span><span>{{x.CoppPercent}}</span>
+            </div>
+            <div *ngIf="x.Appointment">
+                <span>特别约定</span><span>{{x.Appointment}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="x.idfrontUrl!=null">
+                    <p>身份证正面</p>
+                    <img src="{{E+x.idfrontUrl.ImgUrl}}" (click)="checks(1,item)">
+                </div>
+                <div class="float-lf" *ngIf="x.idbackUrl!=null">
+                    <p>身份证反面</p>
+                    <img src="{{E+x.idbackUrl.ImgUrl}}" (click)="checks(2,item)">
+                </div>
+                <div class="float-lf" *ngIf="x.bankUrl!=null">
+                    <p>银行卡</p>
+                    <img src="{{E+x.bankUrl.ImgUrl}}" (click)="checks(3,item)">
+                </div>
+                <div class="float-lf" *ngIf="x.VaccinationCertificateImg!=null">
+                    <p>防疫资格证</p>
+                    <img src="{{E+x.VaccinationCertificateImg.ImgUrl}}" (click)="checks(4,item)">
+                </div>
+                <div class="float-lf" *ngIf="x.InstitutionCodeImg!=null">
+                    <p>银行卡</p>
+                    <img src="{{E+x.InstitutionCodeImg.ImgUrl}}" (click)="checks(5,item)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isFramChenMessagesss">
+        <div *ngFor="let s of FramChenMessages;let items=index">
+            <div class="gary-box"></div>
+            <p class="titless">承保信息</p>
+            <div class="main-box bott">
+                <div>
+                    <span>起&emsp;始&emsp;号&emsp;段</span><span>{{s.AnimalIdStart}}</span>
+                </div>
+                <div>
+                    <span>结&emsp;束&emsp;号&emsp;段</span><span>{{s.AnimalIdEnd}}</span>
+                </div>
+                <div>
+                    <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><span>{{s.AnimalTypeName}}</span>
+                </div>
+                <div>
+                    <span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span><span>{{s.AnimalVarietyName}}</span>
+                </div>
+                <div *ngIf="s.Parity!=null">
+                    <span>胎&emsp;&emsp;&emsp;&emsp;&emsp;次</span><span>{{s.Parity}}</span>
+                </div>
+                <div *ngIf="s.AnimalAge!=null">
+                    <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><span>{{s.AnimalAge}}</span>
+                </div>
+                <div *ngIf="s.AnimalWeight!=null">
+                    <span>体&emsp;&emsp;&emsp;&emsp;&emsp;重</span><span>{{s.AnimalWeight}}</span>
+                </div>
+                <div>
+                    <span>保&emsp;&emsp;&emsp;&emsp;&emsp;额</span><span>{{s.InsuranceAmount}}</span>
+                </div>
+                <div>
+                    <span>费&emsp;&emsp;&emsp;&emsp;&emsp;率</span><span>{{s.InsuranceRate}}</span>
+                </div>
+                <div>
+                    <span>农户自缴保险费</span><span>{{s.SelfPayPremium}}</span>
+                </div>
+                <div>
+                    <span>总&emsp;&emsp;费&emsp;&emsp;用</span><span>{{s.TotalPremium}}</span>
+                </div>
+                <div>
+                    <span>养&emsp;殖&emsp;地&emsp;点</span><span>{{s.BreedAddress}}</span>
+                </div>
+                <div>
+                    <span>养&emsp;殖&emsp;方&emsp;式</span><span>{{s.BreedType=='1'?'散养':'规模化养殖'}}</span>
+                </div>
+                <div class="float-box">
+                    <div class="float-lf" *ngFor="let i of s.Imgs">
+                        <p>{{i.ImgType==1?'群体图片':'其他图片'}}</p>
+                        <img src="{{ImageUrl+i.ImgUrl}}" (click)="lookss(i.ImgUrl)">
+                    </div>
+                </div>
+                <div class="float-box">
+                    <p class="titless">标签动物的相关信息</p>
+                    <div class="float-lf" *ngFor="let j of s.PinImgs">
+                        <p>{{j.Pin}}{{j.ImgType==2?'其他图片':'照片1'}}</p>
+                        <img src="{{ImageUrl+j.ImgUrl}}" (click)="lookss(j.ImgUrl)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isFramChenMessage">
+        <div *ngFor="let s of FramChenMessage;let items=index">
+            <div class="gary-box"></div>
+            <p class="titless">承保信息</p>
+            <div class="main-box bott">
+                <div>
+                    <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><span>{{s.AnimalId}}</span>
+                </div>
+                <div>
+                    <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><span>{{s.AnimalTypeName}}</span>
+                </div>
+                <div>
+                    <span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span><span>{{s.AnimalVarietyName}}</span>
+                </div>
+                <div>
+                    <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><span>{{s.AnimalAge}}</span>
+                </div>
+                <div>
+                    <span>保&emsp;&emsp;&emsp;&emsp;&emsp;额</span><span>{{s.InsuranceAmount}}</span>
+                </div>
+                <div>
+                    <span>费&emsp;&emsp;&emsp;&emsp;&emsp;率</span><span>{{s.InsuranceRate}}</span>
+                </div>
+                <div>
+                    <span>养殖方式</span><span>{{s.BreedType==1?'散养':'规模化养殖'}}</span>
+                </div>
+                <div>
+                    <span>农户自缴保险费</span><span>{{s.SelfPayPremium}}</span>
+                </div>
+                <div>
+                    <span>总&emsp;&emsp;费&emsp;&emsp;用</span><span>{{s.TotalPremium}}</span>
+                </div>
+                <div class="float-box">
+                    <div class="float-lf" *ngIf="s.positonUrl!=null">
+                        <p>植入部位</p>
+                        <img src="{{E+s.positonUrl.ImgUrl}}" (click)="checkss(1,items)">
+                    </div>
+                    <div class="float-lf" *ngIf="s.frontUrl!=null">
+                        <p>正面</p>
+                        <img src="{{E+s.frontUrl.ImgUrl}}" (click)="checkss(2,items)">
+                    </div>
+                    <div class="float-lf" *ngIf="s.leftUrl!=null">
+                        <p>左侧面</p>
+                        <img src="{{E+s.leftUrl.ImgUrl}}" (click)="checkss(3,items)">
+                    </div>
+                    <div class="float-lf" *ngIf="s.rightUrl!=null">
+                        <p>右侧面</p>
+                        <img src="{{E+s.rightUrl.ImgUrl}}" (click)="checkss(4,items)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

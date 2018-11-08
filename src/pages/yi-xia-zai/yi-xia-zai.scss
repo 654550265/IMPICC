@@ -1,0 +1,78 @@
+page-yi-xia-zai {
+    .slide-zoom{
+        height: 100%;
+    }
+    .top-box {
+        width:100%;
+        font-size: 1.6rem;
+        z-index: 99;
+        a{
+            padding:1rem 0;
+            display: inline-block;
+            color:#333;
+            width: 50%;
+            text-align: center;
+            border-bottom:1px solid #999999;
+        }
+        .active{
+            color:#3EBAB4;
+            border-bottom:1px solid #3EBAB4;
+        }
+    }
+    .centerp{
+        display: block;
+        text-align: center;
+        color:#333;
+        margin-top: 3rem;
+    }
+    .qianzi{
+        padding:1rem 0;
+    }
+    .yunduanBox-box{
+        margin-bottom: 1rem;
+    }
+    .xubao{
+        position: absolute;
+        top:0;right: 40%;
+        color:#3EBAB4;
+        padding:1rem 0;
+        width:20%;
+        text-align: right;
+    }
+    .yunduan-box {
+        .title-box {
+            .title {
+                width: 100%;
+                margin: 0 auto;
+                border-bottom: 1px solid #E7E7E9;
+                box-sizing: border-box;
+                position: relative;
+                background-image: url("../assets/icon/acv_06.png");
+                background-repeat: no-repeat;
+                background-size: 2rem 2rem;
+                background-position: 0 1rem;
+                padding: 1rem 0 1rem 2.5rem;
+            }
+        }
+        .main-box {
+            h4{
+                display: block;
+                width: 80%;
+                margin: 1rem auto 0 auto;
+                font-size: 1.4rem;
+                text-align: right;
+            }
+        }
+    }
+    .yunduan-box.active {
+        .dingweiImg {
+            display: block;
+        }
+        .title {
+            background-image: url("../assets/icon/acv_03.png");
+        }
+        .main-box {
+            background-color: #FAFAFA;
+        }
+    }
+}

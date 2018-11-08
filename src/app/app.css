@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+ion-app, ion-content, .nav-decor {
+  background-color: transparent !important; }
+
+a {
+  text-decoration: none; }
+
+ul, li, ol {
+  list-style: nones; }
+
+.back-button.show-back-button {
+  z-index: 1; }
+
+select {
+  overflow: hidden; }
+
+.disable-hover.alert-button.alert-button-md.alert-button-default.alert-button-default-md {
+  font-size: 1.8rem; }
+
+.toolbar-background.toolbar-background-ios {
+  background-color: #fff;
+  border: 0;
+  border-bottom: 1px solid #E7E7E9; }
+
+.has-refresher > .scroll-content {
+  border-top: 0; }
+
+.swiper-slide.swiper-slide-active, .swiper-slide.swiper-slide-prev, .swiper-slide.swiper-slide-next {
+  display: block; }
+
+.footer.footer-md .toolbar.toolbar-md {
+  min-height: 44px; }
+
+.footer .toolbar-ios, .footer .toolbar-md {
+  padding: 0; }
+
+.header-md::after {
+  content: '';
+  width: 0; }
+
+.title.title-md {
+  width: 100%;
+  position: absolute;
+  top: 17px;
+  left: 0; }
+
+.toolbar-title.toolbar-title-md {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  text-align: center; }
+
+.bar-buttons.bar-buttons-md.bar-button.bar-button-md.bar-button-default.bar-button-default-md.bar-button-menutoggle.bar-button-menutoggle-md {
+  position: absolute;
+  left: 0; }
+
+button[ng-reflect-ng-class="back-button-md"] {
+  position: absolute;
+  left: 0;
+  z-index: 9; }
+
+.UserName {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #3ebab4; }
+
+.user-Head-Portrait {
+  display: block;
+  width: 30%;
+  margin: 2rem auto 0 auto;
+  border-radius: 50%;
+  border: 2px solid #3ebab4; }
+
+.menu-inner {
+  position: relative; }
+
+.menu-box {
+  margin: 5rem auto 0 auto;
+  width: 90%; }
+  .menu-box .menu-list {
+    overflow: hidden; }
+    .menu-box .menu-list img {
+      float: left;
+      width: 7%;
+      margin-left: 3%;
+      margin-top: 0.8rem; }
+    .menu-box .menu-list p {
+      width: 77%;
+      float: left;
+      line-height: 3.5rem;
+      margin-left: 5%;
+      border-bottom: 1px solid #E7E7E9;
+      color: #333333; }
+    .menu-box .menu-list .activaed {
+      color: #3ebab4; }
+
+.men-bottom-box {
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+  color: #ccc;
+  line-height: 25px; }
+  .men-bottom-box img {
+    width: 10%;
+    float: left;
+    margin-right: 1rem; }
+
+.gary-box {
+  width: 100%;
+  height: 8px;
+  background-color: #F5F5F5; }
+
+.save-btn {
+  color: #fff;
+  background-color: #3EBAB4;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 44px;
+  z-index: 9; }
+
+.save-btn:active {
+  background-color: #369691; }
+
+.yunduan-bottom-box {
+  overflow: hidden;
+  width: 100%;
+  background-color: #fff;
+  height: 44px; }
+  .yunduan-bottom-box .left, .yunduan-bottom-box .right {
+    float: left;
+    line-height: 47px;
+    font-size: 1.4rem; }
+  .yunduan-bottom-box .left {
+    width: 70%;
+    overflow: hidden; }
+    .yunduan-bottom-box .left p {
+      float: left;
+      width: 50%;
+      color: #9A9A9A; }
+    .yunduan-bottom-box .left .yunduan-left-p {
+      padding-left: 4rem;
+      background-image: url("../assets/icon/acv_06.png");
+      background-repeat: no-repeat;
+      background-size: 2rem 2rem;
+      background-position: 1.5rem 1.2rem;
+      text-align: left; }
+    .yunduan-bottom-box .left .yunduan-left-p.active {
+      background-image: url("../assets/icon/acv_03.png"); }
+    .yunduan-bottom-box .left p:nth-child(2) {
+      text-align: right;
+      padding-right: 1rem; }
+      .yunduan-bottom-box .left p:nth-child(2) span {
+        color: #3EBAB4; }
+  .yunduan-bottom-box .left.all p:first-child {
+    background-image: url("../assets/icon/acv_03.png"); }
+  .yunduan-bottom-box .right {
+    width: 30%;
+    color: #fff;
+    text-align: center;
+    background-color: #3EBAB4; }
+
+.DongBei-box {
+  width: 100%;
+  overflow: hidden; }
+  .DongBei-box .DuShu-box {
+    width: 80%;
+    overflow: hidden;
+    padding: 1rem 0;
+    float: left; }
+    .DongBei-box .DuShu-box .dushu {
+      float: left;
+      width: 50%;
+      text-align: center; }
+      .DongBei-box .DuShu-box .dushu p:first-child {
+        color: #3EBAB4; }
+      .DongBei-box .DuShu-box .dushu p:nth-child(2) {
+        color: #000;
+        margin-top: 1rem; }
+    .DongBei-box .DuShu-box .dushu:first-child {
+      border-right: 1px solid #E7E7E9; }
+  .DongBei-box .Refresh {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 1rem 0; }
+    .DongBei-box .Refresh img {
+      width: 34%;
+      margin: 0 auto; }
+    .DongBei-box .Refresh p {
+      color: #f29018; }
+
+.puts-box {
+  width: 94%;
+  margin: 0 auto; }
+  .puts-box .put-box {
+    padding: 1rem 0;
+    border-bottom: 1px solid #E7E7E9;
+    overflow: hidden;
+    position: relative; }
+    .puts-box .put-box ion-icon {
+      position: absolute;
+      top: 0.8rem;
+      right: 0; }
+    .puts-box .put-box .addr-box {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 5px; }
+      .puts-box .put-box .addr-box select {
+        width: 32%;
+        height: 4rem;
+        float: left;
+        line-height: 4rem;
+        border: 1px solid #3EBAB4;
+        border-radius: 0.5rem;
+        margin-right: 1.9%; }
+      .puts-box .put-box .addr-box select:nth-child(3) {
+        margin-right: 0; }
+    .puts-box .put-box .input100 {
+      width: 100%;
+      text-align: left;
+      padding: 0.5rem 0; }
+    .puts-box .put-box .sele-box {
+      float: right;
+      width: 100%;
+      overflow: hidden; }
+      .puts-box .put-box .sele-box select {
+        float: left;
+        width: 33%;
+        text-align: center;
+        padding: 1rem 0; }
+    .puts-box .put-box a {
+      display: inline-block;
+      width: 50%;
+      height: 4.3rem;
+      line-height: 4.3rem;
+      color: #3EBAB4;
+      margin-top: -1rem;
+      float: right;
+      text-align: right; }
+    .puts-box .put-box span {
+      display: inline-block;
+      width: 39%;
+      color: #333;
+      padding-left: 1rem;
+      background-image: url("../assets/icon/start_03.png");
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      background-position: 0 0.6rem;
+      font-size: 1.6rem; }
+    .puts-box .put-box .nobixu {
+      background-image: none; }
+    .puts-box .put-box span.sp {
+      background-image: none; }
+    .puts-box .put-box input {
+      border: 0;
+      width: 60%;
+      text-align: right;
+      color: #3EBAB4;
+      font-size: 1.6rem; }
+    .puts-box .put-box input::-webkit-input-placeholder {
+      color: #999; }
+    .puts-box .put-box select {
+      border: 0;
+      float: right;
+      color: #3EBAB4;
+      font-size: 1.6rem;
+      width: 60%;
+      background-color: #fff;
+      text-align: right;
+      text-align-last: right; }
+      .puts-box .put-box select option {
+        direction: rtl; }
+    .puts-box .put-box .put-img-box {
+      position: relative;
+      width: 40%;
+      height: 7rem;
+      margin-top: 1rem; }
+      .puts-box .put-box .put-img-box img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0; }
+  .puts-box .other-box .other {
+    position: relative;
+    width: 100%; }
+    .puts-box .other-box .other img {
+      width: 100%; }
+    .puts-box .other-box .other .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.5; }
+    .puts-box .other-box .other p {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 3;
+      width: 100%;
+      margin-top: -10px;
+      text-align: center;
+      color: #fff; }
+
+textarea {
+  display: block;
+  border-radius: 5px;
+  resize: none;
+  border: 1px solid #ccc;
+  margin: 1rem auto 0 auto;
+  width: 90%;
+  height: 9rem;
+  padding: 0.5rem; }
+
+.tit {
+  background-color: #F5F5F5;
+  color: #6F6F6F;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  font-size: 1.4rem;
+  margin-top: 1rem; }
+  .tit span {
+    font-size: 1.0rem; }
+
+.yunduan-box {
+  background-color: #fff;
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+  text-align: left;
+  font-size: 1.4rem; }
+  .yunduan-box .dingweiImg {
+    position: absolute;
+    width: 4rem;
+    top: 5rem;
+    right: 5%; }
+  .yunduan-box .title-box {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto; }
+    .yunduan-box .title-box .title {
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 0 1rem 1rem;
+      border-bottom: 1px solid #E7E7E9;
+      box-sizing: border-box;
+      position: relative;
+      background-image: url("../assets/icon/acv_06.png");
+      background-repeat: no-repeat;
+      background-size: 2rem 2rem;
+      background-position: 0rem 1rem;
+      padding: 1rem 0 1rem 2.5rem; }
+    .yunduan-box .title-box .titles {
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 0 1rem 1rem;
+      border-bottom: 1px solid #E7E7E9;
+      box-sizing: border-box;
+      position: relative; }
+    .yunduan-box .title-box .qianzi {
+      position: absolute;
+      top: 0;
+      right: 20%;
+      color: #FF8200; }
+    .yunduan-box .title-box .del {
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      width: 15%;
+      text-align: center;
+      color: #fff;
+      background-color: red;
+      padding: 0.5rem;
+      border-radius: 5px; }
+    .yunduan-box .title-box .del:active {
+      background-color: #bf0606; }
+  .yunduan-box .main-box {
+    background-color: #fff;
+    padding: 1rem 0;
+    position: relative; }
+    .yunduan-box .main-box p {
+      color: #9B9B9B;
+      width: 80%;
+      margin: 0.5rem auto 0 auto; }
+      .yunduan-box .main-box p span {
+        display: inline-block;
+        color: #333; }
+      .yunduan-box .main-box p span:first-child {
+        width: 40%;
+        text-align: left;
+        color: #9B9B9B; }
+    .yunduan-box .main-box p:first-child {
+      margin: 0 auto; }
+
+.yunduan-box.active .dingweiImg {
+  display: block; }
+.yunduan-box.active .main-box {
+  background-color: #FAFAFA; }
+.yunduan-box.active .title {
+  background-image: url("../assets/icon/acv_03.png"); }
+
+.center-box {
+  text-align: center;
+  margin-top: 3rem; }
+
+.bg-white {
+  background-color: #fff; }
+
+.img-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 101;
+  opacity: 0.5;
+  display: none; }
+
+.float-box {
+  overflow: hidden; }
+  .float-box .float-lf {
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+    position: relative; }
+    .float-box .float-lf img {
+      width: 100%;
+      height: 8rem;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0.5rem; }
+    .float-box .float-lf i {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2rem;
+      line-height: 2rem;
+      background-color: #000;
+      opacity: .6; }
+    .float-box .float-lf h4 {
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      text-align: center;
+      line-height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      background-color: #000;
+      height: 2rem;
+      color: #fff;
+      margin: 0;
+      font-size: 1.4rem; }
+  .float-box .float-lf:nth-child(3n+0) {
+    margin-right: 0; }
+
+.attrName {
+  color: #999999; }
+
+.attrValue {
+  color: #333; }
+
+.fr {
+  float: right; }
+
+.txt-r {
+  text-align: right; }
+
+.mar-top5 {
+  margin-top: 0.5rem; }
+
+.puts-box .put-ocr .ocr {
+  padding-left: 5px; }
+  .puts-box .put-ocr .ocr:before {
+    font-size: 25px; }
+.puts-box .put-ocr input {
+  background: none; }
+
+.pad-rig-25 {
+  padding-right: 2.5rem; }
+
+.keyboard-open .saveFooter {
+  display: none; }
+
+button[disabled].save-btn {
+  pointer-events: auto; }
+
+.saveFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 999;
+  width: 100%; }
+
+.saveFooter .submit {
+  color: #fff;
+  background-color: #3EBAB4;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 44px; }
+
+.saveFooter .submit:active {
+  background-color: #369691; }
+
+.saveFooter button[disabled].submit {
+  pointer-events: auto; }
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage;let item=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身份证号码</span><span>{{x.FramPeopleID}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">所属的银行</span><span>{{x.bankName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动物标签号</span><span>{{x.pin}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>身份证正面</p>
+                    <img src="{{E+x.idfrontUrl}}" (click)="look(1,item)">
+                </div>
+                <div class="float-lf">
+                    <p>身份证反面</p>
+                    <img src="{{E+x.idbackUrl}}" (click)="look(2,item)">
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{E+x.bankUrl}}" (click)="look(3,item)">
+                </div>
+                <div class="float-lf">
+                    <p>现场勘察</p>
+                    <img src="{{E+x.localUrl}}" (click)="look(4,item)">
+                </div>
+                <div class="float-lf">
+                    <p>无害化处理</p>
+                    <img src="{{E+x.disposealUrl}}" (click)="look(5,item)">
+                </div>
+                <div class="float-lf">
+                    <p>死亡证明</p>
+                    <img src="{{E+x.deathUrl}}" (click)="look(6,item)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

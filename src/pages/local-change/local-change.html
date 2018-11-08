@@ -1,0 +1,131 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>修改</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngFor="let x of list;let indexs = index" style="border-bottom: 1px solid #E7E7E9;">
+        <div class="gary-box"></div>
+        <div class="top-box">
+            <p>
+                <span>理赔员&emsp;</span><span>{{lipeiyuan}}</span>
+            </p>
+            <p *ngFor="let x of list">
+                <span>日期&emsp;</span><span>{{myDate}}</span>
+            </p>
+        </div>
+        <div>
+            <div class="gary-box"></div>
+            <p class="titless">农户信息</p>
+            <div class="main-box">
+                <div>
+                    <span style="margin-right: 0.7rem;">理&emsp;赔&emsp;员</span><span>{{lipeiyuan}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">保单号</span><span>{{x.name.insuranceId}}</span>
+                </div>
+                <div>
+                    <!--团体下拉-->
+                    <span style="margin-right: 0.7rem;">被保险人姓名</span>
+                    <span>{{x.name.name}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">身份证号</span><span>{{x.name.idCard}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">开户行</span><input placeholder="{{x.name.bankName}}" [(ngModel)]="x.form.bankName">
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">银行账号</span><input placeholder="{{x.name.bankAccount}}" [(ngModel)]="x.form.bankAccount">
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">账户形式</span>
+                    <select [(ngModel)]="x.form.accountType" style="color:#3EBAB4;">
+                        <option *ngFor="let s of bankTypeArr" value="{{s}}">{{s}}
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">起保时间</span><span>{{x.name.startTime}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">终保时间</span><span>{{x.name.endTime}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">报案号</span><input placeholder="{{x.name.BanNum}}" [(ngModel)]="x.form.BanNum">
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">报案日期</span><span (click)="choosedate(indexs)" style="color: #3EBAB4;">{{x.form.reportDate?x.form.reportDate:x.name.reportDate}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">出险日期</span><span (click)="chooseCxdate(indexs)" style="color: #3EBAB4;">{{x.form.outDate?x.form.outDate:x.name.outDate}}</span>
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">联系电话</span><input placeholder="{{x.name.contactNumber}}" [(ngModel)]="x.form.contactNumber">
+                </div>
+                <div>
+                    <span style="margin-right: 0.7rem;">住址</span><input placeholder="{{x.name.address}}" [(ngModel)]="x.form.address">
+                </div>
+                <div *ngIf="x.name.remarks!=''">
+                    <span style="margin-right: 0.7rem;">标的特征</span><input placeholder="{{x.name.remarks}}" [(ngModel)]="x.form.remarks">
+                </div>
+                <div>
+                    <span style="letter-spacing: 0.4rem;">定位信息</span><span>{{x.name.GPS}}</span>
+                </div>
+
+                <div class="over-box puts-box">
+                    <div class="other-box no-bottom" *ngIf="x.name.FramIDFont!='null'&&x.name.FramIDFont!=''">
+                        <p></p>
+                        <span>身份证正面</span>
+                        <img src="{{x.form.FramIDFont?x.form.FramIDFont:x.name.FramIDFont}}" (click)="looks(1)">
+                    </div>
+                    <div class="other-box no-bottom" *ngIf="x.name.FramIDBack!='null'&&x.name.FramIDBack!=''">
+                        <p></p>
+                        <span>身份证反面</span>
+                        <img src="{{x.form.FramIDBack?x.form.FramIDBack:x.name.FramIDBack}}" (click)="looks(2)">
+                    </div>
+                    <div class="other-box no-bottom" *ngIf="x.name.BankCardImg!='null'&&x.name.BankCardImg!=''">
+                        <p></p>
+                        <span>银行卡</span>
+                        <img src="{{x.form.BankCardImg?x.form.BankCardImg:x.name.BankCardImg}}" (click)="looks(3)">
+                    </div>
+                    <div class="other-box no-bottom" *ngIf="x.name.VaccinationCertificateImg!='null'&&x.name.VaccinationCertificateImg!=''">
+                        <p></p>
+                        <span>防疫资格证</span>
+                        <img src="{{x.form.VaccinationCertificateImg?x.form.VaccinationCertificateImg:x.name.VaccinationCertificateImg}}" (click)="looks(4)">
+                    </div>
+                    <div class="other-box no-bottom" *ngIf="x.name.InstitutionCodeImg!='null'&&x.name.InstitutionCodeImg!=''">
+                        <p></p>
+                        <span>机构代码证</span>
+                        <img src="{{x.form.InstitutionCodeImg?x.form.InstitutionCodeImg:x.name.InstitutionCodeImg}}" (click)="looks(5)">
+                    </div>
+                    <div class="other-box no-bottom">
+                        <p></p>
+                        <span>兽医资格证</span>
+                        <img src="{{SHouImg[0]}}" (click)="look()">
+                        <div class="bg" (click)="look()" *ngIf="hasPic"></div>
+                        <p class="same" (click)="look()" *ngIf="hasPic">共{{picLen}}张</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div *ngFor="let s of lipeiList;let items=index" style="border-bottom: 1px solid #E7E7E9;padding: 20px 20px 10px;box-sizing: border-box;height: auto;overflow: hidden;width: 100%;" class="myTb" (click)="goToAnimal(items)">
+        <div class="someLeft" style="float:left;">
+            <div style="font-size: 20px;">
+                <span>标签号:</span><span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>动物类型:{{s.name.AnimalTypeName}}</span>
+                <span style="margin-left: 20px;">动物品种:{{s.name.AnimalVarietyName}}</span>
+            </div>
+        </div>
+        <img src="./assets/icon/jinru01_03.png" alt="" class="fr" style="width: 3%;float: right;margin-top: 11px;">
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="tijiao()">提交</div>
+    </ion-toolbar>
+</ion-footer>

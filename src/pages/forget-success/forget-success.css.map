@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACI,qBAAC;EACG,KAAK,EAAC,GAAG;EACT,MAAM,EAAC,gBAAgB;EACvB,KAAK,EAAC,OAAO;EACb,SAAS,EAAE,MAAM;EACjB,0BAAI;IACA,KAAK,EAAC,OAAO",
+"sources": ["forget-success.scss"],
+"names": [],
+"file": "forget-success.css"
+}

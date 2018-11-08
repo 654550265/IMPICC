@@ -1,0 +1,206 @@
+page-claim-settlement ul, page-claim-settlement li, page-claim-settlement ol {
+  list-style: none; }
+page-claim-settlement img {
+  display: block; }
+page-claim-settlement .over-box {
+  width: 94%;
+  margin: 0 auto;
+  height: 20rem;
+  margin-top: 1rem; }
+  page-claim-settlement .over-box .no-bottom {
+    position: relative;
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+    padding: 0;
+    height: 8rem;
+    margin-top: 1rem; }
+    page-claim-settlement .over-box .no-bottom img {
+      height: 8rem;
+      width: 100%; }
+    page-claim-settlement .over-box .no-bottom h4 {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      line-height: 1.9rem;
+      right: -0.5rem;
+      top: -0.5rem;
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%; }
+    page-claim-settlement .over-box .no-bottom span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      text-align: center;
+      line-height: 2rem;
+      background-image: none;
+      padding: 0;
+      width: 100%; }
+    page-claim-settlement .over-box .no-bottom p {
+      height: 2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      width: 100%;
+      opacity: .6; }
+  page-claim-settlement .over-box .no-bottom:nth-child(3n+0) {
+    margin-right: 0; }
+page-claim-settlement .puts-box {
+  width: 94%;
+  margin: 0 auto; }
+  page-claim-settlement .puts-box .pos-put-box {
+    position: relative; }
+    page-claim-settlement .puts-box .pos-put-box .saoyisao {
+      width: 8%;
+      position: absolute;
+      top: 0.7rem;
+      right: 0; }
+    page-claim-settlement .puts-box .pos-put-box .animalNum {
+      position: absolute;
+      width: 50%;
+      top: 0;
+      left: 28%;
+      height: 4.5rem;
+      line-height: 4.5rem; }
+    page-claim-settlement .puts-box .pos-put-box .bluetoo {
+      width: 8%;
+      position: absolute;
+      top: 0.7rem;
+      right: 10%; }
+    page-claim-settlement .puts-box .pos-put-box .textlh {
+      background-image: none;
+      width: 60%;
+      padding-left: 0; }
+  page-claim-settlement .puts-box .put-box {
+    overflow: hidden;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E7E7E9; }
+    page-claim-settlement .puts-box .put-box .dieType {
+      display: block;
+      width: 100%;
+      line-height: 4.5rem;
+      height: 4.5rem;
+      margin-top: 0.5rem; }
+      page-claim-settlement .puts-box .put-box .dieType select {
+        float: left;
+        display: inline-block;
+        width: 47.5%;
+        background-color: #fff;
+        color: #3EBAB4;
+        border: 1px solid #3EBAB4;
+        border-radius: 0.5rem;
+        line-height: 4rem;
+        height: 4rem; }
+      page-claim-settlement .puts-box .put-box .dieType select:first-child {
+        margin-right: 5%; }
+    page-claim-settlement .puts-box .put-box span {
+      display: inline-block;
+      width: 30%;
+      color: #333;
+      padding-left: 1rem;
+      background-image: url("../assets/icon/start_03.png");
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      background-position: 0 0.6rem;
+      font-size: 1.6rem; }
+    page-claim-settlement .puts-box .put-box input {
+      border: 0;
+      width: 70%;
+      text-align: right;
+      color: #3EBAB4;
+      font-size: 1.6rem; }
+    page-claim-settlement .puts-box .put-box input::-webkit-input-placeholder {
+      color: #999; }
+    page-claim-settlement .puts-box .put-box select {
+      border: 0;
+      float: right;
+      color: #3EBAB4;
+      font-size: 1.6rem;
+      background-color: #fff; }
+    page-claim-settlement .puts-box .put-box img {
+      width: 96%; }
+  page-claim-settlement .puts-box .other-box span {
+    display: block;
+    padding: 1rem 0;
+    color: #333;
+    font-size: 1.6rem; }
+  page-claim-settlement .puts-box .other-box .other {
+    position: relative;
+    width: 96%;
+    margin: 0 auto; }
+    page-claim-settlement .puts-box .other-box .other img {
+      width: 100%; }
+    page-claim-settlement .puts-box .other-box .other .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.5; }
+    page-claim-settlement .puts-box .other-box .other p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 3;
+      width: 30%;
+      margin-left: -15%;
+      margin-top: -10px;
+      text-align: center;
+      color: #fff; }
+  page-claim-settlement .puts-box .put-box.no-bottom {
+    border-bottom: 0; }
+    page-claim-settlement .puts-box .put-box.no-bottom img {
+      margin-top: 1rem; }
+page-claim-settlement .up {
+  padding: 0.5rem 0 0.5rem 3%;
+  background-color: #F5F5F5;
+  color: #666; }
+page-claim-settlement .voic {
+  width: 100%;
+  padding: 1rem 0; }
+  page-claim-settlement .voic img {
+    width: 20%;
+    margin: 0 auto; }
+page-claim-settlement .zhengjian {
+  width: 100%;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #E7E7E9;
+  position: relative; }
+  page-claim-settlement .zhengjian a {
+    color: #333;
+    width: 50%;
+    display: inline-block;
+    line-height: 4.5rem;
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    background-position: 0.5rem 1.4rem; }
+    page-claim-settlement .zhengjian a span {
+      color: orange; }
+  page-claim-settlement .zhengjian .die {
+    padding: 0;
+    background-image: none; }
+  page-claim-settlement .zhengjian select {
+    position: absolute;
+    color: #3EBAB4;
+    top: 0;
+    right: 0;
+    border: 0;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: #fff;
+    text-align: right; }
+  page-claim-settlement .zhengjian input {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    color: #3EBAB4;
+    border: 0;
+    line-height: 4.5rem; }
+
+/*# sourceMappingURL=claim-settlement.css.map */

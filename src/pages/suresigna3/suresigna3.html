@@ -1,0 +1,29 @@
+<!--
+  Generated template for the Suresigna3Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>赔款明细表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <img src="{{mycards[0]}}" alt="" *ngIf="!canSlide" class="onlyImg" (click)="showthisImg(mycards[0])">
+    <ion-slides (ionSlideDidChange)="slideChanged()" *ngIf="canSlide">
+
+        <ion-slide *ngFor="let item of mycards" class="show-canvas">
+            <img src="{{item}}" alt="" (click)="showthisImg(item)">
+        </ion-slide>
+    </ion-slides>
+    <div class="someButton">
+        <button (click)="gotoXuCanvasPage()" *ngIf="!hasQian">签名</button>
+        <button (click)="gotoFenPage()" *ngIf="!hasQian">保存打印</button>
+        <button (click)="gotoFenPage(2)" *ngIf="hasQian" class="next">完成</button>
+    </div>
+</ion-content>

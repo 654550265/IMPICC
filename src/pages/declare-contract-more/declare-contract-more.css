@@ -1,0 +1,138 @@
+page-declare-contract-more {
+  background-color: #FFFFFF; }
+  page-declare-contract-more .tit {
+    height: 4.4rem;
+    line-height: 4.4rem;
+    position: relative; }
+    page-declare-contract-more .tit img {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      top: 0.6rem;
+      right: 0; }
+  page-declare-contract-more img {
+    display: block; }
+  page-declare-contract-more .big-put-box-lh {
+    height: 20rem;
+    width: 94%;
+    margin: 0 auto;
+    padding: 1.5rem 0; }
+    page-declare-contract-more .big-put-box-lh .put-box {
+      width: 30%;
+      float: left;
+      position: relative;
+      padding: 0;
+      height: 7rem;
+      margin-right: 5%;
+      margin-top: 1.5rem;
+      overflow: inherit; }
+      page-declare-contract-more .big-put-box-lh .put-box .sart-lh-sart {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      page-declare-contract-more .big-put-box-lh .put-box .x {
+        background-color: #000;
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        width: 2rem;
+        line-height: 2rem;
+        font-size: 1.4rem;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0; }
+      page-declare-contract-more .big-put-box-lh .put-box img {
+        width: 100%;
+        height: 7rem; }
+      page-declare-contract-more .big-put-box-lh .put-box p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        opacity: .6;
+        width: 100%;
+        height: 2rem; }
+      page-declare-contract-more .big-put-box-lh .put-box span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-image: none;
+        padding: 0;
+        width: 100%;
+        color: #fff;
+        text-align: center; }
+    page-declare-contract-more .big-put-box-lh .put-box:nth-child(3n+0) {
+      margin-right: 0; }
+  page-declare-contract-more .other-box {
+    width: 30%;
+    float: left;
+    position: relative;
+    margin-top: 1.5rem;
+    height: 7rem; }
+    page-declare-contract-more .other-box .x {
+      background-color: #000;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 2rem;
+      line-height: 2rem;
+      font-size: 1.4rem;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      margin: 0;
+      z-index: 13; }
+    page-declare-contract-more .other-box h5 {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: .6;
+      width: 100%;
+      height: 2rem;
+      z-index: 10; }
+    page-declare-contract-more .other-box img {
+      width: 100%;
+      height: 7rem; }
+    page-declare-contract-more .other-box span {
+      position: absolute;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      z-index: 11; }
+  page-declare-contract-more .puts-box {
+    margin-bottom: 1rem; }
+    page-declare-contract-more .puts-box .pos-put-box {
+      position: relative; }
+      page-declare-contract-more .puts-box .pos-put-box .saoyisao {
+        width: 8%;
+        position: absolute;
+        top: 0.7rem;
+        right: 0; }
+      page-declare-contract-more .puts-box .pos-put-box .bluetoo {
+        width: 8%;
+        position: absolute;
+        top: 0.7rem;
+        right: 10%; }
+    page-declare-contract-more .puts-box .FramPeopleId {
+      width: 30%; }
+    page-declare-contract-more .puts-box .textlh {
+      background-image: none;
+      width: 60%;
+      padding-left: 0; }
+  page-declare-contract-more .liangput {
+    padding: 1.1rem 0;
+    position: absolute;
+    top: 0;
+    right: 7rem;
+    width: 50% !important; }
+
+/*# sourceMappingURL=declare-contract-more.css.map */

@@ -1,0 +1,69 @@
+page-tabs .tab-button-text {
+  color: #999; }
+page-tabs .tab-button-icon.icon.icon-md {
+  height: 30px;
+  min-width: 35px; }
+page-tabs .tab-button-icon.icon.ion-ios-san-outline {
+  background-image: url("../assets/icon/san.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tab-button-icon.icon.ion-ios-san {
+  background-image: url("../assets/icon/san-active.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tabs-md .tab-button[aria-selected=false] .tab-button-icon.icon.ion-md-san {
+  background-image: url("../assets/icon/san.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tabs-md .tab-button[aria-selected=true] .tab-button-icon.icon.ion-md-san {
+  background-image: url("../assets/icon/san-active.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tab-button-icon.icon.ion-ios-dun-outline {
+  background-image: url("../assets/icon/dun.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tab-button-icon.icon.ion-ios-dun {
+  background-image: url("../assets/icon/dun-active.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tabs-md .tab-button[aria-selected=false] .tab-button-icon.icon.ion-md-dun {
+  background-image: url("../assets/icon/dun.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tabs-md .tab-button[aria-selected=true] .tab-button-icon.icon.ion-md-dun {
+  background-image: url("../assets/icon/dun-active.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tab-button-icon.icon.ion-ios-my-outline {
+  background-image: url("../assets/icon/my.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tab-button-icon.icon.ion-ios-my {
+  background-image: url("../assets/icon/my-active.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tabs-md .tab-button[aria-selected=false] .tab-button-icon.icon.ion-md-my {
+  background-image: url("../assets/icon/my.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tabs-md .tab-button[aria-selected=true] .tab-button-icon.icon.ion-md-my {
+  background-image: url("../assets/icon/my-active.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center; }
+page-tabs .tab-button.has-title.has-icon.disable-hover[aria-selected="true"] .tab-button-text {
+  color: #3EBAB4; }
+
+/*# sourceMappingURL=tabs.css.map */

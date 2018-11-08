@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <!--<p>-->
+        <!--<span>日期&emsp;</span><span>{{Time}}</span>-->
+        <!--</p>-->
+    </div>
+    <div *ngFor="let x of FramMessage;let indexs=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身份证号码</span><input type="text" placeholder="{{x.name.FramPeopleID}}"
+                                                                       [(ngModel)]="x.form.FramPeopleID"
+                                                                       (blur)="unameBlur()"
+                                                                       (focus)="unamefocus()">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动物标签号</span><input type="text" placeholder="{{x.name.pin}}"
+                                                                       [(ngModel)]="x.form.pin"
+                                                                       (blur)="unameBlur()"
+                                                                       (focus)="unamefocus()">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">死亡&emsp;原因</span>
+                <select>
+                    <option *ngFor="let o of dieList" value="{{o.Id}}">{{o.Name}}</option>
+                </select>
+            </div>
+            <div>
+                <span>银&emsp;&emsp;&emsp;行</span><input type="text" placeholder="{{x.name.bankName}}"
+                                                        [(ngModel)]="x.form.bankName" (blur)="unameBlur()"
+                                                        (focus)="unamefocus()">
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <h4 (click)="changpics(1,indexs)">x</h4>
+                    <p>身份证正面</p>
+                    <img
+                        src="{{x.name.idfrontUrl}}"
+                        (click)="photo11(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpics(2,indexs)">x</h4>
+                    <p>身份证反面</p>
+                    <img src="{{x.name.idbackUrl}}"
+                         (click)="photo22(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpics(3,indexs)">x</h4>
+                    <p>银行卡</p>
+                    <img src="{{x.name.bankUrl}}"
+                         (click)="photo33(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpics(4,indexs)">x</h4>
+                    <p>现场勘察</p>
+                    <img src="{{x.name.localUrl}}"
+                         (click)="photo44(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpics(5,indexs)">x</h4>
+                    <p>无害化处理</p>
+                    <img src="{{x.name.disposealUrl}}"
+                         (click)="photo55(indexs)">
+                </div>
+                <div class="float-lf">
+                    <h4 (click)="changpics(6,indexs)">x</h4>
+                    <p>死亡证明</p>
+                    <img src="{{x.name.deathUrl}}"
+                         (click)="photo66(indexs)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer *ngIf="!showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="NoPasssaveBtnSaveLocss()">保存</div>
+    </ion-toolbar>
+</ion-footer>

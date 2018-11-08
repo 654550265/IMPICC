@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>本地承保信息采集数据</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="yunduan-box" *ngFor="let x of mainlist;let indexs=index" [ngClass]="x.acv?'active':''">
+        <div class="title-box" (click)="chooseone(indexs)">
+            <p class="title" *ngIf="x.FramType=='4'">个人批量承保</p>
+            <p class="title" *ngIf="x.FramType=='5'">单位批量承保</p>
+            <span class="qianzi" (click)="gotosuresingapage(indexs)" *ngIf="x.housesignaUrl==null||x.isAllSigna=='null'">导出承保清单</span>
+            <a class="del" (click)="del(indexs)">删除</a>
+        </div>
+        <div class="main-box" (click)="gotoLookPage(indexs)">
+            <p>
+                <span>姓名/单位</span><span>{{x.FramName}}</span>
+            </p>
+            <p>
+                <span>{{x.FramType=='4'?'身份证号码':'统一社会信用代码'}}</span><span>{{x.FramType=='4'?x.FramPeopleID:x.tyshxydm}}</span>
+            </p>
+            <p>
+                <span>日期</span><span>{{x.createtime}}</span>
+            </p>
+            <h4>承保员&emsp;{{x.uid}}</h4>
+        </div>
+        <img class="dingweiImg" src="assets/icon/bianji.png" (click)="gotoChangePage(indexs)" *ngIf="x.housesignaUrl==null||x.isAllSigna=='null'">
+    </div>
+    <p class="center-box" *ngIf="isshow">本地暂无承保数据</p>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="yunduan-bottom-box">
+            <div class="left">
+                <p class="yunduan-left-p" [ngClass]="isChooseAll?'active':''" (click)="chooseall()">全选</p>
+                <p>已选中<span>{{num}}</span>条数据</p>
+            </div>
+            <a class="right" (click)="upload()">数据上传</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-title>登录</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <img src="assets/icon/icon.png" class="logo">
+    <input type="text" class="login-put uname" placeholder="请输入您的帐号" [(ngModel)]="name" (blur)="unameBlur()" (focus)="unamefocus()">
+    <input type="password" class="login-put pwd" placeholder="请输入密码" [(ngModel)]="pwd" (blur)="unameBlur()" (focus)="unamefocus()">
+    <p class="xieyi">登录即表示同意<span>《用户使用协议》</span></p>
+    <a href="javascript:;" class="login-btn" (click)="login()">登录</a>
+    <div class="img-bottom" [ngClass]="showBottom?'hide':''">
+        <div class="register-box">
+            <a href="javascript:;" class="register" (click)="gotoRegister()">立即注册</a><a href="javascript:;" class="forget-pwd" (click)="gotoForget()">忘记密码</a>
+        </div>
+        <img src="assets/icon/bottom_03.png">
+    </div>
+</ion-content>

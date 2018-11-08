@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.19rem ">姓名/单位</span><span>{{x.name.FramName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身份证号码</span><span>{{x.name.FramPeopleID}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.4rem">定位信息</span><span>{{x.name.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>身份证正面</p>
+                    <img src="{{x.name.idfrontUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>身份证反面</p>
+                    <img src="{{x.name.idbackUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{x.name.bankUrl}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let s of FramChenMessage">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><span>{{s.name.AnimalType=='1'?'羊':'牛'}}</span>
+            </div>
+            <!--<div>-->
+            <!--<span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span><span>320922199209075437</span>-->
+            <!--</div>-->
+            <div>
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><span>{{s.name.AnimalAge}}</span>
+            </div>
+            <!--<div>-->
+            <!--<span>保&emsp;险&emsp;数&emsp;量</span><span>江苏无锡</span>-->
+            <!--</div>-->
+            <div>
+                <span>农户自缴保险费</span><span>{{s.name.SelfPayPremium}}</span>
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><span>{{s.name.TotalPremium}}</span>
+            </div>
+            <div>
+                <span>坐&emsp;&emsp;&emsp;&emsp;&emsp;标</span><span>{{s.name.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.positonUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.frontUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.leftUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.rightUrl}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

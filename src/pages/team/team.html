@@ -1,0 +1,101 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>团体信息录入</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <form novalidate (ngSubmit)="onSubmit(farmer)" [formGroup]="farmer">
+        <div class="gary-box"></div>
+        <gps></gps>
+        <div class="gary-box"></div>
+        <div class="puts-box">
+            <div class="put-box">
+                <span>企业名称</span>
+                <input formControlName="FramName" type="text" placeholder="请输入组织名称">
+            </div>
+            <div class="put-box">
+                <span>统一信用代码</span>
+                <input formControlName="tyshxydm" type="text" placeholder="请输入统一社会信用代码">
+            </div>
+            <div class="put-box">
+                <span>地址</span>
+                <select formControlName="provice" [compareWith]="comm.compare">
+                    <option value="">请选择</option>
+                    <option *ngFor="let x of ENV['GETAREATREE']" [ngValue]="x">{{x.name}}</option>
+                </select>
+            </div>
+            <div class="put-box">
+                <input class="input100 mar-top5" formControlName="moreAddr" type="text" placeholder="请输入详细地址">
+            </div>
+        </div>
+        <div class="gary-box"></div>
+        <div class="puts-box">
+            <div class="put-box">
+                <span>业务性质</span>
+                <select formControlName="insurancetype" [compareWith]="comm.compareIT">
+                    <option value="">请选择</option>
+                    <option *ngFor="let x of ENV['XZLIST']" [ngValue]="x">{{x.TypeName}}</option>
+                </select>
+            </div>
+            <div class="put-box">
+                <span>保险产品</span>
+                <select formControlName="insurancepro" [compareWith]="comm.comparePro">
+                    <option value="">请选择</option>
+                    <option *ngFor="let z of Project" [ngValue]="z">{{z.ProjectName}}</option>
+                </select>
+            </div>
+            <div class="put-box" (click)="choosedate()">
+                <span>起保时间</span>
+                <a class="fr txt-r">{{farmer.value.starttime ? farmer.value.starttime : '请选择起保时间' }}</a>
+            </div>
+            <div class="put-box" (click)="chooseenddate()">
+                <span>终保时间</span>
+                <a class="fr txt-r">{{farmer.value.endtime ? farmer.value.endtime : '请选择您的终保时间'}}</a>
+            </div>
+        </div>
+        <div class="gary-box"></div>
+        <div class="puts-box">
+            <div class="put-box">
+                <span>与承保人关系</span>
+                <select formControlName="relationship" [compareWith]="comm.compareTypes">
+                    <option value="">请选择</option>
+                    <option *ngFor="let x of ENV['RELATIONSHIPS']" [ngValue]="x">{{x.name}}</option>
+                </select>
+            </div>
+            <div class="put-box">
+                <span>经营模式</span>
+                <select formControlName="management" [compareWith]="comm.compareTypes">
+                    <option value="">请选择</option>
+                    <option *ngFor="let z of ENV['MANAGEMENTS']" [ngValue]="z">{{z.name}}</option>
+                </select>
+            </div>
+            <div class="put-box" *ngIf="farmer.value.management && farmer.value.management.types == 3">
+                <span>所占份额</span>
+                <input formControlName="percent" type="text" placeholder="请输入所占份额:%">
+            </div>
+            <div class="put-box">
+                <span>争议处理方式</span>
+                <select formControlName="dispute" [compareWith]="comm.compareId">
+                    <option value="">请选择</option>
+                    <option *ngFor="let x of ENV['ARBITRAL']" [ngValue]="x">{{x.Name}}</option>
+                </select>
+            </div>
+        </div>
+        <p class="tit">证明文件上传
+            <img src="assets/icon/photo.png" (click)="gotoCameraPage()">
+        </p>
+        <div class="over-box">
+            <div class="put-box no-bottom">
+                <h4 class="x" (click)="deletePhoto('jgdmUrl')">x</h4>
+                <p>&emsp;</p>
+                <span>机构代码证</span>
+                <img src="{{farmer.value.jgdmUrl?farmer.value.jgdmUrl:'assets/icon/pic-updata_03.png'}}" (click)="choosePhoto('jgdmUrl')">
+            </div>
+        </div>
+        <p class="tit">特别约定</p>
+        <textarea formControlName="Remarks" placeholder="请输入文字..."></textarea>
+        <div class="saveFooter">
+            <button class="submit" type="submit" [disabled]="!farmer.valid">保存</button>
+        </div>
+    </form>
+</ion-content>

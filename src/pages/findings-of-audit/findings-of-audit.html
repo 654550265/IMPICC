@@ -1,0 +1,155 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>审核结果</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <div class="top-box">
+            <a *ngFor="let x of list;let indexs=index" [ngClass]="x.acv?'active':''"
+               (click)="slide(indexs)">{{x.name}}</a>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-color: #f5f5f5;">
+    <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="Status!=3">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="box">
+        <div class="title-box" *ngFor="let s of Examine;let indexs=index">
+            <div *ngIf="Status === 1">
+                <div class="noselect title">
+                    <span *ngIf="s.FarmType=='1'">个人承保</span>
+                    <span *ngIf="s.FarmType=='2'">单位承保</span>
+                    <span *ngIf="s.FarmType=='3'">团体承保</span>
+                    <span *ngIf="s.FarmType=='4'">批量个体承保</span>
+                    <span *ngIf="s.FarmType=='5'">批量单位承保</span>
+                </div>
+                <div class="message" (click)="checklook(s)">
+                    <p>
+                        <span *ngIf="s.FarmType==1">姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                        <span *ngIf="s.FarmType!=1">公&emsp;司&emsp;名&emsp;称</span>
+                        <span>{{s.Name}}</span>
+                    </p>
+                    <p>
+                        <span>证&emsp;件&emsp;号&emsp;码</span>
+                        <span>{{s.IdNumber}}</span>
+                    </p>
+                    <p *ngIf="s.Tel!=''">
+                        <span>业&emsp;务&emsp;性&emsp;质</span>
+                        <span>{{s.InsuraceType}}</span>
+                    </p>
+                    <p>
+                        <span>保&emsp;险&emsp;产&emsp;品</span>
+                        <span>{{s.InsuraceProject}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                        <span>{{s.UploadTime | date: 'yyyy-MM-dd'}}</span>
+                    </p>
+                    <h4>承保员 {{s.HandlePerson}}</h4>
+                    <img src="{{Status==1?'assets/icon/yespass.png':'assets/icon/nopass_03.png'}}">
+                </div>
+                <div *ngIf="Status === 2">
+                    <p>未通过原因</p>
+                    <p>{{s.Reason}}</p>
+                </div>
+            </div>
+            <div *ngIf="Status === 2">
+                <div class="title" (click)="chooseone(indexs)">
+                    <span *ngIf="s.FarmType=='1'">个人承保</span>
+                    <span *ngIf="s.FarmType=='2'">单位承保</span>
+                    <span *ngIf="s.FarmType=='3'">团体承保</span>
+                    <span *ngIf="s.FarmType=='4'">批量个体承保</span>
+                    <span *ngIf="s.FarmType=='5'">批量单位承保</span>
+                    <img src="{{s.acv?'assets/icon/acv_03.png':'assets/icon/acv_06.png'}}">
+                </div>
+                <div class="message" (click)="checklook(s)">
+                    <p>
+                        <span *ngIf="s.FarmType==1">姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                        <span *ngIf="s.FarmType!=1">公&emsp;司&emsp;名&emsp;称</span>
+                        <span>{{s.Name}}</span>
+                    </p>
+                    <p>
+                        <span>证&emsp;件&emsp;号&emsp;码</span>
+                        <span>{{s.IdNumber}}</span>
+                    </p>
+                    <p *ngIf="s.Tel!=''">
+                        <span>业&emsp;务&emsp;性&emsp;质</span>
+                        <span>{{s.InsuraceType}}</span>
+                    </p>
+                    <p>
+                        <span>保&emsp;险&emsp;产&emsp;品</span>
+                        <span>{{s.InsuraceProject}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                        <span>{{s.UploadTime | date: 'yyyy-MM-dd'}}</span>
+                    </p>
+                    <h4>承保员 {{s.HandlePerson}}</h4>
+                    <img src="{{Status==1?'assets/icon/yespass.png':'assets/icon/nopass_03.png'}}">
+                </div>
+                <div class="Reason" *ngIf="s.Reason">
+                    <div class="ReasonTitle">未通过原因：</div>
+                    <p class="ReasonContent">{{s.Reason}}</p>
+                </div>
+            </div>
+            <div *ngIf="Status === 3" style="position: relative;">
+                <div class="title" (click)="chooseone(indexs)">
+                    <span *ngIf="s.FramType=='1'">个人承保</span>
+                    <span *ngIf="s.FramType=='2'">单位承保</span>
+                    <span *ngIf="s.FramType=='3'">团体承保</span>
+                    <span *ngIf="s.FramType=='4'">批量个体承保</span>
+                    <span *ngIf="s.FramType=='5'">批量单位承保</span>
+                    <span class="qianzi" (click)="gotoConfirmedSignaturePage(s)" *ngIf="!canChange[indexs]">导出投保清单</span>
+                    <img src="{{s.acv?'assets/icon/acv_03.png':'assets/icon/acv_06.png'}}">
+                    <a class="del" (click)="del(s)">删除</a>
+                </div>
+                <div class="message" (click)="checklook(s)">
+                    <p>
+                        <span *ngIf="s.FarmType==1">姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                        <span *ngIf="s.FarmType!=1">公&emsp;司&emsp;名&emsp;称</span>
+                        <span>{{s.FramName}}</span>
+                    </p>
+                    <p>
+                        <span>证&emsp;件&emsp;号&emsp;码</span>
+                        <span>{{s.FramPeopleID}}</span>
+                    </p>
+                    <p *ngIf="s.Tel!=''">
+                        <span>业&emsp;务&emsp;性&emsp;质</span>
+                        <span>{{s.insurancetype}}</span>
+                    </p>
+                    <p>
+                        <span>保&emsp;险&emsp;产&emsp;品</span>
+                        <span>{{s.insuranceproname}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                        <span>{{s.createtime | date: 'yyyy-MM-dd'}}</span>
+                    </p>
+                    <h4>承保员 {{s.HandlePerson}}</h4>
+                </div>
+                <img class="dingweiImg" src="assets/icon/bianji.png" (click)="edit(s)" *ngIf="!canChange[indexs]">
+                <div class="Reason" *ngIf="s.noPassReason">
+                    <div class="ReasonTitle">未通过原因：</div>
+                    <p class="ReasonContent">{{s.noPassReason}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isshow" class="center-box">暂无审核数据</div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="Status!=3">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<ion-footer *ngIf="Status!=1">
+    <ion-toolbar>
+        <div class="yunduan-bottom-box">
+            <div class="left">
+                <p class="yunduan-left-p" [ngClass]="isChooseAll?'active':''" (click)="chooseall()">全选</p>
+                <p>已选中<span>{{num}}</span>条数据</p>
+            </div>
+            <a class="right" (click)="dwonload()" *ngIf="Status==2">数据下载</a>
+            <a class="right" (click)="upload()" *ngIf="Status==3">数据上传</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

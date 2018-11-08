@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>投保单</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <img src="{{mycard}}" (click)="showPhoto()">
+    <div class="someButton">
+        <button (click)="gotoXuCanvasPage()" *ngIf="!hasQian">签名</button>
+        <button (click)="gotoFenPage(1)" *ngIf="!hasQian">保存打印</button>
+        <button (click)="gotoFenPage(2)" *ngIf="hasQian" class="next">下一步</button>
+    </div>
+</ion-content>

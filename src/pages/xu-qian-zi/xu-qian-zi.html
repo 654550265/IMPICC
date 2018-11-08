@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>电子签名</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div class="boxsss" *ngFor="let x of FramMessage">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.19rem ">姓名/单位</span><span>{{x.name.FramName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">证件号码</span><span>{{x.name.FramPeopleID}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="x.name.idfrontUrl!=''">
+                    <p>身份证正面</p>
+                    <img src="{{x.name.idfrontUrl}}">
+                </div>
+                <div class="float-lf" *ngIf="x.name.idfrontUrl!=''">
+                    <p>身份证反面</p>
+                    <img src="{{x.name.idbackUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{x.name.bankUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>防疫证书</p>
+                    <img src="{{x.name.VaccinationCertificateImg}}">
+                </div>
+                <div class="float-lf" *ngIf="x.name.InstitutionCodeImg!=''">
+                    <p>机构代码证</p>
+                    <img src="{{x.name.InstitutionCodeImg}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="boxsss" *ngFor="let s of FramChenMessage">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><span>{{s.name.AnimalType=='1'?'羊':'牛'}}</span>
+            </div>
+            <div>
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><span>{{s.name.AnimalAge}}</span>
+            </div>
+            <div>
+                <span>农户自缴保险费</span><span>{{s.name.SelfPayPremium}}</span>
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><span>{{s.name.TotalPremium}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.positonUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.frontUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.leftUrl}}">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.rightUrl}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="gotoXuCanvasPage()">电子签名</div>
+    </ion-toolbar>
+</ion-footer>

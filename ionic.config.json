@@ -1,0 +1,7 @@
+{
+  "name": "baoxian",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

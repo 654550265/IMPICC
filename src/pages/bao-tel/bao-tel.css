@@ -1,0 +1,48 @@
+page-bao-tel {
+  background-color: #FFFFFF; }
+  page-bao-tel .register {
+    width: 90%;
+    margin: 0 auto; }
+    page-bao-tel .register p {
+      width: 100%;
+      color: #999999;
+      margin-top: 1rem; }
+    page-bao-tel .register .agreen {
+      font-size: 1rem; }
+      page-bao-tel .register .agreen span {
+        color: #FA773D; }
+    page-bao-tel .register .register-put {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0 1rem 1rem;
+      font-size: 1.6rem;
+      color: #3ebab4; }
+    page-bao-tel .register .register-put::-webkit-input-placeholder {
+      color: #CCCCCC; }
+    page-bao-tel .register .getCode-box {
+      position: relative; }
+      page-bao-tel .register .getCode-box .getCode-btn {
+        font-size: 1.2rem;
+        position: absolute;
+        top: 0.6rem;
+        right: 0;
+        background-color: transparent;
+        border: 1px solid #3EBAB4;
+        color: #3EBAB4;
+        width: 40%;
+        padding: 0.9rem 0;
+        border-radius: 5px; }
+    page-bao-tel .register .register-btn {
+      margin-top: 2rem;
+      border-radius: 5px;
+      font-size: 1.6rem;
+      width: 100%;
+      letter-spacing: 0.5rem;
+      padding: 1rem 0;
+      background-color: #3ebab4;
+      color: #fff; }
+    page-bao-tel .register .register-btn:active {
+      background-color: #369691; }
+
+/*# sourceMappingURL=bao-tel.css.map */

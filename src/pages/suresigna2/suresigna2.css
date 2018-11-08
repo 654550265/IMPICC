@@ -1,0 +1,27 @@
+page-suresigna2 {
+  background-color: #FFFFFF; }
+
+.someButton {
+  width: 70%;
+  height: 80px;
+  overflow: hidden;
+  margin: 0px auto; }
+
+.someButton button {
+  width: 40%;
+  float: left;
+  background: #fff;
+  color: #333;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  border: 1px solid #eee;
+  font-size: 12px; }
+
+.someButton button:last-child {
+  float: right; }
+
+.someButton .next {
+  width: 100%; }
+
+/*# sourceMappingURL=suresigna2.css.map */

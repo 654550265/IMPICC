@@ -1,0 +1,33 @@
+page-local-underwriting-data .slide-zoom {
+  height: 100%; }
+page-local-underwriting-data .top-box {
+  width: 100%;
+  font-size: 1.6rem;
+  z-index: 99; }
+  page-local-underwriting-data .top-box a {
+    padding: 1rem 0;
+    display: inline-block;
+    color: #333;
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid #999999; }
+  page-local-underwriting-data .top-box .active {
+    color: #3EBAB4;
+    border-bottom: 1px solid #3EBAB4; }
+page-local-underwriting-data .scroll-content {
+  background-color: #f5f5f5; }
+page-local-underwriting-data .main-box h4 {
+  display: block;
+  width: 80%;
+  margin: 1rem auto 0 auto;
+  font-size: 1.4rem;
+  text-align: right; }
+page-local-underwriting-data .qianzi {
+  padding: 1rem 0;
+  z-index: 66; }
+page-local-underwriting-data .center-box {
+  text-align: center;
+  color: #333;
+  margin-top: 3rem; }
+
+/*# sourceMappingURL=local-underwriting-data.css.map */

@@ -1,0 +1,130 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>续保</ion-title>
+        <span class="right-num">{{zongshu}}/{{saoshu}}</span>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage;let indexs=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.19rem ">姓名/单位</span><input type="text" placeholder="{{x.name.FramName}}" [(ngModel)]="x.form.FramName">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身份证/机构代码</span><input type="text" placeholder="{{x.name.FramPeopleID}}" [(ngModel)]="x.form.FramPeopleID">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">手机号</span><input type="text" placeholder="{{x.name.FramTel}}" [(ngModel)]="x.form.FramTel">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">所属银行</span><input type="text" placeholder="{{x.name.FramBank}}" [(ngModel)]="x.form.FramBank">
+            </div>
+            <div *ngIf="x.name.CreditCode != ''">
+                <span style="margin-right: 0.7rem;">统一社会信用代码</span><input type="text" placeholder="{{x.name.CreditCode}}" [(ngModel)]="x.form.CreditCode">
+            </div>
+            <div *ngIf="x.name.ContactMail != ''">
+                <span style="margin-right: 0.7rem;">邮箱</span><input type="text" placeholder="{{x.name.ContactMail}}" [(ngModel)]="x.form.ContactMail">
+            </div>
+            <div *ngIf="x.name.Address != ''">
+                <span style="margin-right: 0.7rem;">地址</span><input type="text" placeholder="{{x.name.Address}}" [(ngModel)]="x.form.Address">
+            </div>
+            <div *ngIf="x.name.ContactTel != ''">
+                <span style="margin-right: 0.7rem;">联系方式</span><input type="text" placeholder="{{x.name.ContactTel}}" [(ngModel)]="x.form.ContactTel">
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="x.name.InsureType==1 || x.name.InsureType==4 || x.name.InsureType==5">
+                    <p>身份证正面</p>
+                    <img src="{{x.name.idfrontUrl}}" (click)="font(indexs)">
+                    <h4 (click)="chaFram(1,indexs)">x</h4>
+                </div>
+                <div class="float-lf" *ngIf="x.name.InsureType==1 || x.name.InsureType==4 || x.name.InsureType==5">
+                    <p>身份证反面</p>
+                    <img src="{{x.name.idbackUrl}}" (click)="backFont(indexs)">
+                    <h4 (click)="chaFram(2,indexs)">x</h4>
+                </div>
+                <div class="float-lf" *ngIf="x.name.InsureType==2 || x.name.InsureType==3 || x.name.InsureType==6">
+                    <p>机构代码证</p>
+                    <img src="{{x.name.InstitutionCodeImg}}" (click)="InstitCode(indexs)">
+                    <h4 (click)="chaFram(5,indexs)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{x.name.bankUrl}}" (click)="Bank(indexs)">
+                    <h4 (click)="chaFram(3,indexs)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>防疫资格证</p>
+                    <img src="{{x.name.VaccinationCertificateImg}}" (click)="VaccinCate(indexs)">
+                    <h4 (click)="chaFram(4,indexs)">x</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">承保信息
+            <input type="text" class="title-Put" placeholder="手动输入或扫描" (change)="puthChange()" [(ngModel)]="changePut">
+            <span class="sure" (click)="sure()">确定</span>
+            <span class="delete" (click)="deleteMessage()">删除</span>
+            <span class="lanya" (click)="lanya()"></span>
+        </p>
+        <div class="main-box bott" *ngFor="let s of FramChenMessage;let indexss=index">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><input type="text" placeholder="{{s.name.AnimalId}}" [(ngModel)]="s.form.AnimalId" disabled="disabled">
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><input type="text" placeholder="{{s.name.AnimalType=='1'?'羊':'牛'}}" [(ngModel)]="s.form.AnimalType">
+            </div>
+            <div>
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><input type="text" placeholder="{{s.name.AnimalAge}}" [(ngModel)]="s.form.AnimalAge">
+            </div>
+            <div>
+                <span>农户自缴保险费</span><input type="text" placeholder="{{s.name.SelfPayPremium}}" [(ngModel)]="s.form.SelfPayPremium">
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><input type="text" placeholder="{{s.name.TotalPremium}}" [(ngModel)]="s.form.TotalPremium">
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.positonUrl}}" (click)="buwei(indexss)">
+                    <h4 (click)="chaIM(1,indexss)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.frontUrl}}" (click)="zhengmian(indexss)">
+                    <h4 (click)="chaIM(2,indexss)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.leftUrl}}" (click)="zouMian(indexss)">
+                    <h4 (click)="chaIM(3,indexss)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.rightUrl}}" (click)="youmian(indexss)">
+                    <h4 (click)="chaIM(4,indexss)">x</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveBtnSave()">保存</div>
+    </ion-toolbar>
+</ion-footer>

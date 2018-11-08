@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let x of FramMessage;let indexs=index">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span style="letter-spacing: 0.19rem ">姓名/单位</span><input type="text" placeholder="{{x.FramName}}"
+                                                                          [(ngModel)]="x.FramName" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身份证号码</span><input type="text" placeholder="{{x.FramPeopleID}}"
+                                                                       [(ngModel)]="x.FramPeopleID" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>电&emsp;&emsp;&emsp;话</span><input type="text" placeholder="{{x.FramTel}}"
+                                                        [(ngModel)]="x.FramTel" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <p>身份证正面</p>
+            <img src="{{(x.idfrontUrl.ImgUrl).split('/')[0]=='file:'?x.idfrontUrl.ImgUrl:E+x.idfrontUrl.ImgUrl}}"
+                 (click)="photo(indexs,1,'idfrontUrl')">
+            <p>身份证反面</p>
+            <img src="{{(x.idbackUrl.ImgUrl).split('/')[0]=='file:'?x.idbackUrl.ImgUrl:E+x.idbackUrl.ImgUrl}}"
+                 (click)="photo(indexs,2,'idbackUrl')">
+            <p>银行卡</p>
+            <img src="{{(x.bankUrl.ImgUrl).split('/')[0]=='file:'?x.bankUrl.ImgUrl:E+x.bankUrl.ImgUrl}}"
+                 (click)="photo(indexs,4,'bankUrl')">
+        </div>
+    </div>
+    <div *ngFor="let s of FramChenMessage;let indexss=index">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><input type="text" placeholder="{{s.AnimalId}}" [(ngModel)]="s.AnimalId" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><input type="text" placeholder="{{s.AnimalAge}}" [(ngModel)]="s.AnimalAge" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>农户自缴保险费</span><input type="text" placeholder="{{s.SelfPayPremium}}" [(ngModel)]="s.SelfPayPremium" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><input type="text" placeholder="{{s.TotalPremium}}" [(ngModel)]="s.TotalPremium" (blur)="unameBlur()" (focus)="unamefocus()">
+            </div>
+            <div>
+                <span>未&ensp;通&ensp;过&ensp;原&ensp;因</span><span>{{s.Reason}}</span>
+            </div>
+            <p>植入部位</p>
+            <img src="{{(s.positonUrl.ImgUrl).split('/')[0]=='file:'?s.positonUrl.ImgUrl:E+s.positonUrl.ImgUrl}}"
+                 (click)="NoPassPhoto(indexss,1,'positonUrl')">
+            <p>正面</p>
+            <img src="{{(s.frontUrl.ImgUrl).split('/')[0]=='file:'?s.frontUrl.ImgUrl:E+s.frontUrl.ImgUrl}}" (click)="NoPassPhoto(indexss,2,'frontUrl')">
+            <p>左侧面</p>
+            <img src="{{(s.leftUrl.ImgUrl).split('/')[0]=='file:'?s.leftUrl.ImgUrl:E+s.leftUrl.ImgUrl}}" (click)="NoPassPhoto(indexss,3,'leftUrl')">
+            <p>右侧面</p>
+            <img src="{{(s.rightUrl.ImgUrl).split('/')[0]=='file:'?s.rightUrl.ImgUrl:E+s.rightUrl.ImgUrl}}" (click)="NoPassPhoto(indexss,4,'rightUrl')">
+        </div>
+    </div>
+</ion-content>
+<ion-footer *ngIf="!showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="NoPasssaveBtnSave()">保存</div>
+    </ion-toolbar>
+</ion-footer>

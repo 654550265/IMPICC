@@ -1,0 +1,12 @@
+<script src="camera.ts"></script>
+<ion-content>
+    <div class="black-top">
+        <img src="assets/icon/xxx.png" class="close" (click)="closePage()">
+        <img src="assets/icon/changeCamera.png" class="change" (click)="changess()">
+    </div>
+    <div class="black-bottom">
+        <img src="{{last_src}}" class="yulan" (click)="preview()">
+        <a class="take-photo" (click)="takePhotos()"></a>
+        <!--<img src="assets/icon/yes0006.png" class="yes" (click)="showShow()">-->
+    </div>
+</ion-content>

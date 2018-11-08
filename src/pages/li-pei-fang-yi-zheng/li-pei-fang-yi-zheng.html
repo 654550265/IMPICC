@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>文件上传</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="puts-box">
+        <div class="put-box">
+            <span>身份证号码</span><input type="text" placeholder="请输入您的身份证号码" [(ngModel)]="ID">
+        </div>
+        <div class="put-box" (click)="fangyi()">
+            <span>防疫资格证</span>
+            <img src="{{isfangyi?fangyis:'assets/icon/pic-updata_03.png'}}">
+        </div>
+        <div class="put-box" (click)="shouyi()">
+            <span>兽医资格证</span>
+            <img src="{{isshouyi?shouyis:'assets/icon/pic-updata_03.png'}}">
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="presentActionSheet()">上传</div>
+    </ion-toolbar>
+</ion-footer>

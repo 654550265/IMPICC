@@ -1,0 +1,25 @@
+<ion-menu [content]="content" [swipeEnabled]="false" id="menu">
+    <ion-content>
+        <img src="assets/icon/defaultavatar.png" class="user-Head-Portrait">
+        <p class="UserName">{{realName}}</p>
+        <p class="UserName">(农户)</p>
+        <div class="menu-box">
+            <div class="menu-list" (click)="openNsetPage()" menuClose="menu">
+                <img src="assets/icon/set.png">
+                <p>帐号设置</p>
+            </div>
+            <div class="menu-list" menuClose="menu" (click)="openFramSpecPage()">
+                <img src="assets/icon/home-help.png">
+                <p>使用帮助</p>
+            </div>
+            <div class="menu-list" menuClose="menu" (click)="about()">
+                <img src="assets/icon/home-aboutus.png">
+                <p>关于我们</p>
+            </div>
+        </div>
+        <div class="men-bottom-box" menuClose="menu" (click)="logout()">
+            <img src="assets/icon/logout.png">退出
+        </div>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,14 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>选择角色</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <p class="title-box">请选择您的角色:</p>
+    <div class="choose-who" *ngFor="let x of list" [ngClass]="{'active': x.acv}" (click)="who(x)">
+        <img src="{{x.src}}" *ngIf="!x.acv;">
+        <img src="{{x.srcAcv}}" *ngIf="x.acv;">
+        <p>{{x.name}}</p>
+    </div>
+</ion-content>

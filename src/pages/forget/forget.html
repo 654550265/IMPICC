@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>找回密码</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="forget-box">
+        <p>手机号</p>
+        <input type="tel" class="forget-put" placeholder="请输入您的手机号" [(ngModel)]="tel">
+        <p>身份证号码</p>
+        <input type="text" class="forget-put" placeholder="请输入身份证号码" [(ngModel)]="ID">
+        <button class="forget-btn" (click)="next()">下一步</button>
+    </div>
+</ion-content>

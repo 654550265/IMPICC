@@ -1,0 +1,28 @@
+page-select-officer .slide-zoom {
+  height: 100%; }
+page-select-officer .top-box {
+  width: 100%;
+  font-size: 1.6rem;
+  z-index: 99; }
+  page-select-officer .top-box a {
+    padding: 1rem 0;
+    display: inline-block;
+    color: #333;
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid #999999; }
+  page-select-officer .top-box .active {
+    color: #3EBAB4;
+    border-bottom: 1px solid #3EBAB4; }
+page-select-officer a {
+  text-align: left;
+  display: block;
+  width: 94%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-bottom: 1px solid #E7E7E9;
+  color: #333; }
+page-select-officer a:active {
+  color: #3EBAB4; }
+
+/*# sourceMappingURL=select-officer.css.map */

@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-center>农户工作台</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="box">
+        <a (click)="gotoClaimSettlement()">
+            <img src="assets/icon/make-lipei.png">
+            <p>申请理赔</p>
+        </a>
+        <a (click)="gotoApplyInsurance()">
+            <img src="assets/icon/make-baoxian.png">
+            <p class="shengiqng">申请保险</p>
+        </a>
+        <a (click)="gotoUploadData()">
+            <img src="assets/icon/upziliao.png">
+            <p>上传资料</p>
+        </a>
+        <a (click)="gotoSelectOfficer()">
+            <img src="assets/icon/yuancheng.png">
+            <p>远程通讯</p>
+        </a>
+    </div>
+</ion-content>

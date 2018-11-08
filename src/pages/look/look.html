@@ -1,0 +1,202 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+
+    <div *ngFor="let x of FramMessage;let item=index">
+        <div class="top-box">
+            <p>
+                <span>承保员&emsp;</span>
+                <span>{{Chengbaoyuan}}</span>
+            </p>
+            <p>
+                <span>日期&emsp;</span>
+                <span>{{Time | date: 'yyyy-MM-dd'}}</span>
+            </p>
+        </div>
+        <div class="gary-box"></div>
+        <p class="titless" *ngIf="x.name.FramType=='1'">个人信息</p>
+        <p class="titless" *ngIf="x.name.FramType=='2'">单位信息</p>
+        <p class="titless" *ngIf="x.name.FramType=='3'">团体信息</p>
+        <div class="main-box">
+            <div>
+                <span>{{x.name.cwName==null?'姓名':'单位'}}</span>
+                <span>{{x.name.cwName==null?x.name.FramName:x.name.cwName}}</span>
+            </div>
+            <div>
+                <span>{{x.name.FramPeopleID==null?'统一社会信用代码':'身份证号码'}}</span>
+                <span>{{x.name.FramPeopleID==null?x.name.tyshxydm:x.name.FramPeopleID}}</span>
+            </div>
+            <div *ngIf="x.name.cwName!=null">
+                <span>所属机构的名称</span>
+                <span>{{x.name.cwName==null?x.name.hzsName:x.name.cwName}}</span>
+            </div>
+            <div>
+                <span>手机号</span>
+                <span>{{x.name.FramTel}}</span>
+            </div>
+            <div>
+                <span>银行卡号</span>
+                <span>{{x.name.banknum}}</span>
+            </div>
+            <div>
+                <span>开户行</span>
+                <span>{{x.name.FramBank}}</span>
+            </div>
+            <div>
+                <span>分行</span>
+                <span>{{x.name.branch}}</span>
+            </div>
+            <div>
+                <span>险种</span>
+                <span>{{x.name.insurancetype}}</span>
+            </div>
+            <div>
+                <span>保险产品</span>
+                <span>{{x.name.insuranceproname}}</span>
+            </div>
+            <div *ngIf="x.name.EarTarNum">
+                <span>标的数量</span>
+                <span>{{x.name.EarTarNum}}</span>
+            </div>
+            <div>
+                <span>起保时间</span>
+                <span>{{x.name.starttime | date: 'yyyy-MM-dd'}}</span>
+            </div>
+            <div>
+                <span>终保时间</span>
+                <span>{{x.name.endtime | date: 'yyyy-MM-dd'}}</span>
+            </div>
+            <div>
+                <span>与投保人关系</span>
+                <span>{{x.name.relationship}}</span>
+            </div>
+            <div>
+                <span>经营模式</span>
+                <span>{{x.name.management}}</span>
+            </div>
+            <div>
+                <span>争议处理方式</span>
+                <span>{{x.name.dispute}}</span>
+            </div>
+            <div>
+                <span>联系地址</span>
+                <span>{{x.name.addr==null?x.name.address:x.name.addr}}</span>
+            </div>
+            <div>
+                <span>定位信息</span>
+                <span>{{x.name.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="x.name.jgdmUrl==null">
+                    <p>身份证正面</p>
+                    <img src="{{x.name.FramIDFontUrl}}" (click)="look(x.name.FramIDFontUrl)">
+                </div>
+                <div class="float-lf" *ngIf="x.name.jgdmUrl==null">
+                    <p>身份证反面</p>
+                    <img src="{{x.name.FramIDBackUrl}}" (click)="look(x.name.FramIDBackUrl)">
+                </div>
+                <div class="float-lf" *ngIf="x.name.jgdmUrl!=null">
+                    <p>机构代码证</p>
+                    <img src="{{x.name.jgdmUrl}}" (click)="look(x.name.jgdmUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{x.name.BankCardUrl}}" (click)="look(x.name.BankCardUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>防疫资格证</p>
+                    <img src="{{x.name.fyzgzUrl}}" (click)="look(x.name.fyzgzUrl)">
+                </div>
+                <div class="float-lf" *ngFor="let k of other">
+                    <p>其他</p>
+                    <img src="{{k}}" (click)="look(k)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let s of FramChenMessage;let items=index">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span>
+                <span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span>
+                <span>{{s.name.AnimalType}}</span>
+            </div>
+            <div>
+                <span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span>
+                <span>{{s.name.Varieties}}</span>
+            </div>
+            <div *ngIf="s.name.parity!='null'&&s.name.parity!=null&&s.name.parity!=''">
+                <span>胎&emsp;&emsp;&emsp;&emsp;&emsp;次</span>
+                <span>{{s.name.parity}}</span>
+            </div>
+            <div *ngIf="s.name.AnimalAge!='null'&&s.name.AnimalAge!=null&&s.name.AnimalAge!=''">
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span>
+                <span>{{s.name.AnimalAge}}</span>
+            </div>
+            <div *ngIf="s.name.AnimalWeight!='null'&&s.name.AnimalWeight!=null&&s.name.AnimalWeight!=''">
+                <span>体&emsp;&emsp;&emsp;&emsp;&emsp;重</span>
+                <span>{{s.name.AnimalWeight}}</span>
+            </div>
+            <div>
+                <span>保&emsp;&emsp;&emsp;&emsp;&emsp;额</span>
+                <span>{{s.name.Insuredamount}}</span>
+            </div>
+            <div>
+                <span>费&emsp;&emsp;&emsp;&emsp;&emsp;率</span>
+                <span>{{s.name.rate}}</span>
+            </div>
+            <div>
+                <span>农户自缴保险费</span>
+                <span>{{s.name.SelfPayPremium}}</span>
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span>
+                <span>{{s.name.TotalPremium}}</span>
+            </div>
+            <div>
+                <span>养&emsp;殖&emsp;地&emsp;点</span>
+                <span>{{s.name.breedadd}}</span>
+            </div>
+            <div>
+                <span>养&emsp;殖&emsp;方&emsp;式</span>
+                <span>{{s.name.breedType=='1'?'散养':'规模化养殖'}}</span>
+            </div>
+            <div>
+                <span>坐&emsp;&emsp;&emsp;&emsp;&emsp;标</span>
+                <span>{{s.name.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.ImplantationSiteUrl}}" (click)="looks(s.name.ImplantationSiteUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.PositiveUrl}}" (click)="looks(s.name.PositiveUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.LeftUrl}}" (click)="looks(s.name.LeftUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.RightUrl}}" (click)="looks(s.name.RightUrl)">
+                </div>
+                <div class="float-lf" *ngFor="let h of s.name.OtherPicUrl?s.name.OtherPicUrl.split(','):[]">
+                    <p>其他</p>
+                    <img src="{{h}}" (click)="looks(h)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

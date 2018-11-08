@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>修改农户信息</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps></gps>
+    <div class="gary-box"></div>
+    <div class="puts-box">
+        <div class="put-box">
+            <span>所属区域</span>
+            <select [(ngModel)]="jurisdiction">
+                <option *ngFor="let list of jurisdictionList" value="{{list.id}}">{{list.Name}}</option>
+            </select>
+        </div>
+        <div class="put-box">
+            <span>姓名</span><input (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="Message.FramName" type="text" placeholder="请输入您的姓名">
+        </div>
+        <div class="put-box">
+            <span>联系方式</span><input (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="Message.FramTel" type="text" placeholder="请输入您的联系方式">
+        </div>
+        <div class="put-box">
+            <span>身份证号码</span><input (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="Message.FramPeopleID" type="text" placeholder="请输入您的身份证">
+        </div>
+        <div class="put-box">
+            <span>所属银行</span><input (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="Message.FramBank" type="text" placeholder="请输入您的所属银行">
+        </div>
+        <div class="over-box">
+            <div class="put-box no-bottom" >
+                <h4 (click)="cha(1)">x</h4>
+                <p></p>
+                <span>身份证正面</span>
+                <img src="{{Message.idfrontUrl}}" (click)="FrontCard()">
+            </div>
+            <div class="put-box no-bottom" >
+                <h4 (click)="cha(2)">x</h4>
+                <p></p>
+                <span>身份证背面</span>
+                <img src="{{Message.idbackUrl}}" (click)="FrontBack()">
+            </div>
+            <div class="put-box no-bottom" >
+                <h4 (click)="cha(3)">x</h4>
+                <p></p>
+                <span>银行卡</span>
+                <img src="{{Message.bankUrl}}" (click)="BankCard()">
+            </div>
+        </div>
+    </div>
+    <p class="tit">备注</p>
+    <textarea (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="BeiZhu" placeholder="请输入文字..."></textarea>
+</ion-content>
+<ion-footer [ngClass]="showBottom?'hide':''">
+    <ion-toolbar>
+        <div class="save-btn" (click)="saves()" >保存</div>
+    </ion-toolbar>
+</ion-footer>

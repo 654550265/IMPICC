@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>关于我们</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="header logo">
+        <div class="text-center padding">
+            <img src="assets/icon/logo.png" width="200">
+            <h4>智慧农保2.0</h4>
+            <p>版本号：{{version}}</p>
+        </div>
+    </div>
+    <div class="list">
+        <a class="checkVersion" (click)="checkUpdate()">
+            检测更新
+        </a>
+        <!-- <a class="item text-center assertive" ng-click="logout()">
+            退出
+        </a>-->
+    </div>
+    <p class="text-center">版权所有：江苏真源网络服务有限公司 </p>
+    <p class="text-center">CopyRight 2005-2018 All Right Reserved.</p>
+</ion-content>

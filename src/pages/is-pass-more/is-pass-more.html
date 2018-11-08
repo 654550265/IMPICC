@@ -1,0 +1,168 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let s of FramMessage;let indexs=index;">
+        <div class="gary-box"></div>
+        <p class="titless">农户信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">保&emsp;单&emsp;号</span><span>{{s.farmer.insuranceId}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">被 保 险 人</span><span>{{s.farmer.name}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">身 份 证 号</span><span>{{s.farmer.idCard}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">开&emsp;户&emsp;行</span><span>{{s.farmer.bankName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">银 行 账 号</span><span>{{s.farmer.bankAccount}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">账 户 形 式</span><span>{{s.farmer.accountType}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">起 保 时 间</span><span>{{s.farmer.startTime}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">终 保 时 间</span><span>{{s.farmer.endTime}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">报 案 日 期</span><span>{{s.farmer.reportDate}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">出 险 日 期</span><span>{{s.farmer.outDate}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">联 系 电 话</span><span>{{s.farmer.contactNumber}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">住&emsp;&emsp;&emsp;址</span><span>{{s.farmer.address}}</span>
+            </div>
+            <div *ngIf="s.farmer.remarks!=null&&s.farmer.remarks!=''">
+                <span style="margin-right: 0.7rem;">标 的 特 征</span><span>{{s.farmer.remarks}}</span>
+            </div>
+            <div *ngIf="s.farmer.GPS!=null">
+                <span style="letter-spacing: 0.4rem">定 位 信 息</span><span>{{s.farmer.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="img1!=''">
+                    <p>身份证正面</p>
+                    <img src="{{E+img1}}" (click)="looks(E+img1)">
+                </div>
+                <div class="float-lf" *ngIf="img2!=''">
+                    <p>身份证反面</p>
+                    <img src="{{E+img2}}" (click)="looks(E+img2)">
+                </div>
+                <div class="float-lf" *ngIf="img3!=''">
+                    <p>银行卡</p>
+                    <img src="{{E+img3}}" (click)="looks(E+img3)">
+                </div>
+                <div class="float-lf" *ngIf="img4!=''">
+                    <p>防疫资格证明</p>
+                    <img src="{{E+img4}}" (click)="looks(E+img4)">
+                </div>
+                <div class="float-lf" *ngIf="img5!=''">
+                    <p>机构代码证明</p>
+                    <img src="{{E+img5}}" (click)="looks(E+img5)">
+                </div>
+                <div class="float-lf" *ngFor="let x of img6">
+                    <p>兽医资格证</p>
+                    <img src="{{E+x}}" (click)="looks(E+x)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let lists of FramChenMessage;let items=index">
+        <div class="gary-box"></div>
+        <p class="titless">理赔信息</p>
+        <div class="main-box">
+            <div>
+                <span style="margin-right: 0.7rem;">被保险人身份证</span><span>{{FramMessage[0].farmer.idCard}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动物标签号</span><span>{{lists.AnimalId}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动 物 类 型</span><span>{{lists.AnimalTypeName}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">动 物 品 种</span><span>{{lists.AnimalVarietyName}}</span>
+            </div>
+            <div *ngIf="lists.AnimalAge!=null">
+                <span style="margin-right: 0.7rem;">年&emsp;&emsp;&emsp;龄</span><span>{{lists.AnimalAge}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">体&emsp;&emsp;&emsp;重</span><span>{{lists.AnimalWeight}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">单 位 保 额</span><span>{{lists.InsuranceAmount}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">核 定 金 额</span><span>{{lists.FinalMoney}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">查 勘 地 点</span><span>{{lists.FindAddress}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">防 疫 情 况</span><span>{{lists.FangyiType}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">死 亡 原 因</span><span>{{DieMessage[items]}}</span>
+            </div>
+            <div>
+                <span style="margin-right: 0.7rem;">无 害 处 理</span><span>{{lists.WuHaiHua}}</span>
+            </div>
+        </div>
+        <div class="tit">现场勘查图</div>
+        <div class="over-box">
+            <div class="put-box no-bottom" *ngFor="let s of allImg[items].Scene">
+                <p>&emsp;</p>
+                <span>现场勘查图</span>
+                <img src="{{E+s}}" (click)="looks(E+s)">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="tit">无害化处理</div>
+        <div class="over-box">
+            <div class="put-box no-bottom" *ngFor="let s of allImg[items].harm">
+                <p>&emsp;</p>
+                <span>无害化处理</span>
+                <img src="{{E+s}}" (click)="looks(E+s)">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="tit">死亡证明</div>
+        <div class="over-box">
+            <div class="put-box no-bottom">
+                <p>&emsp;</p>
+                <span>死亡证明</span>
+                <img src="{{E+allImg[items].Die}}" (click)="looks(E+allImg[items].Die)">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="tit" *ngIf="allImg[items].other.length>0">其他</div>
+        <div class="over-box" *ngIf="allImg[items].other.length>0">
+            <div class="put-box no-bottom" *ngFor="let s of allImg[items].other">
+                <p>&emsp;</p>
+                <span>其他</span>
+                <img src="{{E+s}}" (click)="looks(E+s)">
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</ion-content>

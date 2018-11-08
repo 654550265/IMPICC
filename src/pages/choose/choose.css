@@ -1,0 +1,30 @@
+page-choose {
+  background-color: #FFFFFF; }
+  page-choose .title-box {
+    width: 100%;
+    text-align: center;
+    color: #3ebab4;
+    font-size: 1.6rem;
+    margin-top: 2rem; }
+  page-choose .choose-who {
+    width: 90%;
+    margin: 2rem auto 0 auto;
+    padding: 2rem 0;
+    font-size: 1.8rem;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    color: #ccc;
+    border-radius: 5px; }
+    page-choose .choose-who img {
+      float: left;
+      height: 6rem;
+      margin-left: 1rem; }
+    page-choose .choose-who p {
+      margin-left: 1rem;
+      line-height: 6rem;
+      float: left; }
+  page-choose .choose-who.active {
+    border: 2px solid #3ebab4;
+    color: #3ebab4; }
+
+/*# sourceMappingURL=choose.css.map */

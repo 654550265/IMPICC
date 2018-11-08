@@ -1,0 +1,111 @@
+page-is-pass {
+  background-color: #F5F5F5; }
+  page-is-pass .slide-zoom {
+    height: 100%; }
+  page-is-pass .top-box {
+    width: 100%;
+    font-size: 1.6rem;
+    z-index: 99; }
+    page-is-pass .top-box a {
+      padding: 1rem 0;
+      display: inline-block;
+      color: #333;
+      width: 33%;
+      text-align: center;
+      border-bottom: 1px solid #999999; }
+    page-is-pass .top-box .active {
+      color: #3EBAB4;
+      border-bottom: 1px solid #3EBAB4; }
+  page-is-pass .box {
+    background: none;
+    width: 100%; }
+    page-is-pass .box .qianzi {
+      padding: 1rem 0;
+      z-index: 66; }
+  page-is-pass .title-box {
+    width: 100% !important;
+    background-color: #fff;
+    margin-top: 1rem;
+    padding: 10px 0; }
+    page-is-pass .title-box .title {
+      width: 94%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #EBEBED;
+      position: relative;
+      padding: 1.5rem 0;
+      background: none !important; }
+      page-is-pass .title-box .title img {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 0rem;
+        left: 1rem; }
+      page-is-pass .title-box .title span {
+        display: inline-block; }
+      page-is-pass .title-box .title span:first-child {
+        color: #3EBAB4;
+        margin-left: 3rem; }
+      page-is-pass .title-box .title span:nth-child(2) {
+        margin-left: 1rem; }
+      page-is-pass .title-box .title .del {
+        position: absolute;
+        top: -0.5rem;
+        right: 1rem;
+        background-color: red;
+        color: #fff;
+        height: 3rem;
+        line-height: 3.3rem;
+        padding: 0 1rem;
+        border-radius: 0.5rem; }
+    page-is-pass .title-box .message {
+      width: 94%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 1.2rem;
+      position: relative;
+      border-bottom: 1px solid #EBEBED;
+      padding-bottom: 1rem; }
+      page-is-pass .title-box .message p:first-child span:nth-child(2) {
+        margin-left: 0.2rem; }
+      page-is-pass .title-box .message p {
+        margin-top: 1rem; }
+        page-is-pass .title-box .message p span {
+          display: inline-block; }
+        page-is-pass .title-box .message p span:first-child {
+          color: #999; }
+        page-is-pass .title-box .message p span:nth-child(2) {
+          color: #333;
+          margin-left: 0.5rem; }
+      page-is-pass .title-box .message img {
+        position: absolute;
+        width: 35%;
+        top: 0;
+        right: 0; }
+    page-is-pass .title-box .no-pass-box {
+      width: 94%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 1.4rem; }
+      page-is-pass .title-box .no-pass-box p:first-child {
+        color: #f29018;
+        padding: 1rem 0; }
+      page-is-pass .title-box .no-pass-box p:nth-child(2) {
+        padding-bottom: 1rem; }
+  page-is-pass .Reason {
+    padding: 10px 15px;
+    overflow: hidden; }
+    page-is-pass .Reason .ReasonTitle {
+      color: #f0a321;
+      float: left; }
+    page-is-pass .Reason .ReasonContent {
+      float: left; }
+  page-is-pass h4 {
+    display: block;
+    width: 80%;
+    margin: 1rem auto 0 auto;
+    font-size: 1.4rem;
+    text-align: right; }
+
+/*# sourceMappingURL=is-pass.css.map */

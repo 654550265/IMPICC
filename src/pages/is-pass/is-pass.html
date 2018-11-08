@@ -1,0 +1,134 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>审核结果</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <div class="top-box">
+            <a *ngFor="let x of list;" [ngClass]="x.acv?'active':''" (click)="slide(x)">{{x.name}}</a>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-slides [pager]="false">
+        <!--已通过-->
+        <ion-slide>
+            <ion-content style="background-color: #f5f5f5;">
+                <div class="box">
+                    <div class="title-box" *ngFor="let s of Examine;let indexs=index" (click)="gotoYesPass(indexs)">
+                        <div class="title">
+
+                        </div>
+                        <div class="message">
+                            <p>
+                                <span>姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                                <span>{{s.Name}}</span>
+                            </p>
+                            <p>
+                                <span>身&emsp;份&emsp;证&emsp;号</span>
+                                <span>{{s.IdNumber}}</span>
+                            </p>
+                            <p>
+                                <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                                <span>{{s.CreateTime.split(' ')[0]}}</span>
+                            </p>
+                            <img src="assets/icon/yespass.png">
+                            <h4>理赔员 {{ChenName}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <p class="center-box" *ngIf="ishaveMessagess">暂无数据</p>
+                <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+            </ion-content>
+        </ion-slide>
+        <!--未通过-->
+        <ion-slide>
+            <ion-content style="background-color: #f5f5f5;">
+                <div class="box">
+                    <div class="title-box" *ngFor="let s of noPassArr;let indexs=index">
+                        <div class="title">
+                            <img src="{{s.acv?'assets/icon/acv_03.png':'assets/icon/acv_06.png'}}" (click)="choosePart(indexs)">
+                            <button class="del" (click)="gotoNoPass(indexs)">查看</button>
+                        </div>
+                        <div class="message" (click)="gotoNoPass(indexs)">
+                            <p>
+                                <span>姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                                <span>{{s.Name}}</span>
+                            </p>
+                            <p>
+                                <span>身&emsp;份&emsp;证&emsp;号</span>
+                                <span>{{s.IdNumber}}</span>
+                            </p>
+                            <p>
+                                <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                                <span>{{s.CreateTime.split(' ')[0]}}</span>
+                            </p>
+                            <h4>理赔员 {{ChenName}}</h4>
+                        </div>
+                        <div class="Reason" *ngIf="s.Reason" style="font-size: 1.2rem;">
+                            <div class="ReasonTitle">未通过原因：</div>
+                            <p class="ReasonContent">{{s.Reason}}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="center-box" *ngIf="ishaveMessagesss">暂无数据</p>
+                <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+            </ion-content>
+        </ion-slide>
+        <ion-slide>
+            <ion-content style="background-color: #f5f5f5;">
+                <div class="yunduan-box box">
+                    <div class="title-box" *ngFor="let x of localData;let indexss=index">
+                        <div class="title" style="padding: 1.5rem 0;">
+                            <img src="{{x.acv?'assets/icon/acv_03.png':'assets/icon/acv_06.png'}}" (click)="chooseParts(indexss)">
+                            <span class="qianzi" (click)="gotoConfirmedSignaturePage(indexss)" *ngIf="!canChange[indexss]" style="padding-top: 0;">生成理赔单</span>
+                            <button class="del" (click)="del(indexss)">删除</button>
+                        </div>
+                        <div class="message" (click)="gotoYes(indexss)">
+                            <p>
+                                <span>姓&emsp;&emsp;&emsp;&emsp;&emsp;名</span>
+                                <span>{{x.name.name}}</span>
+                            </p>
+                            <p>
+                                <span>身&emsp;份&emsp;证&emsp;号</span>
+                                <span>{{x.name.idCard}}</span>
+                            </p>
+                            <p>
+                                <span>日&emsp;&emsp;&emsp;&emsp;&emsp;期</span>
+                                <span>{{x.name.reportDate}}</span>
+                            </p>
+                            <h4>理赔员 {{ChenName}}</h4>
+                        </div>
+                        <img class="dingweiImg" src="assets/icon/bianji.png" (click)="gotoChangePage(indexss)" *ngIf="!canChange[indexss]">
+                        <div class="Reason" *ngIf="x.name.Reason" style="font-size: 1.2rem;">
+                            <div class="ReasonTitle">未通过原因：</div>
+                            <p class="ReasonContent">{{x.name.Reason}}</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="center-box" *ngIf="ishaveMessagessss">暂无数据</p>
+            </ion-content>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
+<ion-footer *ngIf="Stat!=0">
+    <ion-toolbar>
+        <div class="yunduan-bottom-box">
+            <div class="left">
+                <p class="yunduan-left-p" [ngClass]="isChooseAll?'active':''" (click)="chooseall(Stat)" *ngIf="Stat==1">全选</p>
+                <p class="yunduan-left-p" [ngClass]="isChooseAlls?'active':''" (click)="chooseall(Stat)" *ngIf="Stat==2">全选</p>
+                <p>以选中<span>{{Stat==1?num:num1}}</span>条数据</p>
+            </div>
+            <a class="right" (click)="DownLoad()" *ngIf="Stat==1">数据下载</a>
+            <a class="right" (click)="Downpop()" *ngIf="Stat==2">数据上传</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

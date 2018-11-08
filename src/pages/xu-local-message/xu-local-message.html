@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>本地续保数据</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="yunduan-box"  *ngFor="let x of All;let indexs=index" [ngClass]="x.active?'active':''">
+        <div class="title-box">
+            <p class="title" (click)="ChooseOneMessage(indexs)">农户&emsp;{{x.name.FramName}}</p>
+            <span class="qianzi" (click)="gotoXuQianZiPage(indexs)" [ngClass]="x.name.signUrl==''?'':'hide'">请确认签字</span>
+            <a class="del" (click)="delsss(indexs)">删除</a>
+        </div>
+        <div class="main-box" (click)="gotoXuLookPage(indexs)">
+            <p><span>姓名/单位</span><span>{{x.name.FramName}}</span></p>
+            <p><span>身份证号码</span><span>{{x.name.FramPeopleID}}</span></p>
+            <!--<p><span>定位信息</span><span>{{x.name.GPS}}</span></p>-->
+            <p><span>日期</span><span>{{(x.name.CreateTime).split(' ')[0]}}</span></p>
+            <h4>承保员&emsp;{{RealName}}</h4>
+        </div>
+        <!--<img class="dingweiImg" src="assets/icon/bianji.png" (click)="gotoXuXuChangePage(indexs)">-->
+    </div>
+    <p class="center-box" [ngClass]="isMessage?'':'hide'">本地暂无承保数据</p>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="yunduan-bottom-box" >
+            <div class="left">
+                <p class="yunduan-left-p" [ngClass]="isChooseAll?'active':''" (click)="chooseAll()">全选</p>
+                <p>以选中<span>{{num}}</span>条数据</p>
+            </div><a class="right" (click)="MessageUpData()">数据上传</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

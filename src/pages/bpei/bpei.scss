@@ -1,0 +1,38 @@
+page-bpei {
+    background-color: #FFFFFF;
+    ul,li,ol{
+        list-style: none;
+    }
+    .box{
+        overflow: hidden;
+        width:94%;
+        margin:0 auto;
+        padding:2%;
+        a{
+            float: left;
+            width:49%;
+            text-align: center;
+            padding:2rem 0;
+            img{
+                width:55%;
+            }
+            p{
+                margin-top:2rem;
+                color:#333;
+                font-size: 1.6rem;
+            }
+        }
+        a:nth-child(2) p{
+            margin-top:3.5rem;
+        }
+        a:nth-child(4) p{
+            margin-top:2.5rem;
+        }
+        .shengiqng{
+            margin-top:2.1rem;
+        }
+        .activated{
+            box-shadow: 0 0 5px #ccc;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+page-video {
+    a {
+        position: fixed;
+        bottom: 10%;
+        left: 50%;
+        margin-left: -25%;
+        display: block;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+    img {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+    a:active {
+        background-color: #d00d0d;
+    }
+    .over {
+        width: 50%;
+        background-color: red;
+    }
+    .waite {
+        color:#fff;
+        background-repeat: no-repeat;
+        background-size: 10rem 10rem;
+        background-position: center;
+        width: 12rem;
+        line-height: 12rem;
+        margin: 5rem auto 0 auto;
+        text-align: center;
+        font-size: 3rem;
+    }
+    p{
+        text-align: center;
+        color:#333;
+    }
+}

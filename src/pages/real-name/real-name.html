@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>实名认证</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="realName-box">
+        <p>所属区域</p>
+        <div class="select-box">
+            <select [(ngModel)]="province" (change)="provinceChange()">
+                <option *ngFor="let x of provinceList" value="{{x.id}}">{{x.name}}</option>
+            </select>
+            <select [(ngModel)]="city" (change)="cityChange()">
+                <option *ngFor="let z of cityList" value="{{z.id}}">{{z.name}}</option>
+            </select>
+            <select [(ngModel)]="area" (change)="areaChange()">
+                <option *ngFor="let a of areaList" value="{{a.id}}">{{a.name}}</option>
+            </select>
+            <select [(ngModel)]="village">
+                <option *ngFor="let b of villageList" value="{{b.id}}">{{b.name}}</option>
+            </select>
+        </div>
+        <p>姓名</p>
+        <input type="text" placeholder="请输入您的姓名" [(ngModel)]="realeName">
+        <p>身份证号码</p>
+        <input type="text" placeholder="请输入您的身份证号" [(ngModel)]="peopleID">
+        <p class="tishi">当认证信息通过后，不可再次修改！</p>
+        <img src="{{ImageObj1?ImgSrc1:'assets/icon/zhengmian.png'}}" (click)="photo()">
+        <img src="{{ImageObj2?ImgSrc2:'assets/icon/beimian.png'}}" (click)="photoFan()">
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <a href="javascript:;" class="save-btn" (click)="saveAndCheck()">保存并验证</a>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>帐号设置</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <a (click)="gotoBaoTelPage()">
+        <p>手机号</p>
+        <span [ngClass]="isTel?'green':'red'">{{isTel?'已绑定':'未绑定'}}</span>
+    </a>
+    <a (click)="gotoBaoChangePassWordPage()">
+        <p>修改登录密码</p>
+    </a>
+</ion-content>

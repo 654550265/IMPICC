@@ -1,0 +1,169 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>保险方案及标的信息采集</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps></gps>
+    <div class="gary-box"></div>
+    <div class="puts-box" style="margin-bottom: 0">
+        <div class="put-box">
+            <span>身份证/机构代码</span>
+            <select [(ngModel)]="data['FramPeopleId']" [compareWith]="peopeleId" (change)="FarmPeopleIdChange(data['FramPeopleId'])">
+                <option *ngFor="let x of farmlist" [ngValue]="x">{{x.FramPeopleID==null?x.tyshxydm:x.FramPeopleID}}
+                </option>
+            </select>
+        </div>
+        <div class="put-box pos-put-box">
+            <span>起始号段</span><input type="tel" placeholder="请输入动物的起始号段" (blur)="startBlur()" (focus)="unamefocus()" [(ngModel)]="data['StartAnimalIds']">
+        </div>
+        <div class="put-box pos-put-box">
+            <span>结束号段</span><input type="tel" placeholder="请输入动物的结束号段" (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="data['EndAnimalIds']">
+        </div>
+        <div class="put-box">
+            <span>类型</span>
+            <a href="javascript:;">{{data['AnimalTypes']}}</a>
+        </div>
+        <div class="put-box">
+            <span>品种</span>
+            <a href="javascript:;">{{data['VarietyNames']}}</a>
+        </div>
+        <div class="put-box" *ngIf="objects==undefined?false:objects.Variety=='11356728243392512'">
+            <span>胎次</span><input (blur)="taiciBlur()" (focus)="unamefocus()" [(ngModel)]="data['parity']"
+                                  type="tel"
+                                  placeholder="请输入动物的胎次">
+        </div>
+        <div class="put-box" *ngIf="isAnimalAge">
+            <span>畜龄</span><input (blur)="ageBlur()" (focus)="unamefocus()" [(ngModel)]="data['AnimalAge']"
+                                  type="tel"
+                                  placeholder="请输入动物的畜龄(单位：月)">
+        </div>
+        <div class="put-box" *ngIf="isAnimalWeight">
+            <span>体重</span><input (blur)="weightBlur()" (focus)="unamefocus()" [(ngModel)]="data['AnimalWeight']"
+                                  type="text"
+                                  placeholder="请输入动物的体重(单位：Kg)">
+        </div>
+        <div class="put-box">
+            <span>保额</span>
+            <input type="tel" *ngIf="beput" [(ngModel)]="data['Insuredamount']" (blur)="baoeBlur()"
+                   (focus)="unamefocus()">
+            <select [(ngModel)]="data['Insuredamount']" *ngIf="beselec" (change)="bechange(data['Insuredamount'])">
+                <option *ngFor="let j of SelfPremium" value="{{j}}">{{j}}</option>
+            </select>
+            <a href="javascript:;" *ngIf="bea">{{data['Insuredamount']}}</a>
+        </div>
+        <div class="put-box">
+            <span>费率</span>
+            <a href="javascript:;" class="fr txt-r"
+               *ngIf="(ratelist==undefined?false:ratelist).length==1">{{data['rate']}}</a>
+            <select [(ngModel)]="data['rate']" *ngIf="(ratelist==undefined?false:ratelist).length>1"
+                    (change)="flchange(data['rate'])">
+                <option *ngFor="let j of ratelist" value="{{j}}">{{j}}</option>
+            </select>
+        </div>
+        <div class="put-box" *ngIf="isExemption">
+            <span>免赔率</span>
+            <a href="javascript:;" *ngIf="isa" class="fr txt-r">{{data['Exemption']}}</a>
+            <input type="text" *ngIf="isput" placeholder="请输入免赔率" [(ngModel)]="data['Exemption']" value="{{data['Exemption']}}">
+        </div>
+        <div class="put-box">
+            <span>农户自交保费</span>
+            <a href="javascript:;" class="fr txt-r">{{data['SelfPayPremium']}}</a>
+        </div>
+        <div class="put-box">
+            <span>总保费</span>
+            <a class="fr txt-r" href="javascript:;">{{data['TotalPremium']}}</a>
+        </div>
+        <div class="put-box">
+            <span>养殖方式</span>
+            <select [(ngModel)]="data['breedTypesss']" [compareWith]="breedTypes">
+                <option *ngFor="let i of BreedType" [ngValue]="i">{{i.Name}}</option>
+            </select>
+        </div>
+        <div class="put-box">
+            <span>养殖地点</span>
+            <select [(ngModel)]="data['provice']" [compareWith]="provices">
+                <option *ngFor="let x of citylist" [ngValue]="x">{{x.name}}</option>
+            </select>
+        </div>
+        <div class="put-box">
+            <input class="input100 mar-top5" [(ngModel)]="data['moreAddr']" (blur)="unameBlur()" (focus)="unamefocus()"
+                   type="text" placeholder="请输入详细地址">
+        </div>
+    </div>
+    <div class="tit">动物资料上传 <span>(除"其它图片"外，其余图片为必传项)</span>
+        <img src="assets/icon/photo.png" (click)="gotoCameraPage()">
+    </div>
+    <div class="puts-box big-put-box-lh">
+        <p class="">群体动物</p>
+        <div class="put-box">
+            <h4 class="x" (click)="fa(1)">x</h4>
+            <p></p>
+            <span>照片一</span>
+            <img src="{{isimgOne?data['Animals1Url']:'assets/icon/pic-updata_03.png'}}" (click)="imgOne()">
+        </div>
+        <div class="put-box">
+            <h4 class="x" (click)="fa(2)">x</h4>
+            <p></p>
+            <span>照片二</span>
+            <img src="{{isimgTwo?data['Animals2Url']:'assets/icon/pic-updata_03.png'}}" (click)="imgTwo()">
+        </div>
+        <div class="put-box">
+            <h4 class="x" (click)="fa(3)">x</h4>
+            <p></p>
+            <span>照片三</span>
+            <img src="{{isimgThree?data['Animals3Url']:'assets/icon/pic-updata_03.png'}}" (click)="imgThree()">
+        </div>
+        <div class="other-box">
+            <h4 class="x" (click)="fa(4)">x</h4>
+            <h5></h5>
+            <span>其他图片</span>
+            <div class="other">
+                <img src="{{isOtherPic?data['AnimalsotherUrl'][0]:'assets/icon/pic-updata_03.png'}}"
+                     (click)="OtherC()">
+                <div class="bg" [ngClass]="isOtherPic?'':'hide'" (click)="OtherC()"></div>
+                <p [ngClass]="isOtherPic?'':'hide'" (click)="OtherC()">共{{OtherPicLen}}张</p>
+            </div>
+        </div>
+    </div>
+    <div class="puts-box big-put-box-lh" *ngFor="let x of UrlList;let indexs=index">
+        <input type="tel" class="animal-id" placeholder="请输入动物的耳标号" [(ngModel)]="x.AnimalID" (blur)="animalblur(indexs)">
+        <div class="put-box">
+            <h4 class="x" (click)="fas(1,indexs)">x</h4>
+            <p></p>
+            <span>照片一</span>
+            <img src="{{x['imgOne']?x['imgOne']:'assets/icon/pic-updata_03.png'}}"
+                 (click)="listimgone(indexs)">
+        </div>
+        <div class="put-box">
+            <h4 class="x" (click)="fas(2,indexs)">x</h4>
+            <p></p>
+            <span>照片二</span>
+            <img src="{{x['imgTwo']?x['imgTwo']:'assets/icon/pic-updata_03.png'}}"
+                 (click)="listimgtwo(indexs)">
+        </div>
+        <div class="put-box">
+            <h4 class="x" (click)="fas(3,indexs)">x</h4>
+            <p></p>
+            <span>照片三</span>
+            <img src="{{x['imgThree']?x['imgThree']:'assets/icon/pic-updata_03.png'}}" (click)="listimgthree(indexs)">
+        </div>
+        <div class="other-box">
+            <h4 class="x" (click)="fas(4,indexs)">x</h4>
+            <h5></h5>
+            <span>其他图片</span>
+            <div class="other">
+                <img src="{{x['OtherPicss']?x['OtherPicss'][0]:'assets/icon/pic-updata_03.png'}}" (click)="gotoother(indexs)">
+                <div class="bg" [ngClass]="(x['OtherPicss']==undefined?[]:x['OtherPicss']).length==0?'hide':''" (click)="gotoother(indexs)"></div>
+                <p [ngClass]="(x['OtherPicss']==undefined?[]:x['OtherPicss']).length==0?'hide':''" (click)="gotoother(indexs)">共{{(x['OtherPicss']==undefined?[]:x['OtherPicss']).length}}张</p>
+            </div>
+        </div>
+    </div>
+    <div class="add-list" (click)="addlll()">+</div>
+</ion-content>
+<ion-footer *ngIf="!showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveBtn()">保存</div>
+    </ion-toolbar>
+</ion-footer>

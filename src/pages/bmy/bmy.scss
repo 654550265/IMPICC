@@ -1,0 +1,66 @@
+$set:'set' 'tongxun' 'home-help' 'home-yijian' 'home-aboutus' 'bark-logout';
+$num:'1' '2' '3' '4' '5' '6';
+page-bmy {
+    background-color: #FFFFFF;
+    img{
+        display: block;
+    }
+    .top-box{
+        width:100%;
+        position: relative;
+        .name{
+            position: absolute;
+            top:50%;left:0;
+            color:#fff;
+            width:100%;
+            text-align: center;
+        }
+        .pic-box{
+            position: absolute;
+            left:50%;bottom:0;
+            background-color: #fff;
+            width:8rem;height:8rem;
+            margin-left:-4rem;
+            margin-bottom:-4rem;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border:3px solid #fff;
+        }
+    }
+    .my-list-box{
+        width:100%;
+        margin-top:2rem;
+        a{
+            display: block;
+            color:#333;
+            overflow: hidden;
+            span{
+                display: inline-block;
+                float: left;
+            }
+            span:first-child{
+                width:10%;
+                height:45px;
+                background-repeat: no-repeat;
+                background-size: 2rem 2rem;
+                background-position: 0 1rem;
+                margin-left:5%;
+            }
+            span:nth-child(2){
+                line-height: 45px;
+                width:85%;
+                font-size: 1.6rem;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        a:active{
+            background-color: #f5f5f5;
+        }
+        @for $i from 1 to 7{
+            a:nth-child(#{nth($num,$i)}) span:first-child{
+                background-image: url("../assets/icon/#{nth($set,$i)}.png");
+            }
+        }
+    }
+}

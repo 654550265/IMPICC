@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>修改登录密码</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="forget-box">
+        <p>旧密码</p>
+        <input type="password" class="forget-put" placeholder="请输入您的旧密码" [(ngModel)]="OldPwd">
+        <p>新密码</p>
+        <input type="password" class="forget-put" placeholder="请输入您的新密码" [(ngModel)]="NewPwd">
+        <p>确认密码</p>
+        <input type="password" class="forget-put" placeholder="请输入确认密码" [(ngModel)]="SurePwd">
+        <button class="forget-btn" (click)="SurePwdChange()">确认修改</button>
+    </div>
+</ion-content>

@@ -1,0 +1,112 @@
+page-choose-farm3 {
+  background-color: #FFFFFF; }
+  page-choose-farm3 .scroll-content {
+    padding-bottom: 44px; }
+  page-choose-farm3 .tit {
+    height: 4.4rem;
+    line-height: 4.4rem;
+    position: relative; }
+    page-choose-farm3 .tit img {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      top: 0.6rem;
+      right: 0; }
+  page-choose-farm3 img {
+    display: block; }
+  page-choose-farm3 .over-box {
+    height: 16.5rem;
+    margin-top: 1rem; }
+    page-choose-farm3 .over-box .no-bottom {
+      position: relative;
+      float: left;
+      width: 30%;
+      margin-right: 5%;
+      padding: 0;
+      height: 8rem;
+      overflow: inherit; }
+      page-choose-farm3 .over-box .no-bottom img {
+        height: 8rem;
+        width: 100%; }
+      page-choose-farm3 .over-box .no-bottom h4 {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 1.9rem;
+        right: -0.5rem;
+        top: -0.5rem;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        border-radius: 50%; }
+      page-choose-farm3 .over-box .no-bottom span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        line-height: 2rem;
+        background-image: none;
+        padding: 0;
+        width: 100%; }
+      page-choose-farm3 .over-box .no-bottom p {
+        height: 2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        opacity: .6; }
+    page-choose-farm3 .over-box .no-bottom:nth-child(3n+0) {
+      margin-right: 0; }
+  page-choose-farm3 textarea {
+    margin-bottom: 1rem; }
+  page-choose-farm3 .height-8 {
+    height: 8rem; }
+  page-choose-farm3 .other-box {
+    width: 30%;
+    float: left;
+    position: relative;
+    margin-top: 1.5rem;
+    height: 7rem; }
+    page-choose-farm3 .other-box .x {
+      background-color: #000;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 2rem;
+      line-height: 2rem;
+      font-size: 1.4rem;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      margin: 0;
+      z-index: 13; }
+    page-choose-farm3 .other-box h5 {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: .6;
+      width: 100%;
+      height: 2rem;
+      z-index: 10; }
+    page-choose-farm3 .other-box img {
+      width: 100%;
+      height: 7rem; }
+    page-choose-farm3 .other-box span {
+      position: absolute;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      z-index: 11; }
+  page-choose-farm3 .puts-box .put-box input {
+    width: 57%; }
+
+/*# sourceMappingURL=choose-farm3.css.map */

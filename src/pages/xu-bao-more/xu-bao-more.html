@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngFor="let s of Pin">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><span>{{s.name.AnimalTypeName}}</span>
+            </div>
+            <div>
+                <span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span><span>{{s.name.AnimalVarietyName}}</span>
+            </div>
+            <div *ngIf="s.name.AnimalAge!='undefined'">
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><span>{{s.name.AnimalAge}}</span>
+            </div>
+            <div *ngIf="s.name.AnimalWeight!='undefined'">
+                <span>体&emsp;&emsp;&emsp;&emsp;&emsp;重</span><span>{{s.name.AnimalWeight}}</span>
+            </div>
+            <div>
+                <span>养&emsp;殖&emsp;方&emsp;式</span><span>{{s.name.BreedType==1?'散养':'规模化养殖'}}</span>
+            </div>
+            <div>
+                <span>保&emsp;&emsp;&emsp;&emsp;&emsp;额</span><span>{{s.name.InsuranceAmount}}</span>
+            </div>
+            <div>
+                <span>费&emsp;&emsp;&emsp;&emsp;&emsp;率</span><span>{{s.name.InsuranceRate}}</span>
+            </div>
+            <div>
+                <span>农户自缴保险费</span><span>{{s.name.SelfPayPremium}}</span>
+            </div>
+            <div>
+                <span>总&emsp;&emsp;保&emsp;&emsp;费</span><span>{{s.name.TotalPremium}}</span>
+            </div>
+            <div>
+                <span>地&emsp;&emsp;&emsp;&emsp;&emsp;址</span><span>{{s.name.BreedAddress}}</span>
+            </div>
+            <!--<div>-->
+            <!--<span>坐&emsp;&emsp;&emsp;&emsp;&emsp;标</span><span>{{s.name.GPS}}</span>-->
+            <!--</div>-->
+            <div class="float-box" *ngIf="s.name.otherUrl">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.positonUrl}}" (click)="checkPic(s.name.positonUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.frontUrl}}" (click)="checkPic(s.name.frontUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.leftUrl}}" (click)="checkPic(s.name.leftUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.rightUrl}}" (click)="checkPic(s.name.rightUrl)">
+                </div>
+                <div class="float-lf" *ngFor="let x of s.name.otherUrl">
+                    <p>其他</p>
+                    <img src="{{x}}" (click)="checkPic(x)">
+                </div>
+            </div>
+            <div class="float-box" *ngIf="!s.name.otherUrl">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.positonUrl}}" (click)="checkPic(s.name.positonUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.frontUrl}}" (click)="checkPic(s.name.frontUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.leftUrl}}" (click)="checkPic(s.name.leftUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.rightUrl}}" (click)="checkPic(s.name.rightUrl)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

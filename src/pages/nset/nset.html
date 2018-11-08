@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>账号设置</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="box">
+        <p>姓名： {{names}}</p>
+        <span class="green">已实名认证</span>
+    </div>
+    <a (click)="gotoNtelPage()">
+        <p>手机号</p>
+        <span class="green">已绑定</span>
+    </a>
+    <a (click)="gotoRealNamePage()">
+        <p>实名认证</p>
+    </a>
+    <a (click)="gotoNchangePassWordPage()">
+        <p>修改登录密码</p>
+    </a>
+</ion-content>

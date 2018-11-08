@@ -1,0 +1,184 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box" *ngIf="list">
+        <p>
+            <span>承保员&emsp;</span><span>{{list.HandlePerson}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div *ngIf="list">
+        <div class="gary-box"></div>
+        <div>
+            <p class="titless">农户信息</p>
+            <div class="main-box">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">承保员</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.HandlePerson}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">姓名</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.FramName}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">联系方式</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.FramTel}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">身份证号码</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.FramPeopleID}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">所属银行</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.FramBank}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">所属分行</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.Branch}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">地址</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.FramLocation}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="list.BankAccount">
+                        <ion-col col-4 class="attrName">银行卡号</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.BankAccount}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">业务性质</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.InsuraceType.split(',')[1]}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">保险产品</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.InsuraceProject.split(',')[1]}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">起保时间</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.StartTime}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">终保时间</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.EndTime}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">与承保人关系</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.RelationShip.split(',')[1]}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="list.coppPercent!=0">
+                        <ion-col col-4 class="attrName">所占比例</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.coppPercent}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">经营模式</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.BusinessModel.split(',')[1]}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">争议处理方式</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.DisputeName}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="list.Appointment">
+                        <ion-col col-4 class="attrName">特别约定</ion-col>
+                        <ion-col col-8 class="attrValue">{{list.Reason}}</ion-col>
+                    </ion-row>
+                </ion-grid>
+                <div class="float-box">
+                    <div class="float-lf">
+                        <p>身份证正面</p>
+                        <img src="{{imgUrl+list.idfrontUrl.ImgUrl}}" (click)="checkPic(imgUrl+list.idfrontUrl.ImgUrl)">
+                    </div>
+                    <div class="float-lf">
+                        <p>身份证反面</p>
+                        <img src="{{imgUrl+list.idbackUrl.ImgUrl}}" (click)="checkPic(imgUrl+list.idbackUrl.ImgUrl)">
+                    </div>
+                    <div class="float-lf">
+                        <p>银行卡</p>
+                        <img src="{{imgUrl+list.bankUrl.ImgUrl}}" (click)="checkPic(imgUrl+list.bankUrl.ImgUrl)">
+                    </div>
+                </div>
+                <div class="float-box">
+                    <div class="float-lf">
+                        <p>防疫资格证</p>
+                        <img src="{{imgUrl+list.VaccinationCertificateImg.ImgUrl}}" (click)="checkPic(imgUrl+list.VaccinationCertificateImg.ImgUrl)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let s of Pin">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-6 class="attrName">动物标签号</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.AnimalId}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">类型</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.AnimalTypeName}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">品种</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.AnimalVarietyName}}</ion-col>
+                </ion-row>
+                <ion-row *ngIf="s.AnimalAge">
+                    <ion-col col-6 class="attrName">畜龄</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.AnimalAge}}</ion-col>
+                </ion-row>
+                <ion-row *ngIf="s.AnimalWeight">
+                    <ion-col col-6 class="attrName">体重</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.AnimalWeight}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">保额</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.InsuranceAmount}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">费率</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.InsuranceRate}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">农户自缴保险费</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.SelfPayPremium}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">总费用</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.TotalPremium}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">养殖方式</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.breedType == "1" ? "散养" : "规模化养殖"}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 class="attrName">养殖地点</ion-col>
+                    <ion-col col-6 class="attrValue">{{s.BreedAddress}}</ion-col>
+                </ion-row>
+            </ion-grid>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{imgUrl+s.positonUrl.ImgUrl}}" (click)="checkPic(imgUrl+s.positonUrl.ImgUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{imgUrl+s.frontUrl.ImgUrl}}" (click)="checkPic(imgUrl+s.frontUrl.ImgUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{imgUrl+s.leftUrl.ImgUrl}}" (click)="checkPic(imgUrl+s.leftUrl.ImgUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{imgUrl+s.rightUrl.ImgUrl}}" (click)="checkPic(imgUrl+s.rightUrl.ImgUrl)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

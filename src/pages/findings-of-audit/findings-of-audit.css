@@ -1,0 +1,120 @@
+page-findings-of-audit {
+  background-color: #F5F5F5; }
+  page-findings-of-audit .slide-zoom {
+    height: 100%; }
+  page-findings-of-audit .top-box {
+    width: 100%;
+    font-size: 1.6rem;
+    z-index: 99; }
+    page-findings-of-audit .top-box a {
+      padding: 1rem 0;
+      display: inline-block;
+      color: #333;
+      width: 33.33%;
+      text-align: center;
+      border-bottom: 1px solid #999999; }
+    page-findings-of-audit .top-box .active {
+      color: #3EBAB4;
+      border-bottom: 1px solid #3EBAB4; }
+  page-findings-of-audit .box {
+    width: 100%;
+    margin-bottom: 5rem; }
+  page-findings-of-audit .title-box {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 1rem; }
+    page-findings-of-audit .title-box .title {
+      width: 94%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 1.4rem;
+      padding: 1.5rem 0 1.5rem 3.5rem;
+      border-bottom: 1px solid #EBEBED;
+      position: relative; }
+      page-findings-of-audit .title-box .title img {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 1.3rem;
+        left: 0; }
+      page-findings-of-audit .title-box .title .dingweiImg {
+        left: inherit;
+        right: 0; }
+      page-findings-of-audit .title-box .title span {
+        display: inline-block; }
+      page-findings-of-audit .title-box .title span:first-child {
+        color: #3EBAB4; }
+      page-findings-of-audit .title-box .title span:nth-child(2) {
+        margin-left: 1rem; }
+      page-findings-of-audit .title-box .title .del {
+        position: absolute;
+        top: 0.5rem;
+        right: 0;
+        background-color: red;
+        color: #fff;
+        height: 3rem;
+        line-height: 3.3rem;
+        padding: 0 1rem;
+        border-radius: 0.5rem; }
+      page-findings-of-audit .title-box .title.noselect {
+        padding-left: 0; }
+    page-findings-of-audit .title-box .message {
+      width: 94%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 1.2rem;
+      position: relative;
+      border-bottom: 1px solid #EBEBED;
+      padding-bottom: 1rem;
+      position: relative; }
+      page-findings-of-audit .title-box .message p:first-child span:nth-child(2) {
+        margin-left: 0.2rem; }
+      page-findings-of-audit .title-box .message p {
+        margin-top: 1rem; }
+        page-findings-of-audit .title-box .message p span {
+          width: 32%;
+          display: inline-block; }
+        page-findings-of-audit .title-box .message p span:first-child {
+          color: #999; }
+        page-findings-of-audit .title-box .message p span:nth-child(2) {
+          width: 65%;
+          color: #333;
+          margin-left: 0.5rem; }
+      page-findings-of-audit .title-box .message img {
+        position: absolute;
+        width: 35%;
+        top: 0;
+        right: 0; }
+      page-findings-of-audit .title-box .message h4 {
+        display: block;
+        width: 80%;
+        margin: 1rem auto 0 auto;
+        font-size: 1.4rem;
+        text-align: right; }
+    page-findings-of-audit .title-box .no-pass-box {
+      width: 94%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 1.4rem; }
+      page-findings-of-audit .title-box .no-pass-box p:first-child {
+        color: #f29018;
+        padding: 1rem 0; }
+      page-findings-of-audit .title-box .no-pass-box p:nth-child(2) {
+        padding-bottom: 1rem; }
+  page-findings-of-audit .Reason {
+    padding: 10px 15px; }
+    page-findings-of-audit .Reason .ReasonTitle {
+      color: #f0a321; }
+    page-findings-of-audit .Reason .ReasonContent {
+      padding: 10px 0 10px 30px; }
+  page-findings-of-audit .qianzi {
+    float: right;
+    margin-right: 6rem;
+    color: #FF8200; }
+  page-findings-of-audit .dingweiImg {
+    position: absolute;
+    width: 4rem;
+    top: 7rem;
+    right: 5%; }
+
+/*# sourceMappingURL=findings-of-audit.css.map */

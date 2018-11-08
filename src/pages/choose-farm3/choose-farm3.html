@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>分户信息录入</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <form novalidate (ngSubmit)="onSubmit(farmer)" [formGroup]="farmer">
+        <div class="gary-box"></div>
+        <gps></gps>
+        <div class="gary-box"></div>
+        <div class="puts-box">
+            <div class="put-box">
+                <span>所属团体</span>
+                <select formControlName="qiyeGuid">
+                    <option *ngFor="let x of teamlist" value="{{x.FramGuid}}">{{x.FramName}}</option>
+                </select>
+            </div>
+            <div class="put-box">
+                <span>姓名</span>
+                <input formControlName="FramName" type="text" placeholder="请输入姓名">
+            </div>
+            <div class="put-box put-ocr">
+                <span>身份证号码</span>
+                <input class="pad-rig-25" formControlName="FramPeopleID" type="text" placeholder="请输入身份证号码">
+                <ion-icon class="ocr" name="camera" (click)="OCR('FramPeopleID')"></ion-icon>
+            </div>
+            <div class="put-box">
+                <span>联系方式</span>
+                <input formControlName="FramTel" type="text" placeholder="请输入联系方式">
+            </div>
+            <div class="put-box">
+                <span>标的数量</span>
+                <input formControlName="EarTarNum" type="tel" placeholder="请输入标的数量">
+            </div>
+            <div class="put-box put-ocr">
+                <span>银行卡号</span>
+                <input class="pad-rig-25" formControlName="banknum" type="text" placeholder="请输入银行卡号">
+                <ion-icon class="ocr" name="camera" (click)="OCR('banknum')"></ion-icon>
+            </div>
+            <div class="put-box">
+                <span>开户银行</span>
+                <input formControlName="FramBank" type="text" placeholder="请输入所属银行">
+            </div>
+            <div class="put-box">
+                <span class="nobixu">所属分行</span>
+                <input formControlName="branch" type="text" placeholder="请输入所属分行">
+            </div>
+            <p class="tit">证明文件上传
+                <img src="assets/icon/photo.png" (click)="gotoCameraPage()">
+            </p>
+            <div class="over-box">
+                <div class="put-box no-bottom">
+                    <h4 class="x" (click)="deletePhoto('FramIDFontUrl')">x</h4>
+                    <p>&emsp;</p>
+                    <span>身份证正面</span>
+                    <img src="{{farmer.value.FramIDFontUrl?farmer.value.FramIDFontUrl:'assets/icon/pic-updata_03.png'}}" (click)="choosePhoto('FramIDFontUrl')">
+                </div>
+                <div class="put-box no-bottom">
+                    <h4 class="x" (click)="deletePhoto('FramIDBackUrl')">x</h4>
+                    <p>&emsp;</p>
+                    <span>身份证背面</span>
+                    <img src="{{farmer.value.FramIDBackUrl?farmer.value.FramIDBackUrl:'assets/icon/pic-updata_03.png'}}" (click)="choosePhoto('FramIDBackUrl')">
+                </div>
+                <div class="put-box no-bottom">
+                    <h4 class="x" (click)="deletePhoto('BankCardUrl')">x</h4>
+                    <p>&emsp;</p>
+                    <span>银行卡账号</span>
+                    <img src="{{farmer.value.BankCardUrl?farmer.value.BankCardUrl:'assets/icon/pic-updata_03.png'}}" (click)="choosePhoto('BankCardUrl')">
+                </div>
+                <div class="other-box">
+                    <h4 class="x" (click)="deletePhoto('OtherPicUrl')">x</h4>
+                    <h5></h5>
+                    <span>其他图片</span>
+                    <div class="other">
+                        <img src="{{farmer.value.OtherPicUrl.length > 0?farmer.value.OtherPicUrl[0]:'assets/icon/pic-updata_03.png'}}" (click)="OtherC()">
+                        <div class="bg" [ngClass]="farmer.value.OtherPicUrl.length > 0?'':'hide'" (click)="OtherC()"></div>
+                        <p [ngClass]="farmer.value.OtherPicUrl.length > 0?'':'hide'" (click)="OtherC()">共{{farmer.value.OtherPicUrl.length}}张</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="tit">证明文件上传</p>
+        <div class="puts-box height-8">
+            <div class="over-box">
+                <div class="put-box no-bottom">
+                    <h4 class="x" (click)="deletePhoto('fyzgzUrl')">x</h4>
+                    <p>&emsp;</p>
+                    <span>防疫资格证</span>
+                    <img src="{{farmer.value.fyzgzUrl?farmer.value.fyzgzUrl:'assets/icon/pic-updata_03.png'}}" (click)="choosePhoto('fyzgzUrl')">
+                </div>
+            </div>
+        </div>
+        <p class="tit">备注</p>
+        <textarea formControlName="Remarks" placeholder="请输入文字..."></textarea>
+        <div class="saveFooter">
+            <button class="submit" type="submit" [disabled]="!farmer.valid">保存</button>
+        </div>
+    </form>
+</ion-content>

@@ -1,0 +1,283 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>被保险人信息录入</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps></gps>
+    <div class="gary-box"></div>
+    <form novalidate (ngSubmit)="onSubmit(farmer)" [formGroup]="farmer">
+        <div class="bg-white">
+
+            <div class="zhengjian">
+                <a><span>*</span>保单号</a>
+                <select formControlName="insuranceId" (change)="chooseBaoDan()">
+                    <option *ngFor="let s of InsuredF.BaoDan" [ngValue]="s.name.insuranceId">{{s.name.insuranceId}}
+                    </option>
+                </select>
+                <input type="text" placeholder="请输入或选择保单号" formControlName="insuranceId">
+            </div>
+            <div class="zhengjian">
+                <a style="width: 30%;"><span>*</span>被保险人</a>
+                <input type="text" placeholder="请输入被保险人或单位名称" class="fr txt-r" formControlName="name" style="width: 60%;">
+                <select formControlName="name" (change)="chooseName()" *ngIf="InsuredF.canChooseName">
+                    <option *ngFor="let s of InsuredF.BaoNameList" [ngValue]="s.FramName">{{s.FramName}}
+                    </option>
+                </select>
+                <!--<a href="javascript:void(0);" class="fr txt-r" *ngIf="!InsuredF.canChooseName">{{InsuredF.name}}</a>-->
+            </div>
+            <div class="zhengjian">
+                <a style="width: 40%;"><span>*</span>身份证或机构代码</a>
+                <!--<a href="javascript:void(0);" class="fr txt-r" *ngIf="!InsuredF.canPeopleId">{{InsuredF.idCard}}</a>-->
+                <input style="width: 60%;" type="text" placeholder="请输入身份证或机构代码" class="fr txt-r" formControlName="idCard" class="fr txt-r">
+                <ion-icon class="ocr" name="camera" (click)="OCR('FramPeopleID',2)"></ion-icon>
+                <select formControlName="idCard" (change)="chooseIdCard()" *ngIf="InsuredF.canPeopleId">
+                    <option *ngFor="let s of InsuredF.peopleArr" [ngValue]="s.FramPeopleID">{{s.FramPeopleID}}
+                    </option>
+                </select>
+            </div>
+            <div class="zhengjian">
+                <a style="width: 15%;"><span>*</span>住址</a>
+                <input type="text" placeholder="请输入您的住址" (blur)="unameBlur()" (focus)="unamefocus()"
+                       formControlName="address" style="width: 75%">
+            </div>
+            <div class="zhengjian">
+                <a style="width: 35%;"><span>*</span>银行卡号</a>
+                <input class="pad-rig-25" type="text" placeholder="请输入您的银行卡账号" (blur)="unameBlur()" (focus)="unamefocus()" formControlName="bankAccount" style="width: 60%;">
+                <ion-icon class="ocr" name="camera" (click)="OCR('banknum',3)"></ion-icon>
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>开户银行</a>
+                <input type="text" placeholder="请输入您的开户行" (blur)="unameBlur()" (focus)="unamefocus()"
+                       formControlName="bankName">
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>账户形式</a>
+                <select formControlName="accountType" (change)="chooseZhangHu()" style="width: 35%;">
+                    <option *ngFor="let s of InsuredF.zhangHu" value="{{s}}">{{s}}<br/>
+                    </option>
+                </select>
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>联系电话</a>
+                <input type="text" placeholder="请输入您的联系电话" (blur)="unameBlur()" (focus)="unamefocus()"
+                       formControlName="contactNumber">
+            </div>
+            <div class="zhengjian">
+                <a style="width: 30%;"><span>*</span>保险期间</a>
+                <!--<a href="javascript:void(0);" class="fr txt-r" style="width: 70%;">{{InsuredF.startTime+'/'+InsuredF.endTime}}</a>-->
+                <div class="during" style="width: 70%;float: right;">
+                    <span style="float: right;line-height: 4.5rem;" (click)="chooseTime(1)">{{farmer.value.endTime?farmer.value.endTime:'请选择终保时间'}}</span>
+                    <span style="float: right;margin-top: 13px;">/</span>
+                    <span style="float: right;line-height: 4.5rem;" (click)="chooseTime(2)">{{farmer.value.startTime?farmer.value.startTime:'请选择始保时间'}}</span>
+                </div>
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>报案号</a>
+                <input type="text" placeholder="请输入报案号" (blur)="unameBlur()" (focus)="unamefocus()"
+                       formControlName="BanNum">
+            </div>
+            <div class="zhengjian" (click)="choosedate()">
+                <a><span>*</span>报案日期</a>
+                <a class="fr txt-r">{{farmer.value.reportDate?farmer.value.reportDate:'请选择报案日期'}}</a>
+            </div>
+            <div class="zhengjian" (click)="chooseCxdate()">
+                <a><span>*</span>出险日期</a>
+                <a class="fr txt-r">{{farmer.value.outDate?farmer.value.outDate:'请选择出险日期'}}</a>
+            </div>
+        </div>
+        <div class="tit" style="position:relative;line-height: 3rem;">农户资料上传<img src="assets/icon/photo.png" style="position: absolute;width: 3rem;height: 3rem;top: 0.6rem;right: 0.6rem;" (click)="gotoCameraPage()"></div>
+        <div class="over-box">
+            <div class="put-box no-bottom">
+                <h4 class="x" (click)="fa(1)">x</h4>
+                <p>&emsp;</p>
+                <span>身份证正面</span>
+                <img src="{{InsuredF.isFontCard?farmer.value.FramIDFont:'assets/icon/pic-updata_03.png'}}" (click)="looks(1)">
+            </div>
+            <div class="put-box no-bottom" *ngIf="farmer.value.FramIDBack!=null">
+                <h4 class="x" (click)="fa(2)">x</h4>
+                <p>&emsp;</p>
+                <span>身份证反面</span>
+                <img src="{{InsuredF.isBackCard?farmer.value.FramIDBack:'assets/icon/pic-updata_03.png'}}" (click)="looks(2)">
+            </div>
+            <div class="put-box no-bottom" *ngIf="farmer.value.VaccinationCertificateImg!=null">
+                <h4 class="x" (click)="fa(4)">x</h4>
+                <p>&emsp;</p>
+                <span>防疫资格证</span>
+                <img
+                    src="{{InsuredF.isVaccinationCertificateImg?farmer.value.VaccinationCertificateImg:'assets/icon/pic-updata_03.png'}}"
+                    (click)="looks(4)">
+            </div>
+            <div class="put-box no-bottom" *ngIf="farmer.value.InstitutionCodeImg!=null">
+                <h4 class="x" (click)="fa(5)">x</h4>
+                <p>&emsp;</p>
+                <span>组织机构代码</span>
+                <img src="{{InsuredF.isInstitutionCodeImg?farmer.value.InstitutionCodeImg:'assets/icon/pic-updata_03.png'}}"
+                     (click)="looks(5)">
+            </div>
+            <div class="put-box no-bottom" *ngIf="farmer.value.BankCardImg!=null">
+                <h4 class="x" (click)="fa(3)">x</h4>
+                <p>&emsp;</p>
+                <span>银行卡</span>
+                <img src="{{InsuredF.isBackCardF?farmer.value.BankCardImg:'assets/icon/pic-updata_03.png'}}" (click)="looks(3)">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="tit" style="position:relative;line-height: 3rem;">兽医资格证上传<img src="assets/icon/photo.png" style="position: absolute;width: 3rem;height: 3rem;top: 0.6rem;right: 0.6rem;" (click)="gotoCameraPage()"></div>
+        <div class="puts-box">
+            <div class="other-box">
+                <h4 class="x" (click)="fa(6)">x</h4>
+                <h5></h5>
+                <span>兽医资格证</span>
+                <div class="other">
+                    <img
+                        src="{{InsuredF.isOtherPic?farmer.value.vaccinationCertificateImgs[0]:'assets/icon/pic-updata_03.png'}}"
+                        (click)="OtherC()">
+                    <div class="bg" [ngClass]="InsuredF.isOtherPic?'':'hide'" (click)="OtherC()"></div>
+                    <p [ngClass]="InsuredF.isOtherPic?'':'hide'" (click)="OtherC()">共{{InsuredF.OtherPicLen}}张</p>
+                </div>
+            </div>
+        </div>
+        <p class="tit">标的特征</p>
+        <textarea (blur)="unameBlur()" (focus)="unamefocus()" formControlName="remarks"
+                  placeholder="请输入文字..."></textarea>
+        <!--<button ion-button type="submit" [disabled]="!farmer.valid">Submit</button>-->
+    </form>
+        <!--<div class="zhengjian">-->
+            <!--<a><span>*</span>保单号</a>-->
+            <!--<select [(ngModel)]="InsuredF.insuranceId" (change)="chooseBaoDan()">-->
+                <!--<option *ngFor="let s of InsuredF.BaoDan" value="{{s.name.insuranceId}}">{{s.name.insuranceId}}-->
+                <!--</option>-->
+            <!--</select>-->
+            <!--<input type="text" placeholder="请输入或选择保单号" [(ngModel)]="InsuredF.insuranceId">-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a style="width: 30%;"><span>*</span>被保险人</a>-->
+            <!--<input type="text" placeholder="请输入被保险人或单位名称" class="fr txt-r" [(ngModel)]="InsuredF.name" style="width: 60%;">-->
+            <!--<select [(ngModel)]="InsuredF.name" (change)="chooseName()" *ngIf="InsuredF.canChooseName">-->
+                <!--<option *ngFor="let s of InsuredF.BaoNameList" value="{{s.FramName}}">{{s.FramName}}-->
+                <!--</option>-->
+            <!--</select>-->
+            <!--&lt;!&ndash;<a href="javascript:void(0);" class="fr txt-r" *ngIf="!InsuredF.canChooseName">{{InsuredF.name}}</a>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a style="width: 40%;"><span>*</span>身份证或机构代码</a>-->
+            <!--&lt;!&ndash;<a href="javascript:void(0);" class="fr txt-r" *ngIf="!InsuredF.canPeopleId">{{InsuredF.idCard}}</a>&ndash;&gt;-->
+            <!--<input style="width: 60%;" type="text" placeholder="请输入身份证或机构代码" class="fr txt-r" [(ngModel)]="InsuredF.idCard" class="fr txt-r">-->
+            <!--<ion-icon class="ocr" name="camera" (click)="OCR('FramPeopleID',2)"></ion-icon>-->
+            <!--<select [(ngModel)]="InsuredF.idCard" (change)="chooseIdCard()" *ngIf="InsuredF.canPeopleId">-->
+                <!--<option *ngFor="let s of InsuredF.peopleArr" value="{{s.FramPeopleID}}">{{s.FramPeopleID}}-->
+                <!--</option>-->
+            <!--</select>-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a style="width: 15%;"><span>*</span>住址</a>-->
+            <!--<input type="text" placeholder="请输入您的住址" (blur)="unameBlur()" (focus)="unamefocus()"-->
+                   <!--[(ngModel)]="InsuredF.address" style="width: 75%">-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a style="width: 35%;"><span>*</span>银行卡号</a>-->
+            <!--<input class="pad-rig-25" type="text" placeholder="请输入您的银行卡账号" (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="InsuredF.bankAccount" style="width: 60%;">-->
+            <!--<ion-icon class="ocr" name="camera" (click)="OCR('banknum',3)"></ion-icon>-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a><span>*</span>开户银行</a>-->
+            <!--<input type="text" placeholder="请输入您的开户行" (blur)="unameBlur()" (focus)="unamefocus()"-->
+                   <!--[(ngModel)]="InsuredF.bankName">-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a><span>*</span>账户形式</a>-->
+            <!--<select [(ngModel)]="InsuredF.accountType" (change)="chooseZhangHu()" style="width: 35%;">-->
+                <!--<option *ngFor="let s of InsuredF.zhangHu" value="{{s}}">{{s}}<br/>-->
+                <!--</option>-->
+            <!--</select>-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a><span>*</span>联系电话</a>-->
+            <!--<input type="text" placeholder="请输入您的联系电话" (blur)="unameBlur()" (focus)="unamefocus()"-->
+                   <!--[(ngModel)]="InsuredF.contactNumber">-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a style="width: 30%;"><span>*</span>保险期间</a>-->
+            <!--&lt;!&ndash;<a href="javascript:void(0);" class="fr txt-r" style="width: 70%;">{{InsuredF.startTime+'/'+InsuredF.endTime}}</a>&ndash;&gt;-->
+            <!--<div class="during" style="width: 70%;float: right;">-->
+                <!--<span style="float: right;line-height: 4.5rem;" (click)="chooseTime(1)">{{InsuredF.endTime}}</span>-->
+                <!--<span style="float: right;margin-top: 13px;">/</span>-->
+                <!--<span style="float: right;line-height: 4.5rem;" (click)="chooseTime(2)">{{InsuredF.startTime}}</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="zhengjian">-->
+            <!--<a><span>*</span>报案号</a>-->
+            <!--<input type="text" placeholder="请输入报案号" (blur)="unameBlur()" (focus)="unamefocus()"-->
+                   <!--[(ngModel)]="InsuredF.BanNum">-->
+        <!--</div>-->
+        <!--<div class="zhengjian" (click)="choosedate()">-->
+            <!--<a><span>*</span>报案日期</a>-->
+            <!--<a class="fr txt-r">{{InsuredF.reportDate}}</a>-->
+        <!--</div>-->
+        <!--<div class="zhengjian" (click)="chooseCxdate()">-->
+            <!--<a><span>*</span>出险日期</a>-->
+            <!--<a class="fr txt-r">{{InsuredF.outDate}}</a>-->
+        <!--</div>-->
+    <!--<div class="tit">农户资料上传</div>-->
+    <!--<div class="over-box">-->
+        <!--<div class="put-box no-bottom" *ngIf="InsuredF.FramIDFont!=null">-->
+            <!--<h4 class="x" (click)="fa(1)">x</h4>-->
+            <!--<p>&emsp;</p>-->
+            <!--<span>身份证正面</span>-->
+            <!--<img src="{{InsuredF.isFontCard?InsuredF.FramIDFont:'assets/icon/pic-updata_03.png'}}" (click)="looks(1)">-->
+        <!--</div>-->
+        <!--<div class="put-box no-bottom" *ngIf="InsuredF.FramIDBack!=null">-->
+            <!--<h4 class="x" (click)="fa(2)">x</h4>-->
+            <!--<p>&emsp;</p>-->
+            <!--<span>身份证反面</span>-->
+            <!--<img src="{{InsuredF.isBackCard?InsuredF.FramIDBack:'assets/icon/pic-updata_03.png'}}" (click)="looks(2)">-->
+        <!--</div>-->
+        <!--<div class="put-box no-bottom" *ngIf="InsuredF.VaccinationCertificateImg!=null">-->
+            <!--<h4 class="x" (click)="fa(4)">x</h4>-->
+            <!--<p>&emsp;</p>-->
+            <!--<span>防疫资格证</span>-->
+            <!--<img-->
+                <!--src="{{InsuredF.isVaccinationCertificateImg?InsuredF.VaccinationCertificateImg:'assets/icon/pic-updata_03.png'}}"-->
+                <!--(click)="looks(4)">-->
+        <!--</div>-->
+        <!--<div class="put-box no-bottom" *ngIf="InsuredF.InstitutionCodeImg!=null">-->
+            <!--<h4 class="x" (click)="fa(5)">x</h4>-->
+            <!--<p>&emsp;</p>-->
+            <!--<span>组织机构代码</span>-->
+            <!--<img src="{{InsuredF.isInstitutionCodeImg?InsuredF.InstitutionCodeImg:'assets/icon/pic-updata_03.png'}}"-->
+                 <!--(click)="looks(5)">-->
+        <!--</div>-->
+        <!--<div class="put-box no-bottom" *ngIf="InsuredF.BankCardImg!=null">-->
+            <!--<h4 class="x" (click)="fa(3)">x</h4>-->
+            <!--<p>&emsp;</p>-->
+            <!--<span>银行卡</span>-->
+            <!--<img src="{{InsuredF.isBackCardF?InsuredF.BankCardImg:'assets/icon/pic-updata_03.png'}}" (click)="looks(3)">-->
+        <!--</div>-->
+        <!--<div class="clear"></div>-->
+    <!--</div>-->
+    <!--<div class="tit">兽医资格证上传</div>-->
+    <!--<div class="puts-box">-->
+        <!--<div class="other-box">-->
+            <!--<h4 class="x" (click)="fa(6)">x</h4>-->
+            <!--<h5></h5>-->
+            <!--<span>兽医资格证</span>-->
+            <!--<div class="other">-->
+                <!--<img-->
+                    <!--src="{{InsuredF.isOtherPic?InsuredF.vaccinationCertificateImgs[0]:'assets/icon/pic-updata_03.png'}}"-->
+                    <!--(click)="OtherC()">-->
+                <!--<div class="bg" [ngClass]="InsuredF.isOtherPic?'':'hide'" (click)="OtherC()"></div>-->
+                <!--<p [ngClass]="InsuredF.isOtherPic?'':'hide'" (click)="OtherC()">共{{InsuredF.OtherPicLen}}张</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<p class="tit">标的特征</p>-->
+    <!--<textarea (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="InsuredF.remarks"-->
+              <!--placeholder="请输入文字..."></textarea>-->
+</ion-content>
+<ion-footer *ngIf="showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="tijiao()">提交</div>
+    </ion-toolbar>
+</ion-footer>

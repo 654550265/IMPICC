@@ -1,0 +1,49 @@
+page-nset {
+    .box{
+        position: relative;
+        line-height: 4.4rem;
+        padding-left: 3%;
+        border-bottom: 1px solid #A3A3A3;
+        span{
+            position: absolute;
+            top:0;
+            right:3%;
+        }
+    }
+    a{
+        color:#333;
+        width:100%;
+        margin:0 auto;
+        display: block;
+        line-height: 4.4rem;
+        background-image: url("../assets/icon/jinru01_03.png");
+        background-repeat: no-repeat;
+        background-position: 97% 1.2rem;
+        position: relative;
+        span{
+            position: absolute;
+            top:0;right:4rem;
+        }
+        p{
+            width:94%;
+            margin:0 auto;
+            border-bottom:1px solid #E7E7E9;
+        }
+    }
+    .name{
+        line-height: 4.4rem;
+        width:100%;
+        margin:0 auto;
+        padding-left: 3%;
+        border-bottom: 1px solid #E7E7E9;
+    }
+    a:active{
+        background-color: #f5f5f5;
+    }
+    .red{
+        color:red;
+    }
+    .green{
+        color:#9ade32;
+    }
+}

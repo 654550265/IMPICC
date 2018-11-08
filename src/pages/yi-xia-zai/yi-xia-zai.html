@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>本地承保数据</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <div class="top-box">
+            <a *ngFor="let x of lists;let indexs=index" [ngClass]="x.acv?'active':''" (click)="slidesss(indexs)">{{x.name}}</a>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="background-color: #F5F5F5">
+    <div class="yunduanBox-box">
+        <div class="yunduan-box" *ngFor="let x of list;let indexs=index" [ngClass]="x.acv?'active':''">
+            <div class="title-box">
+                <p class="title" (click)="chooseOne(indexs)" *ngIf="x.name.FramType=='1'">个体承保</p>
+                <p class="title" (click)="chooseOne(indexs)" *ngIf="x.name.FramType=='2'">单位承保</p>
+                <p class="title" (click)="chooseOne(indexs)" *ngIf="x.name.FramType=='3'">团体承保</p>
+                <p class="title" (click)="chooseOne(indexs)" *ngIf="x.name.FramType=='4'">批量个体承保</p>
+                <p class="title" (click)="chooseOne(indexs)" *ngIf="x.name.FramType=='5'">批量单位承保</p>
+                <p class="xubao" (click)="gotoXuBao(indexs)" *ngIf="type==0">续保</p>
+                <a class="del" (click)="delete(indexs)" >删除</a>
+                <a class="qianzi" *ngIf="x.name.isXubao=='1'&&x.name.signUrl==''" (click)="qianzi(indexs)">确认签字</a>
+            </div>
+            <div class="main-box" (click)="checkMessagess(indexs)">
+                <p><span>姓名/单位</span><span>{{x.name.FramName}}</span></p>
+                <p><span>身份证号码</span><span>{{x.name.FramPeopleID}}</span></p>
+                <p><span>日期</span><span>{{x.name.createtime | date: 'yyyy-MM-dd'}}</span></p>
+                <h4>承保员 {{x.name.HandlePerson}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="centerp" *ngIf="HaveText">暂无数据</div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="yunduan-bottom-box">
+            <div class="left">
+                <p class="yunduan-left-p" [ngClass]="chooseallbtn?'active':''" (click)="chooseall()">全选</p>
+                <p>以选中<span>{{num}}</span>条数据</p>
+            </div>
+            <a class="right" (click)="uploads()">上传数据</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,37 @@
+page-fnag-yi-zheng-ming .puts-box {
+  width: 94%;
+  margin: 0 auto; }
+  page-fnag-yi-zheng-ming .puts-box .put-box {
+    overflow: hidden;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E7E7E9; }
+    page-fnag-yi-zheng-ming .puts-box .put-box span {
+      display: inline-block;
+      width: 30%;
+      color: #333;
+      padding-left: 1rem;
+      background-image: url("../assets/icon/start_03.png");
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      background-position: 0 0.3rem;
+      font-size: 1.6rem; }
+    page-fnag-yi-zheng-ming .puts-box .put-box input {
+      border: 0;
+      width: 70%;
+      text-align: right;
+      color: #3EBAB4;
+      font-size: 1.6rem; }
+    page-fnag-yi-zheng-ming .puts-box .put-box input::-webkit-input-placeholder {
+      color: #999; }
+    page-fnag-yi-zheng-ming .puts-box .put-box select {
+      border: 0;
+      float: right;
+      color: #3EBAB4;
+      font-size: 1.6rem;
+      background-color: #fff; }
+    page-fnag-yi-zheng-ming .puts-box .put-box img {
+      display: block;
+      width: 96%;
+      margin: 1rem auto 0 auto; }
+
+/*# sourceMappingURL=fnag-yi-zheng-ming.css.map */

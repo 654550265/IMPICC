@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,sBAAuB;EACnB,gBAAgB,EAAE,OAAO;EACzB,wBAAC;IACG,OAAO,EAAE,KAAK;IACd,WAAW,EAAE,IAAI;IACjB,KAAK,EAAC,IAAI;IACV,0BAAC;MACG,KAAK,EAAC,GAAG;MACT,MAAM,EAAC,MAAM;MACb,aAAa,EAAE,iBAAiB;EAGxC,+BAAQ;IACJ,gBAAgB,EAAE,OAAO",
+"sources": ["bao-tong-xun-list.scss"],
+"names": [],
+"file": "bao-tong-xun-list.css"
+}

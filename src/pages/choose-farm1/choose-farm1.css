@@ -1,0 +1,144 @@
+page-choose-farm1 {
+  background-color: #FFFFFF; }
+  page-choose-farm1 .scroll-content {
+    padding-bottom: 44px; }
+  page-choose-farm1 .tit {
+    height: 4.4rem;
+    line-height: 4.4rem;
+    position: relative; }
+    page-choose-farm1 .tit img {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      top: 0.6rem;
+      right: 0; }
+  page-choose-farm1 img {
+    display: block; }
+  page-choose-farm1 .over-box {
+    height: 8rem;
+    width: 94%;
+    margin: 1rem auto 0 auto; }
+    page-choose-farm1 .over-box .no-bottom {
+      position: relative;
+      float: left;
+      width: 30%;
+      margin-right: 5%;
+      padding: 0;
+      height: 8rem; }
+      page-choose-farm1 .over-box .no-bottom img {
+        height: 8rem;
+        width: 100%; }
+      page-choose-farm1 .over-box .no-bottom h4 {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 1.9rem;
+        right: -0.5rem;
+        top: -0.5rem;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        border-radius: 50%; }
+      page-choose-farm1 .over-box .no-bottom span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        line-height: 2rem;
+        background-image: none;
+        padding: 0;
+        width: 100%; }
+      page-choose-farm1 .over-box .no-bottom p {
+        height: 2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        opacity: .6; }
+    page-choose-farm1 .over-box .no-bottom:nth-child(3n+0) {
+      margin-right: 0; }
+  page-choose-farm1 textarea {
+    margin-bottom: 1rem; }
+  page-choose-farm1 .select_address {
+    width: 100%;
+    height: 50px;
+    overflow: hidden; }
+    page-choose-farm1 .select_address select {
+      width: 30%;
+      height: 2rem;
+      float: left !important;
+      box-sizing: border-box;
+      border: 1px solid #eee !important;
+      margin-right: 5%; }
+    page-choose-farm1 .select_address select:last-child {
+      margin-right: 0; }
+  page-choose-farm1 .other-box {
+    width: 30%;
+    float: left;
+    height: 8rem;
+    position: relative; }
+    page-choose-farm1 .other-box .x {
+      background-color: #000;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 2rem;
+      line-height: 2rem;
+      font-size: 1.4rem;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      margin: 0;
+      z-index: 13; }
+    page-choose-farm1 .other-box h5 {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: .6;
+      width: 100%;
+      height: 2rem;
+      z-index: 10; }
+    page-choose-farm1 .other-box img {
+      width: 100%;
+      height: 8rem; }
+    page-choose-farm1 .other-box span {
+      position: absolute;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      z-index: 11; }
+    page-choose-farm1 .other-box .other {
+      position: relative;
+      width: 100%; }
+      page-choose-farm1 .other-box .other img {
+        width: 100%; }
+      page-choose-farm1 .other-box .other .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.5; }
+      page-choose-farm1 .other-box .other p {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        margin-top: -10px;
+        text-align: center;
+        color: #fff; }
+  page-choose-farm1 .puts-box .put-box input {
+    width: 57%; }
+
+/*# sourceMappingURL=choose-farm1.css.map */

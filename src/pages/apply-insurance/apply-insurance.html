@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>申报保险</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps></gps>
+    <div class="gary-box"></div>
+    <div class="puts-box">
+        <div class="put-box">
+            <span>身份证号码</span><input type="text" placeholder="请输入您的身份证号码" [(ngModel)]="ChengBaoObj.FramPeopleId">
+        </div>
+        <div class="put-box pos-put-box">
+            <span class="FramPeopleId">动物标签号</span><span class="textlh">{{AnimalId}}</span>
+            <img class="saoyisao" src="assets/icon/saoyisao.png" (click)="saoyisao()">
+            <img class="bluetoo" src="assets/icon/bluetoo.png" (click)="blueTooth()">
+        </div>
+        <div class="put-box">
+            <span>类型</span>
+            <select [(ngModel)]="ChengBaoObj.AnimalType" (change)="AnimalChange()">
+                <option value="1">羊</option>
+                <option value="3">牛</option>
+            </select>
+        </div>
+        <div class="put-box">
+            <span>品种</span>
+            <select [(ngModel)]="ChengBaoObj.Varieties">
+                <option *ngFor="let x of AnimalList" value="{{x.Id}}">{{x.Name}}</option>
+            </select>
+        </div>
+        <div class="put-box">
+            <span>畜龄</span><input type="tel" placeholder="请输入动物的畜龄" [(ngModel)]="ChengBaoObj.AnimalAge">
+        </div>
+    </div>
+    <p class="up">动物资料上传</p>
+    <div class="over-box" >
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(1)">x</h4>
+            <span>植入部位</span>
+            <img src="{{isPositive?Positive:'assets/icon/pic-updata_03.png'}}" (click)="photoA(1)">
+        </div>
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(2)">x</h4>
+            <span>正面</span>
+            <img src="{{isFont?Font:'assets/icon/pic-updata_03.png'}}" (click)="photoA(2)">
+        </div>
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(3)">x</h4>
+            <span>左侧面</span>
+            <img src="{{isLeft?Left:'assets/icon/pic-updata_03.png'}}" (click)="photoA(3)">
+        </div>
+        <div class="put-box no-bottom" >
+            <p></p>
+            <h4 (click)="none(4)">x</h4>
+            <span>右侧面</span>
+            <img src="{{isRight?Right:'assets/icon/pic-updata_03.png'}}" (click)="photoA(4)">
+        </div>
+        <div class="other-box">
+            <h5></h5>
+            <span>其他图片</span>
+            <div class="other">
+                <img src="{{isOtherPic?OtherPic[0]:'assets/icon/pic-updata_03.png'}}" (click)="OtherC()">
+                <div class="bg" [ngClass]="isOtherPic?'':'hide'" (click)="OtherC()"></div>
+                <p [ngClass]="isOtherPic?'':'hide'" (click)="OtherC()">共{{OtherPicLen}}张</p>
+            </div>
+        </div>
+    </div>
+    <p class="up">如有疑问可远程咨询保险员</p>
+    <div class="voic" (click)="goto()">
+        <img src="assets/icon/voic.png">
+    </div>
+</ion-content>
+<ion-footer [ngClass]="keyboar?'hide':''">
+    <ion-toolbar>
+        <div class="save-btn" (click)="tijiaoti()">提交</div>
+    </ion-toolbar>
+</ion-footer>

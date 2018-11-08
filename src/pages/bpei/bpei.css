@@ -1,0 +1,30 @@
+page-bpei {
+  background-color: #FFFFFF; }
+  page-bpei ul, page-bpei li, page-bpei ol {
+    list-style: none; }
+  page-bpei .box {
+    overflow: hidden;
+    width: 94%;
+    margin: 0 auto;
+    padding: 2%; }
+    page-bpei .box a {
+      float: left;
+      width: 49%;
+      text-align: center;
+      padding: 2rem 0; }
+      page-bpei .box a img {
+        width: 55%; }
+      page-bpei .box a p {
+        margin-top: 2rem;
+        color: #333;
+        font-size: 1.6rem; }
+    page-bpei .box a:nth-child(2) p {
+      margin-top: 3.5rem; }
+    page-bpei .box a:nth-child(4) p {
+      margin-top: 2.5rem; }
+    page-bpei .box .shengiqng {
+      margin-top: 2.1rem; }
+    page-bpei .box .activated {
+      box-shadow: 0 0 5px #ccc; }
+
+/*# sourceMappingURL=bpei.css.map */

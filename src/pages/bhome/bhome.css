@@ -1,0 +1,26 @@
+page-bhome {
+  background-color: #FFFFFF; }
+  page-bhome ul, page-bhome li, page-bhome ol {
+    list-style: none; }
+  page-bhome .box {
+    overflow: hidden;
+    width: 94%;
+    margin: 0 auto;
+    padding: 2%; }
+    page-bhome .box a {
+      float: left;
+      width: 49%;
+      text-align: center;
+      padding: 2rem 0; }
+      page-bhome .box a img {
+        height: 5rem; }
+      page-bhome .box a p {
+        margin-top: 2rem;
+        color: #333;
+        font-size: 1.6rem; }
+    page-bhome .box .shengiqng {
+      margin-top: 2.1rem; }
+    page-bhome .box .activated {
+      box-shadow: 0 0 5px #ccc; }
+
+/*# sourceMappingURL=bhome.css.map */

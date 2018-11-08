@@ -1,0 +1,127 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{flag === 0 ? '往期承保数据' : '承保数据'}}</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <div class="top-box">
+            <a *ngFor="let x of tabs;" [ngClass]="x.acv?'active':''" (click)="active(x)">{{x.name}}</a>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="请输入您要搜索的保单号" [(ngModel)]="InsureNo">
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="showBol" class="yunduanBox-box" style="background: #f8f8f8;">
+        <div class="yunduan-box" *ngFor="let x of (activeTab.datas|appFilerPip:InsureNo:activeTab.id);let index = index" [ngClass]="x.acv?'active':''">
+            <div class="title-box" (click)="chooseOne(index)">
+                <p class="title" *ngIf="x.InsureType === 1">个人承保</p>
+                <p class="title" *ngIf="x.InsureType === 2">单位承保</p>
+                <p class="title" *ngIf="x.InsureType === 3">团体承保</p>
+                <p class="title" *ngIf="x.InsureType === 4">个人批量承保</p>
+                <p class="title" *ngIf="x.InsureType === 5">单位批量承保</p>
+            </div>
+            <div class="main-box" (click)="checkMessage(x)">
+                <ion-grid>
+                    <ion-row *ngIf="x.InsureNo && flag === 1">
+                        <ion-col col-4 class="attrName">保单号</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.InsureNo}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">姓名/单位</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.Name}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="x.InsureType === 1 || x.InsureType === 5 || x.InsureType === 6">
+                        <ion-col col-4 class="attrName">身份证号码</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.IdNumber}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="x.InsureType === 2 || x.InsureType === 3 || x.InsureType === 4">
+                        <ion-col col-4 class="attrName">组织机构代码</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.IdNumber}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">日期</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.CreateTime | date: 'yyyy-MM-dd'}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">投保数量</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.Total}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="x.CreateTime && flag === 1">
+                        <ion-col col-4 class="attrName">开始时间</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.CreateTime | date: 'yyyy-MM-dd'}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="x.EndTime && flag === 1">
+                        <ion-col col-4 class="attrName">结束时间</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.EndTime | date: 'yyyy-MM-dd'}}</ion-col>
+                    </ion-row>
+                    <h4 style="display: block;width: 80%;margin: 1rem auto 0 auto;font-size: 1.4rem;text-align: right;">承保员 {{chenBao}}</h4>
+                </ion-grid>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!showBol" class="yunduanBox-box" style="background: #f8f8f8;">
+        <div class="yunduan-box" *ngFor="let x of activeTab.datas;let index = index">
+            <div class="title-box">
+                <p class="titles" *ngIf="x.FramType == 1">个人承保</p>
+                <p class="titles" *ngIf="x.FramType == 2">单位承保</p>
+                <p class="titles" *ngIf="x.FramType == 3">团体承保</p>
+                <p class="titles" *ngIf="x.FramType == 4">个人批量承保</p>
+                <p class="titles" *ngIf="x.FramType == 5">单位批量承保</p>
+                <a class="del" (click)="del(x.FramGuid)">删除</a>
+            </div>
+            <div class="main-box" (click)="checkMessages(x)">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">保单号</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.insuranceId}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">姓名/单位</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.FramName}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="x.FramType == 1 || x.FramType == 5 || x.FramType == 6">
+                        <ion-col col-4 class="attrName">身份证号码</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.FramPeopleID}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="x.InsureType == 2 || x.InsureType == 3 || x.InsureType == 4">
+                        <ion-col col-4 class="attrName">组织机构代码</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.tyshxydm}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">日期</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.createtime | date: 'yyyy-MM-dd'}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">开始时间</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.starttime | date: 'yyyy-MM-dd'}}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4 class="attrName">结束时间</ion-col>
+                        <ion-col col-8 class="attrValue">{{x.endtime | date: 'yyyy-MM-dd'}}</ion-col>
+                    </ion-row>
+                    <h4 style="display: block;width: 80%;margin: 1rem auto 0 auto;font-size: 1.4rem;text-align: right;">承保员 {{chenBao}}</h4>
+                </ion-grid>
+            </div>
+        </div>
+    </div>
+    <div class="centerp" *ngIf="!activeTab.hasData" [ngClass]="activeTab.datas.length == 0 ? '' : 'hide'">暂无数据</div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="activeTab.canLoad">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<ion-footer *ngIf="showBol">
+    <ion-toolbar>
+        <div class="yunduan-bottom-box">
+            <div class="left">
+                <p class="yunduan-left-p" [ngClass]="activeTab.chooseall?'active':''" (click)="chooseAll()">全选</p>
+                <p>已选中<span>{{activeTab.num}}</span>条数据</p>
+            </div>
+            <a class="right" (click)="DownLoad()">数据下载</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

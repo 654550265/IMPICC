@@ -1,0 +1,30 @@
+page-waite-vio .whofaqi {
+  width: 90%;
+  margin: 3rem auto 0 auto; }
+  page-waite-vio .whofaqi p:first-child {
+    color: #fff;
+    font-size: 3rem; }
+  page-waite-vio .whofaqi p:nth-child(2) {
+    color: #fff;
+    margin-top: 1rem; }
+page-waite-vio .box {
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  width: 100%; }
+  page-waite-vio .box a {
+    display: inline-block;
+    width: 45%;
+    margin-left: 2.5%;
+    text-align: center;
+    border-radius: 5px; }
+  page-waite-vio .box .hangup {
+    background-color: red; }
+    page-waite-vio .box .hangup img {
+      width: 40%; }
+  page-waite-vio .box .call {
+    background-color: green; }
+    page-waite-vio .box .call img {
+      width: 40%; }
+
+/*# sourceMappingURL=waite-vio.css.map */

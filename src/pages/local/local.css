@@ -1,0 +1,16 @@
+page-local .center-box {
+  text-align: center;
+  margin-top: 3rem; }
+page-local .scroll-content {
+  background-color: #f5f5f5; }
+page-local .main-box h4 {
+  display: block;
+  width: 80%;
+  margin: 1rem auto 0 auto;
+  font-size: 1.4rem;
+  text-align: right; }
+page-local .qianzi {
+  padding: 1rem 0;
+  z-index: 66; }
+
+/*# sourceMappingURL=local.css.map */

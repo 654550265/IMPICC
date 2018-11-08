@@ -1,0 +1,64 @@
+page-team {
+  background-color: #FFFFFF; }
+  page-team .scroll-content {
+    padding-bottom: 44px; }
+  page-team .tit {
+    height: 4.4rem;
+    line-height: 4.4rem;
+    position: relative; }
+    page-team .tit img {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      top: 0.6rem;
+      right: 0; }
+  page-team .over-box {
+    height: 8rem;
+    width: 94%;
+    margin: 1rem auto 0 auto; }
+    page-team .over-box .no-bottom {
+      position: relative;
+      float: left;
+      width: 30%;
+      margin-right: 5%;
+      padding: 0;
+      height: 8rem; }
+      page-team .over-box .no-bottom img {
+        height: 8rem;
+        width: 100%; }
+      page-team .over-box .no-bottom h4 {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 1.9rem;
+        right: -0.5rem;
+        top: -0.5rem;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        border-radius: 50%; }
+      page-team .over-box .no-bottom span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        line-height: 2rem;
+        background-image: none;
+        padding: 0;
+        width: 100%; }
+      page-team .over-box .no-bottom p {
+        height: 2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        opacity: .6; }
+    page-team .over-box .no-bottom:nth-child(3n+0) {
+      margin-right: 0; }
+  page-team .puts-box .put-box input {
+    width: 57%; }
+
+/*# sourceMappingURL=team.css.map */

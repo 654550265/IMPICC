@@ -1,0 +1,65 @@
+page-bmy {
+  background-color: #FFFFFF; }
+  page-bmy img {
+    display: block; }
+  page-bmy .top-box {
+    width: 100%;
+    position: relative; }
+    page-bmy .top-box .name {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      color: #fff;
+      width: 100%;
+      text-align: center; }
+    page-bmy .top-box .pic-box {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      background-color: #fff;
+      width: 8rem;
+      height: 8rem;
+      margin-left: -4rem;
+      margin-bottom: -4rem;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      border: 3px solid #fff; }
+  page-bmy .my-list-box {
+    width: 100%;
+    margin-top: 2rem; }
+    page-bmy .my-list-box a {
+      display: block;
+      color: #333;
+      overflow: hidden; }
+      page-bmy .my-list-box a span {
+        display: inline-block;
+        float: left; }
+      page-bmy .my-list-box a span:first-child {
+        width: 10%;
+        height: 45px;
+        background-repeat: no-repeat;
+        background-size: 2rem 2rem;
+        background-position: 0 1rem;
+        margin-left: 5%; }
+      page-bmy .my-list-box a span:nth-child(2) {
+        line-height: 45px;
+        width: 85%;
+        font-size: 1.6rem;
+        border-bottom: 1px solid #ccc; }
+    page-bmy .my-list-box a:active {
+      background-color: #f5f5f5; }
+    page-bmy .my-list-box a:nth-child(1) span:first-child {
+      background-image: url("../assets/icon/set.png"); }
+    page-bmy .my-list-box a:nth-child(2) span:first-child {
+      background-image: url("../assets/icon/tongxun.png"); }
+    page-bmy .my-list-box a:nth-child(3) span:first-child {
+      background-image: url("../assets/icon/home-help.png"); }
+    page-bmy .my-list-box a:nth-child(4) span:first-child {
+      background-image: url("../assets/icon/home-yijian.png"); }
+    page-bmy .my-list-box a:nth-child(5) span:first-child {
+      background-image: url("../assets/icon/home-aboutus.png"); }
+    page-bmy .my-list-box a:nth-child(6) span:first-child {
+      background-image: url("../assets/icon/bark-logout.png"); }
+
+/*# sourceMappingURL=bmy.css.map */

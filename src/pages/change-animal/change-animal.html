@@ -1,0 +1,146 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{isxubao?'续保':'标的信息修改'}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">标的信息</p>
+        <div class="main-box">
+            <div *ngIf="Animal.name.AnimalId">
+                <span>标签号</span><input type="tel" placeholder="{{Animal.name.AnimalId}}"
+                                       [(ngModel)]="Animal.form.AnimalId">
+            </div>
+            <div *ngIf="Animal['name']['StartAnimalIds']">
+                <span>起始号段</span><input type="tel" placeholder="{{Animal['name']['StartAnimalIds']}}"
+                                        [(ngModel)]="Animal.form.StartAnimalIds">
+            </div>
+            <div *ngIf="Animal['name']['EndAnimalIds']">
+                <span>结束号段</span><input type="tel" placeholder="{{Animal['name']['EndAnimalIds']}}"
+                                        [(ngModel)]="Animal.form.EndAnimalIds">
+            </div>
+            <div *ngIf="cityAddr">
+                <span>养殖地址</span>
+                <select [(ngModel)]="cityAddr" (change)="addrchange(cityAddr)">
+                    <option *ngFor="let z of cityList" [ngValue]="z">{{z.name}}</option>
+                </select>
+            </div>
+            <div *ngIf="cityAddr">
+                <span>详细地址</span><input type="text" placeholder="{{AddrMoreMess}}" (keyup)="onKey($event)">
+            </div>
+            <div>
+                <span>动物类型</span><a href="javascript:;">{{paoxian.AnimalTypeName}}</a>
+            </div>
+            <div>
+                <span>动物品种</span><a href="javascript:;">{{paoxian.VarietyeName}}</a>
+            </div>
+            <div *ngIf="Animal.name.AnimalAge">
+                <span>畜龄</span><input type="tel" placeholder="{{Animal.name.AnimalAge}}"
+                                      [(ngModel)]="Animal.form.AnimalAge">
+            </div>
+            <div *ngIf="Animal.name.AnimalWeight&&Animal.name.AnimalWeight!='null'">
+                <span>体重</span><input type="tel" placeholder="{{Animal.name.AnimalWeight}}"
+                                      [(ngModel)]="Animal.form.AnimalWeight">
+            </div>
+            <div>
+                <span>保额</span>
+                <input *ngIf="beput" type="tel" [(ngModel)]="baoe" placeholder="{{baoe}}">
+                <select *ngIf="beselec" [(ngModel)]="baoe" (change)="baoechange(baoe)">
+                    <option *ngFor="let x of baoelist" value="{{x}}">{{x}}</option>
+                </select>
+                <a href="javascript:;" *ngIf="bea">{{baoe}}</a>
+            </div>
+            <div>
+                <span>费率</span>
+                <a href="javascript:;" *ngIf="ratelist.length==1" class="fr">{{feilv}}</a>
+                <select *ngIf="ratelist.length>1" [(ngModel)]="feilv" (change)="feilvchang(feilv)">
+                    <option *ngFor="let j of ratelist" value="{{j}}">{{j}}</option>
+                </select>
+            </div>
+            <div>
+                <span>总保费</span><a href="javascript:;">{{TotalPremium}}</a>
+            </div>
+            <div>
+                <span>自缴保费</span><a href="javascript:;">{{SelfPayPremium}}</a>
+            </div>
+            <div>
+                <span>养殖方式</span>
+                <select [(ngModel)]="bree" (change)="fangshichange(bree)">
+                    <option *ngFor="let l of BreedTypelist" [ngValue]="l">{{l.Name}}</option>
+                </select>
+            </div>
+            <div class="float-box" *ngIf="!Animal['name']['AnimalList']">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{Animal.name.ImplantationSiteUrl}}" (click)="font('ImplantationSiteUrl')">
+                    <h4 (click)="closeImg(1)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{Animal.name.PositiveUrl}}" (click)="font('PositiveUrl')">
+                    <h4 (click)="closeImg(2)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>左面</p>
+                    <img src="{{Animal.name.LeftUrl}}" (click)="font('LeftUrl')">
+                    <h4 (click)="closeImg(3)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>右面</p>
+                    <img src="{{Animal.name.RightUrl}}" (click)="font('RightUrl')">
+                    <h4 (click)="closeImg(4)">x</h4>
+                </div>
+            </div>
+            <div class="float-box" *ngIf="Animal['name']['AnimalList']">
+                <div class="float-lf">
+                    <p>群体图片一</p>
+                    <img src="{{Animal.name.Animals1Url}}" (click)="font('Animals1Url')">
+                    <h4 (click)="closeImg(5)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>群体图片二</p>
+                    <img src="{{Animal.name.Animals2Url}}" (click)="font('Animals2Url')">
+                    <h4 (click)="closeImg(6)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>群体图片三</p>
+                    <img src="{{Animal.name.Animals3Url}}" (click)="font('Animals3Url')">
+                    <h4 (click)="closeImg(7)">x</h4>
+                </div>
+            </div>
+            <div class="float-box" *ngFor="let o of earlist;let indexs=index">
+                <input class="block-put" type="tel" placeholder="{{o.AnimalID}}" [(ngModel)]="o.AnimalID">
+                <div class="float-lf">
+                    <p>标签图片一</p>
+                    <img src="{{o.imgOne}}" (click)="chooseImage('imgOne',indexs)">
+                    <h4 (click)="closeImgs('imgOne',indexs)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>标签图片二</p>
+                    <img src="{{o.imgTwo}}" (click)="chooseImage('imgTwo',indexs)">
+                    <h4 (click)="closeImgs('imgTwo',indexs)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>标签图片三</p>
+                    <img src="{{o.imgThree}}" (click)="chooseImage('imgThree',indexs)">
+                    <h4 (click)="closeImgs('imgThree',indexs)">x</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveBtnSave()">保存</div>
+    </ion-toolbar>
+</ion-footer>

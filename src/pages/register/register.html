@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>用户注册</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+<div class="register">
+    <p>手机号</p>
+    <input type="tel" class="register-put" [(ngModel)]="tel" placeholder="请输入您的手机号">
+    <div class="getCode-box">
+        <p>验证码</p>
+        <input type="tel" class="register-put" [(ngModel)]="code" placeholder="请输入短信验证码">
+        <button (click)="getCode()" class="getCode-btn" disabled="{{dis?'disabled':''}}">{{text}}</button>
+    </div>
+    <p>密码</p>
+    <input type="password" class="register-put" [(ngModel)]="userPwd" placeholder="请输入6-32个字符">
+    <p class="agreen">注册即表示同意<span>《用户使用协议》</span></p>
+    <button class="register-btn" (click)="userRegister()">注册</button>
+</div>
+</ion-content>

@@ -1,0 +1,135 @@
+<!--
+  Generated template for the LipeiChangePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>申报理赔修改</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngFor="let x of list">
+        <div class="gary-box"></div>
+        <div class="top-box">
+            <p>
+                <span>理赔员&emsp;</span><span>{{lipeiyuan}}</span>
+            </p>
+            <p>
+                <span>日期&emsp;</span><span>{{list[0].name.Time}}</span>
+            </p>
+        </div>
+        <div>
+            <div class="gary-box"></div>
+            <p class="titless">理赔信息</p>
+            <div class="main-box bg-white">
+                <div class="zhengjian">
+                    <a><span></span>被保险人身份证</a>
+                    <a href="javascript:void(0);" class="fr txt-r">{{idCard}}</a>
+                </div>
+                <div class="zhengjian">
+                    <a style="width: 35%;"><span>*</span>动物标签号</a>
+                    <input type="text" placeholder="{{list[0].name.AnimalId}}" (blur)="unameBlur(1)" (focus)="unamefocus()" [(ngModel)]="list[0].form.AnimalId" style="margin-right: 20%;width: 45%;">
+                    <img class="saoyisao" src="assets/icon/saoyisao.png" (click)="saoyisao()">
+                    <img class="bluetoo" src="assets/icon/bluetoo.png" (click)="blueTooth()">
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>动物类型</a>
+                    <a href="javascript:void(0);" class="fr txt-r">{{list[0].form.AnimalTypeName?list[0].form.AnimalTypeName:list[0].name.AnimalTypeName}}</a>
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>动物品种</a>
+                    <a href="javascript:void(0);" class="fr txt-r">{{list[0].form.AnimalVarietyName?list[0].form.AnimalVarietyName:list[0].name.AnimalVarietyName}}</a>
+                </div>
+                <div class="zhengjian" *ngIf="list[0].name.AnimalAge!=''">
+                    <a><span>*</span>畜龄</a>
+                    <input type="text" placeholder="{{list[0].name.AnimalAge}}" (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="list[0].form.AnimalAge">
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>体重</a>
+                    <input type="text" placeholder="{{list[0].name.AnimalWeight}}" (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="list[0].form.AnimalWeight">
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>单位保额</a>
+                    <a href="javascript:void(0);" class="fr txt-r">{{list[0].form.InsuranceAmount?list[0].form.InsuranceAmount:list[0].name.InsuranceAmount}}</a>
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>核定金额</a>
+                    <input type="text" placeholder="{{list[0].name.FinalMoney}}" (blur)="unameBlur()" (focus)="unamefocus()" [(ngModel)]="list[0].form.FinalMoney">
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>查勘地点</a>
+                    <a href="javascript:void(0);" class="fr txt-r">{{list[0].form.FindAddress?list[0].form.FindAddress:list[0].name.FindAddress}}</a>
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>防疫情况</a>
+                    <select [(ngModel)]="list[0].form.FangyiType">
+                        <option *ngFor="let s of fangYi" value="{{s}}">{{s}}
+                        </option>
+                    </select>
+                </div>
+                <div class="zhengjians">
+                    <a class="die-type-block"><span>*</span>死亡原因</a>
+                    <div class="dieType">
+                        <select class="sel-left" [(ngModel)]="dieType" (change)="dieTypeChange()">
+                            <option *ngFor="let t of DieTypeList" value="{{t.id}}">{{t.name}}</option>
+                        </select>
+                        <select [(ngModel)]="list[0].form.DieMessage" class="sel-right">
+                            <option *ngFor="let s of item" value="{{s.id+','+s.name}}">{{s.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="zhengjian">
+                    <a><span>*</span>无害化处理情况及方式</a>
+                    <select [(ngModel)]="list[0].form.WuHaiHua">
+                        <option *ngFor="let s of WuHai" value="{{s}}">{{s}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="tit"></div>
+        <div class="over-box puts-box">
+            <div class="other-box no-bottom">
+                <p></p>
+                <span>现场勘查</span>
+                <!--<img src="{{isScene?Scene:'assets/icon/pic-updata_03.png'}}" (click)="Sceness()">-->
+                <img src="{{hasScene?Scene[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(1)">
+                <div class="bg" (click)="Otherss(1)" *ngIf="hasScene"></div>
+                <p class="same" (click)="Otherss(1)" *ngIf="hasScene">共{{lenScene}}张</p>
+            </div>
+            <div class="other-box no-bottom">
+                <p></p>
+                <span>无害化处理</span>
+                <!--<img src="{{isHarmless?Harmless:'assets/icon/pic-updata_03.png'}}" (click)="Harmlessss()">-->
+                <img src="{{hasHarmless?Harmless[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(2)">
+                <div class="bg" *ngIf="hasHarmless" (click)="Otherss(2)"></div>
+                <p class="same" *ngIf="hasHarmless" (click)="Otherss(2)">共{{lenHarmless}}张</p>
+            </div>
+            <div class="other-box no-bottom">
+                <p></p>
+                <span>死亡证明</span>
+                <img src="{{x.form.ForDie?x.form.ForDie:ForDie[0]}}" (click)="Diess()">
+            </div>
+            <div class="other-box no-bottom">
+                <p></p>
+                <span>其他</span>
+                <img src="{{hasOther?Other[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(3)">
+                <div class="bg" *ngIf="hasOther" (click)="Otherss(3)"></div>
+                <p class="same" *ngIf="hasOther" (click)="Otherss(3)">共{{lenOther}}张</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</ion-content>
+<ion-footer *ngIf="showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="tijiao()">提交</div>
+    </ion-toolbar>
+</ion-footer>

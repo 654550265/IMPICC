@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">组织信息</p>
+        <div class="main-box" *ngFor="let s of FramMessage">
+            <div>
+                <span>承保员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span>姓名/单位</span><span>{{s.FramName}}</span>
+            </div>
+            <div>
+                <span>证件号码</span><span>{{s.FramPeopleID}}</span>
+            </div>
+            <div>
+                <span>起保时间</span><span>{{s.StartTime.split(' ')[0]}}</span>
+            </div>
+            <div>
+                <span>终保时间</span><span>{{s.EndTime.split(' ')[0]}}</span>
+            </div>
+            <div>
+                <span>业务性质</span><span>{{s.InsuraceType}}</span>
+            </div>
+            <div>
+                <span>保险产品</span><span>{{s.InsuraceProject}}</span>
+            </div>
+            <div *ngIf="s.FramTel!=''">
+                <span>电话号码</span><span>{{s.FramTel}}</span>
+            </div>
+            <div *ngIf="s.FramBank!=''">
+                <span>所属银行</span><span>{{s.FramBank}}</span>
+            </div>
+            <div *ngIf="s.Branch!=''">
+                <span>所属分行</span><span>{{s.Branch}}</span>
+            </div>
+            <div>
+                <span>经营模式</span><span>{{s.BusinessModel}}</span>
+            </div>
+            <div>
+                <span>与投保人关系</span><span>{{s.RelationShip}}</span>
+            </div>
+            <div *ngIf="s.CoppPercent!=0">
+                <span>份额</span><span>{{s.CoppPercent}}</span>
+            </div>
+            <div>
+                <span>特别约定</span><span>{{s.Appointment}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="gary-box"></div>
+    <p class="titless">该组织下的农户信息</p>
+    <div *ngFor="let x of Farmers;let indexs=index">
+        <div class="main-boxssss" (click)="gotoLookPage(x)">
+            <p>
+                <span>姓名</span><span>{{x.Name}}</span>
+            </p>
+            <p>
+                <span>身份证号码</span><span>{{x.IdNumber}}</span>
+            </p>
+            <p>
+                <span>联系方式</span><span>{{x.Tel}}</span>
+            </p>
+        </div>
+        <div class="gary-box"></div>
+    </div>
+</ion-content>

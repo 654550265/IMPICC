@@ -1,0 +1,20 @@
+page-about {
+  background-color: #FFFFFF; }
+  page-about .logo {
+    padding: 30px 0; }
+  page-about .text-center {
+    text-align: center; }
+  page-about .checkVersion {
+    display: block;
+    color: #fff;
+    text-align: center;
+    background-color: #3494f7;
+    font-size: 2rem;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    border-radius: 5px;
+    line-height: 4rem; }
+  page-about .checkVersion:active {
+    background-color: #2a75c3; }
+
+/*# sourceMappingURL=about.css.map */

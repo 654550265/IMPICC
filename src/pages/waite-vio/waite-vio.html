@@ -1,0 +1,14 @@
+<ion-content style="background-image: url('assets/icon/picc.png');background-size: 100%;">
+    <div class="whofaqi">
+        <p>{{realname}}</p>
+        <p>发起{{type=='video'?'视频':'语音'}}聊天是否接受</p>
+    </div>
+    <div class="box">
+        <a class="hangup" (click)="guanduan()">
+            <img src="assets/icon/guaduan.png">
+        </a>
+        <a class="call" (click)="jieqi()">
+            <img src="assets/icon/gettel.png">
+        </a>
+    </div>
+</ion-content>

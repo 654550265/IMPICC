@@ -1,0 +1,249 @@
+page-claim-settlement {
+    ul, li, ol {
+        list-style: none;
+    }
+    img {
+        display: block;
+    }
+    .over-box {
+        width: 94%;
+        margin: 0 auto;
+        height: 20rem;
+        margin-top: 1rem;
+        .no-bottom {
+            position: relative;
+            float: left;
+            width: 30%;
+            margin-right: 5%;
+            padding: 0;
+            height: 8rem;
+            margin-top: 1rem;
+            img {
+                height: 8rem;
+                width: 100%;
+            }
+            h4 {
+                position: absolute;
+                width: 2rem;
+                height: 2rem;
+                text-align: center;
+                line-height: 1.9rem;
+                right: -0.5rem;
+                top: -0.5rem;
+                margin: 0;
+                background-color: #000;
+                color: #fff;
+                border-radius: 50%;
+            }
+            span {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: #fff;
+                text-align: center;
+                line-height: 2rem;
+                background-image: none;
+                padding: 0;
+                width: 100%;
+            }
+            p {
+                height: 2rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: #000;
+                width: 100%;
+                opacity: .6;
+            }
+        }
+        .no-bottom:nth-child(3n+0) {
+            margin-right: 0;
+        }
+    }
+    .puts-box {
+        width: 94%;
+        margin: 0 auto;
+        .pos-put-box {
+            position: relative;
+            .saoyisao {
+                width: 8%;
+                position: absolute;
+                top: 0.7rem;
+                right: 0;
+            }
+            .animalNum {
+                position: absolute;
+                width: 50%;
+                top: 0;
+                left: 28%;
+                height: 4.5rem;
+                line-height: 4.5rem;
+            }
+            .bluetoo {
+                width: 8%;
+                position: absolute;
+                top: 0.7rem;
+                right: 10%;
+            }
+            .textlh {
+                background-image: none;
+                width: 60%;
+                padding-left: 0;
+            }
+        }
+
+        .put-box {
+            overflow: hidden;
+            padding: 1rem 0;
+            border-bottom: 1px solid #E7E7E9;
+            .dieType {
+                display: block;
+                width: 100%;
+                line-height: 4.5rem;
+                height: 4.5rem;
+                margin-top: 0.5rem;
+                select {
+                    float: left;
+                    display: inline-block;
+                    width: 47.5%;
+                    background-color: #fff;
+                    color: #3EBAB4;
+                    border: 1px solid #3EBAB4;
+                    border-radius: 0.5rem;
+                    line-height: 4rem;
+                    height: 4rem;
+                }
+                select:first-child {
+                    margin-right: 5%;
+                }
+            }
+            span {
+                display: inline-block;
+                width: 30%;
+                color: #333;
+                padding-left: 1rem;
+                background-image: url("../assets/icon/start_03.png");
+                background-repeat: no-repeat;
+                background-size: 1rem;
+                background-position: 0 0.6rem;
+                font-size: 1.6rem;
+            }
+            input {
+                border: 0;
+                width: 70%;
+                text-align: right;
+                color: #3EBAB4;
+                font-size: 1.6rem;
+            }
+            input::-webkit-input-placeholder {
+                color: #999;
+            }
+            select {
+                border: 0;
+                float: right;
+                color: #3EBAB4;
+                font-size: 1.6rem;
+                background-color: #fff;
+            }
+            img {
+                width: 96%;
+            }
+        }
+        .other-box {
+            span {
+                display: block;
+                padding: 1rem 0;
+                color: #333;
+                font-size: 1.6rem;
+            }
+            .other {
+                position: relative;
+                width: 96%;
+                margin: 0 auto;
+                img {
+                    width: 100%;
+                }
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #000;
+                    opacity: 0.5;
+                }
+                p {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    z-index: 3;
+                    width: 30%;
+                    margin-left: -15%;
+                    margin-top: -10px;
+                    text-align: center;
+                    color: #fff;
+                }
+            }
+        }
+        .put-box.no-bottom {
+            border-bottom: 0;
+            img {
+                margin-top: 1rem;
+            }
+        }
+    }
+    .up {
+        padding: 0.5rem 0 0.5rem 3%;
+        background-color: #F5F5F5;
+        color: #666;
+    }
+    .voic {
+        width: 100%;
+        padding: 1rem 0;
+        img {
+            width: 20%;
+            margin: 0 auto;
+        }
+    }
+    .zhengjian {
+        width: 100%;
+        font-size: 1.6rem;
+        border-bottom: 1px solid #E7E7E9;
+        position: relative;
+        a {
+            color: #333;
+            width: 50%;
+            display: inline-block;
+            line-height: 4.5rem;
+            background-repeat: no-repeat;
+            background-size: 2rem;
+            background-position: 0.5rem 1.4rem;
+            span {
+                color: orange;
+            }
+        }
+        .die {
+            padding: 0;
+            background-image: none;
+        }
+        select {
+            position: absolute;
+            color: #3EBAB4;
+            top: 0;
+            right: 0;
+            border: 0;
+            height: 4rem;
+            line-height: 4rem;
+            background-color: #fff;
+            text-align: right;
+        }
+        input {
+            display: inline-block;
+            width: 50%;
+            text-align: right;
+            color: #3EBAB4;
+            border: 0;
+            line-height: 4.5rem;
+        }
+    }
+}

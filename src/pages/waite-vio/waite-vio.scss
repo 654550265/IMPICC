@@ -1,0 +1,38 @@
+page-waite-vio {
+    .whofaqi{
+        width:90%;
+        margin:3rem auto 0 auto;
+        p:first-child{
+            color:#fff;
+            font-size: 3rem;
+        }
+        p:nth-child(2){
+            color:#fff;
+            margin-top: 1rem;
+        }
+    }
+    .box{
+        position: fixed;
+        bottom:10%;left:0;
+        width: 100%;
+        a{
+            display: inline-block;
+            width: 45%;
+            margin-left: 2.5%;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .hangup{
+            background-color: red;
+            img{
+                width:40%;
+            }
+        }
+        .call{
+            background-color: green;
+            img{
+                width:40%;
+            }
+        }
+    }
+}

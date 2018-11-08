@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>电子签名</ion-title>
+        <ion-buttons end>
+            <button ion-button color="danger" outline item-end icon-left (click)="emptys()">清除</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveImg()">保存</div>
+    </ion-toolbar>
+</ion-footer>

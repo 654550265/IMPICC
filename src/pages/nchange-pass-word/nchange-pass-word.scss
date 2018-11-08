@@ -1,0 +1,33 @@
+page-nchange-pass-word {
+    .forget-box{
+        width:90%;
+        margin:0 auto;
+        p{
+            margin-top:0.5rem;
+            color:#999999;
+        }
+        .forget-put{
+            padding:1rem 0 1rem 1rem;
+            font-size: 1.4rem;
+            width:100%;
+            border:0;
+            border-bottom:1px solid #CCCCCC;
+            color:#3ebab4;
+        }
+        .forget-put::-webkit-input-placeholder{
+            color:#ccc;
+        }
+        .forget-btn{
+            background-color: #3ebab4;
+            color:#fff;
+            width:100%;
+            font-size: 1.6rem;
+            padding:1rem 0;
+            border-radius: 5px;
+            margin-top:5rem;
+        }
+        .forget-btn:active{
+            background-color: #369691;
+        }
+    }
+}

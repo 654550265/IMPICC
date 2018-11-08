@@ -1,0 +1,33 @@
+page-pi-liang-bao-local .slide-zoom {
+  height: 100%; }
+page-pi-liang-bao-local .top-box {
+  width: 100%;
+  font-size: 1.6rem;
+  z-index: 99; }
+  page-pi-liang-bao-local .top-box a {
+    padding: 1rem 0;
+    display: inline-block;
+    color: #333;
+    width: 33.33%;
+    text-align: center;
+    border-bottom: 1px solid #999999; }
+  page-pi-liang-bao-local .top-box .active {
+    color: #3EBAB4;
+    border-bottom: 1px solid #3EBAB4; }
+page-pi-liang-bao-local .scroll-content {
+  background-color: #f5f5f5; }
+page-pi-liang-bao-local .main-box h4 {
+  display: block;
+  width: 80%;
+  margin: 1rem auto 0 auto;
+  font-size: 1.4rem;
+  text-align: right; }
+page-pi-liang-bao-local .qianzi {
+  padding: 1rem 0;
+  z-index: 66; }
+page-pi-liang-bao-local .center-box {
+  text-align: center;
+  color: #333;
+  margin-top: 3rem; }
+
+/*# sourceMappingURL=pi-liang-bao-local.css.map */

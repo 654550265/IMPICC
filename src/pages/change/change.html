@@ -1,0 +1,179 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{isxubao?'续保':'修改'}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time | date: 'yyyy-MM-dd'}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">{{title}}</p>
+        <div class="main-box" *ngFor="let x of farmList">
+            <div>
+                <span>{{x.name.FramType=='1'||x.name.FramType=='4'?'姓名':'企业名称'}}</span><input type="text"
+                                                                                              placeholder="{{x.name.FramName}}"
+                                                                                              [(ngModel)]="x.form.FramName">
+            </div>
+            <div *ngIf="x.name.FramType=='2'||x.name.FramType=='5'">
+                <span>统一社会信用代码</span><input type="text" placeholder="{{x.name.FramPeopleID}}"
+                                            [(ngModel)]="x.form.FramPeopleID">
+            </div>
+            <div>
+                <span>地址</span>
+                <select [(ngModel)]="cityAddr" (change)="citychange()">
+                    <option *ngFor="let z of cityList" [ngValue]="z">{{z.name}}</option>
+                </select>
+            </div>
+            <div>
+                <span>详细地址</span><input type="text" placeholder="{{AddrMoreMess}}" (keyup)="onKey($event)">
+            </div>
+            <div *ngIf="x.name.banknum!=null">
+                <span>银行卡号</span><input type="text" placeholder="{{x.name.banknum}}" [(ngModel)]="x.form.banknum">
+            </div>
+            <div *ngIf="x.name.FramBank!=null">
+                <span>所属银行</span><input type="text" placeholder="{{x.name.FramBank}}" [(ngModel)]="x.form.FramBank">
+            </div>
+            <div *ngIf="x.name.branch!=null">
+                <span>所属分行</span><input type="text" placeholder="{{x.name.branch}}" [(ngModel)]="x.form.branch">
+            </div>
+            <div *ngIf="x.name.EarTarNum">
+                <span>标的数量</span><input type="text" placeholder="{{x.name.EarTarNum}}" [(ngModel)]="x.form.EarTarNum">
+            </div>
+            <div>
+                <span>业务性质</span>
+                <select [(ngModel)]="ywxzzc" (change)="ywxzchange(ywxzzc)" [disabled]="isxubao">
+                    <option *ngFor="let z of xzList" [ngValue]="z">{{z.TypeName}}</option>
+                </select>
+            </div>
+            <div>
+                <span>保险产品</span>
+                <select [(ngModel)]="cpzc" (change)="bxcpchange(cpzc)" [disabled]="isxubao">
+                    <option *ngFor="let z of cplist" [ngValue]="z">{{z.ProjectName}}</option>
+                </select>
+            </div>
+            <div>
+                <span>起保时间</span><a href="javascript:;" (click)="chooseStartTime()">{{x.form.starttime?x.form.starttime:x.name.starttime
+                | date: 'yyyy-MM-dd'}}</a>
+            </div>
+            <div>
+                <span>终保时间</span><a href="javascript:;" (click)="chooseEndTime()">{{x.form.endtime?x.form.endtime:x.name.endtime
+                | date: 'yyyy-MM-dd'}}</a>
+            </div>
+            <div>
+                <span>与承保人关系</span>
+                <select [(ngModel)]="Andguanxi" (change)="guanxichange()">
+                    <option *ngFor="let z of guanxiList" [ngValue]="z">{{z.name}}</option>
+                </select>
+            </div>
+            <div>
+                <span>经营模式</span>
+                <select [(ngModel)]="moshistr" (change)="moshichange()">
+                    <option *ngFor="let z of moshiList" [ngValue]="z">{{z.name}}</option>
+                </select>
+            </div>
+            <div *ngIf="x.name.percent||moshistr.types=='3'">
+                <span>所占份额</span>
+                <input type="tel" placeholder="{{x.name.percent}}" [(ngModel)]="x.form.percent">
+            </div>
+            <div>
+                <span>争议处理方式</span>
+                <select [(ngModel)]="zhengyistr" (change)="zhengyichange()">
+                    <option *ngFor="let z of zhenyiList" [ngValue]="z">{{z.Name}}</option>
+                </select>
+            </div>
+            <div>
+                <span>特别约定</span><input type="text" placeholder="{{x.name.Remarks}}" [(ngModel)]="x.form.Remarks">
+            </div>
+            <div class="float-box">
+                <div class="float-lf" *ngIf="x.name.FramIDFontUrl!=null">
+                    <p>身份证正面</p>
+                    <img src="{{x.name.FramIDBackUrl}}" (click)="font('FramIDFontUrl')">
+                    <h4 (click)="closeImg(1)">x</h4>
+                </div>
+                <div class="float-lf" *ngIf="x.name.FramIDBackUrl!=null">
+                    <p>身份证反面</p>
+                    <img src="{{x.name.FramIDBackUrl}}" (click)="font('FramIDBackUrl')">
+                    <h4 (click)="closeImg(2)">x</h4>
+                </div>
+                <div class="float-lf" *ngIf="x.name.jgdmUrl!=null">
+                    <p>机构代码证</p>
+                    <img src="{{x.name.jgdmUrl}}" (click)="font('jgdmUrl')">
+                    <h4 (click)="closeImg(3)">x</h4>
+                </div>
+                <div class="float-lf" *ngIf="x.name.BankCardUrl!=null">
+                    <p>银行卡</p>
+                    <img src="{{x.name.BankCardUrl}}" (click)="font('BankCardUrl')">
+                    <h4 (click)="closeImg(4)">x</h4>
+                </div>
+                <div class="float-lf" *ngIf="x.name.fyzgzUrl!=null">
+                    <p>防疫资格证</p>
+                    <img src="{{x.name.fyzgzUrl}}" (click)="font('fyzgzUrl')">
+                    <h4 (click)="closeImg(5)">x</h4>
+                </div>
+                <div class="float-lf"
+                     *ngFor="let y of otherPicImg;let item=index">
+                    <p>其他</p>
+                    <img src="{{y}}" (click)="fontss(item)">
+                    <h4 (click)="closeImgs(item)">x</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gary-box"></div>
+    <ion-list *ngIf="haoduan?false:Animalboo">
+        <ion-item-sliding *ngFor="let x of AnimalList;let indexs=index;">
+            <ion-item (click)="gotoChangeAnimalPage(indexs)">
+                <h2>动物标签号：{{x.name.AnimalId}}</h2>
+                <h2>
+                    <span>动物类型：{{x.name.AnimalType.split(',')[1]}}</span>
+                    <span>动物品种：{{x.name.Varieties.split(',')[1]}}</span>
+                </h2>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="delAnimal(indexs)">
+                    删除
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-list *ngIf="haoduan?false:!Animalboo">
+        <ion-item-sliding *ngFor="let x of AnimalList;let indexs=index;">
+            <ion-item (click)="gotoChangeAnimalPage(indexs)">
+                <h2>姓名：{{x.FramName}}</h2>
+                <h2>身份证号：{{x.FramPeopleID}}</h2>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="delFarm(indexs)">
+                    删除
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-list *ngIf="haoduan">
+        <ion-item-sliding *ngFor="let x of AnimalList;let indexs=index;">
+            <ion-item (click)="gotoChangeAnimalPage(indexs)">
+                <h2>
+                    <span class="lh-block">动物起始号段：{{x.name.StartAnimalIds}}</span>
+                    <span class="lh-block">动物结束号段：{{x.name.EndAnimalIds}}</span>
+                </h2>
+                <h2>
+                    <span>动物类型：{{x.name.AnimalType.split(',')[1]}}</span>
+                    <span>动物品种：{{x.name.Varieties.split(',')[1]}}</span>
+                </h2>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveBtnSave()">保存</div>
+    </ion-toolbar>
+</ion-footer>

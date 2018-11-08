@@ -1,0 +1,171 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>标的信息采集</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <gps></gps>
+    <div class="gary-box"></div>
+    <form novalidate (ngSubmit)="onSubmit(farmer)" [formGroup]="farmer">
+        <div class="bg-white">
+            <div class="zhengjian">
+                <a><span></span>被保险人身份证</a>
+                <select formControlName="idCard" (change)="DieMessageObjChange()" *ngIf="!showCard">
+                    <option *ngFor="let s of FarmList" value="{{s.name.idCard}}">{{s.name.idCard}}
+                    </option>
+                </select>
+                <a href="javascript:void(0);" class="fr txt-r" *ngIf="showCard">{{idCard}}</a>
+            </div>
+            <div class="zhengjian">
+                <a style="width: 31%;"><span>*</span>动物标签号</a>
+                <img class="bluetoo" src="assets/icon/bluetoo.png" (click)="blueTooth()">
+                <img class="saoyisao" src="assets/icon/saoyisao.png" (click)="saoyisao()">
+                <input type="text" placeholder="请输入动物标签号" (blur)="unameBlur(1)" (focus)="unamefocus()" formControlName="AnimalId" style="width: 45%;">
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>动物类型</a>
+                <!--<a href="javascript:void(0);" class="fr txt-r">{{AnimalTypeName}}</a>-->
+                <select formControlName="AnimalTypeName" (change)="TypeChange()">
+                    <option *ngFor="let s of variteyArr" value="{{s.AnimtalTypeName}}">{{s.AnimtalTypeName}}
+                    </option>
+                </select>
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>动物品种</a>
+                <!--<a href="javascript:void(0);" class="fr txt-r">{{AnimalVarietyName}}</a>-->
+                <select formControlName="AnimalVarietyName" (change)="VarityChange()">
+                    <option *ngFor="let s of animalsVarArr" value="{{s.Name}}">{{s.Name}}
+                    </option>
+                </select>
+            </div>
+            <!--<div class="zhengjian" *ngIf="AnimalAge!=''">-->
+            <div class="zhengjian">
+                <a style="width: 35%;">畜龄</a>
+                <div class="unit">{{yearUnit}}</div>
+                <input type="text" placeholder="请输入畜龄" (blur)="unameBlur()" (focus)="unamefocus()" formControlName="AnimalAge">
+            </div>
+            <div class="zhengjian">
+                <a style="width: 35%;"><span>*</span>体重</a>
+                <div class="unit">KG</div>
+                <input type="text" placeholder="请输入动物体重" (blur)="unameBlur()" (focus)="unamefocus()" formControlName="AnimalWeight">
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>单位保额</a>
+                <!--<a href="javascript:void(0);" class="fr txt-r">{{InsuranceAmount}}</a>-->
+                <input type="text" placeholder="请输入单位保额" (blur)="unameBlur()" (focus)="unamefocus()" formControlName="InsuranceAmount">
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>核定金额</a>
+                <input type="text" placeholder="请输入核定金额" (blur)="unameBlur()" (focus)="unamefocus()" formControlName="FinalMoney">
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>查勘地点</a>
+                <!--<a href="javascript:void(0);" class="fr txt-r">{{FindAddress}}</a>-->
+                <input type="text" placeholder="请输入查勘地点" (blur)="unameBlur()" (focus)="unamefocus()" formControlName="FindAddress">
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>防疫情况</a>
+                <select formControlName="FangyiType" (change)="fangyiChoose()">
+                    <option *ngFor="let s of fangYi" value="{{s}}">{{s}}
+                    </option>
+                </select>
+            </div>
+            <div class="zhengjians">
+                <a class="die-type-block"><span>*</span>死亡原因</a>
+                <div class="dieType">
+                    <select class="sel-left" formControlName="dieType" (change)="dieTypeChange()">
+                        <option *ngFor="let t of DieTypeList" value="{{t.id}}">{{t.name}}</option>
+                    </select>
+                    <select formControlName="DieMessages" class="sel-right" (change)="siwang()">
+                        <option *ngFor="let s of item" value="{{s.id+','+s.name}}">{{s.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="zhengjian">
+                <a><span>*</span>无害化处理情况及方式</a>
+                <select formControlName="WuHaiHua">
+                    <option *ngFor="let s of WuHai" value="{{s}}">{{s}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="tit" style="position:relative;">动物资料上传 <span>(除"其它图片"外，其余图片为必传项)</span><img src="assets/icon/photo.png" style="position: absolute;width: 3rem;height: 3rem;top: 0.6rem;right: 0.6rem;" (click)="gotoCameraPage()"></div>
+        <div class="over-box puts-box" style="padding: 2rem 0;margin-top: 1rem;">
+            <div class="other-box no-bottom">
+                <h4 class="x" (click)="faa(1)">x</h4>
+                <p></p>
+                <span>现场勘查</span>
+                <!--<img src="{{isScene?Scene:'assets/icon/pic-updata_03.png'}}" (click)="Sceness()">-->
+                <img src="{{isScene?farmer.value.Scene[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(1)">
+                <div class="bg" [ngClass]="isScene?'':'hide'" (click)="Otherss(1)"></div>
+                <p class="same" [ngClass]="isScene?'':'hide'" (click)="Otherss(1)">共{{SceneLen}}张</p>
+            </div>
+            <div class="other-box no-bottom">
+                <h4 class="x" (click)="faa(2)">x</h4>
+                <p></p>
+                <span>无害化处理</span>
+                <!--<img src="{{isHarmless?Harmless:'assets/icon/pic-updata_03.png'}}" (click)="Harmlessss()">-->
+                <img src="{{isHarmless?farmer.value.Harmless[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(2)">
+                <div class="bg" [ngClass]="isHarmless?'':'hide'" (click)="Otherss(2)"></div>
+                <p class="same" [ngClass]="isHarmless?'':'hide'" (click)="Otherss(2)">共{{HarmlessLen}}张</p>
+            </div>
+            <div class="other-box no-bottom">
+                <h4 class="x" (click)="faa(3)">x</h4>
+                <p></p>
+                <span>死亡证明</span>
+                <img src="{{isDie?farmer.value.Die:'assets/icon/pic-updata_03.png'}}" (click)="Diess()">
+            </div>
+            <div class="other-box no-bottom">
+                <h4 class="x" (click)="faa(4)">x</h4>
+                <p></p>
+                <span>其他</span>
+                <img src="{{isOtherPic?farmer.value.OtherPic[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(3)">
+                <div class="bg" [ngClass]="isOtherPic?'':'hide'" (click)="Otherss(3)"></div>
+                <p class="same" [ngClass]="isOtherPic?'':'hide'" (click)="Otherss(3)">共{{OtherPicLen}}张</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+    <!--<div class="tit">动物资料上传 <span>(除"其它图片"外，其余图片为必传项)</span></div>-->
+    <!--<div class="over-box puts-box">-->
+        <!--<div class="other-box no-bottom">-->
+            <!--<h4 class="x" (click)="faa(1)">x</h4>-->
+            <!--<p></p>-->
+            <!--<span>现场勘查</span>-->
+            <!--&lt;!&ndash;<img src="{{isScene?Scene:'assets/icon/pic-updata_03.png'}}" (click)="Sceness()">&ndash;&gt;-->
+            <!--<img src="{{isScene?Scene[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(1)">-->
+            <!--<div class="bg" [ngClass]="isScene?'':'hide'" (click)="Otherss(1)"></div>-->
+            <!--<p class="same" [ngClass]="isScene?'':'hide'" (click)="Otherss(1)">共{{SceneLen}}张</p>-->
+        <!--</div>-->
+        <!--<div class="other-box no-bottom">-->
+            <!--<h4 class="x" (click)="faa(2)">x</h4>-->
+            <!--<p></p>-->
+            <!--<span>无害化处理</span>-->
+            <!--&lt;!&ndash;<img src="{{isHarmless?Harmless:'assets/icon/pic-updata_03.png'}}" (click)="Harmlessss()">&ndash;&gt;-->
+            <!--<img src="{{isHarmless?Harmless[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(2)">-->
+            <!--<div class="bg" [ngClass]="isHarmless?'':'hide'" (click)="Otherss(2)"></div>-->
+            <!--<p class="same" [ngClass]="isHarmless?'':'hide'" (click)="Otherss(2)">共{{HarmlessLen}}张</p>-->
+        <!--</div>-->
+        <!--<div class="other-box no-bottom">-->
+            <!--<h4 class="x" (click)="faa(3)">x</h4>-->
+            <!--<p></p>-->
+            <!--<span>死亡证明</span>-->
+            <!--<img src="{{isDie?Die:'assets/icon/pic-updata_03.png'}}" (click)="Diess()">-->
+        <!--</div>-->
+        <!--<div class="other-box no-bottom">-->
+            <!--<h4 class="x" (click)="faa(4)">x</h4>-->
+            <!--<p></p>-->
+            <!--<span>其他</span>-->
+            <!--<img src="{{isOtherPic?OtherPic[0]:'assets/icon/pic-updata_03.png'}}" (click)="Otherss(3)">-->
+            <!--<div class="bg" [ngClass]="isOtherPic?'':'hide'" (click)="Otherss(3)"></div>-->
+            <!--<p class="same" [ngClass]="isOtherPic?'':'hide'" (click)="Otherss(3)">共{{OtherPicLen}}张</p>-->
+        <!--</div>-->
+        <!--<div class="clear"></div>-->
+    <!--</div>-->
+</ion-content>
+<ion-footer *ngIf="showBottom">
+    <ion-toolbar>
+        <div class="save-btn" (click)="tijiao()">提交</div>
+    </ion-toolbar>
+</ion-footer>

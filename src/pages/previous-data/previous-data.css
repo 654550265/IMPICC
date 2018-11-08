@@ -1,0 +1,39 @@
+page-previous-data {
+  background-color: #FFFFFF; }
+  page-previous-data .top-box {
+    width: 100%;
+    font-size: 1.6rem; }
+    page-previous-data .top-box a {
+      padding: 1rem 0;
+      display: inline-block;
+      color: #333;
+      width: 50%;
+      text-align: center;
+      border-bottom: 1px solid #999999; }
+    page-previous-data .top-box .active {
+      color: #3EBAB4;
+      border-bottom: 1px solid #3EBAB4; }
+  page-previous-data .list {
+    width: 94%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E9E9EA;
+    color: #333;
+    background-image: url("../assets/icon/jinru01_03.png");
+    background-repeat: no-repeat;
+    background-position: right; }
+  page-previous-data .search-box {
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem; }
+    page-previous-data .search-box input {
+      display: block;
+      width: 94%;
+      margin: 0 auto;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #999999;
+      border-radius: 0.5rem; }
+
+/*# sourceMappingURL=previous-data.css.map */

@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button icon-only color="light" (click)="back()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+        <ion-title>{{titlename}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="img-box">
+        <span *ngFor="let x of num;let indexs=index" (click)="lookBig(indexs)">
+            <h4 class="x" (click)="faa(indexs)">x</h4>
+            <img src="{{x}}">
+        </span>
+        <span class="add" (click)="takePhoto()">+</span>
+    </div>
+</ion-content>

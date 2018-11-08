@@ -1,0 +1,32 @@
+page-choose-farm {
+  background-color: #F5F5F5; }
+  page-choose-farm .list-box {
+    background-color: #F5F5F5;
+    color: #777;
+    padding: 0.5rem 0 0.5rem 1rem;
+    font-size: 1.2rem; }
+  page-choose-farm .list {
+    background-color: #fff;
+    line-height: 8rem;
+    text-align: center;
+    font-size: 2.2rem;
+    border-bottom: 1px solid #ddd; }
+  page-choose-farm .image-yes {
+    background-image: url("../assets/icon/yes_03.png");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    background-position: 98% 0.8rem; }
+  page-choose-farm .list-save {
+    display: block;
+    margin: 5rem auto 0 auto;
+    width: 94%;
+    line-height: 4rem;
+    text-align: center;
+    background-color: #3ebab4;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.8rem; }
+  page-choose-farm .list-save:active {
+    background-color: #40a29e; }
+
+/*# sourceMappingURL=choose-farm.css.map */

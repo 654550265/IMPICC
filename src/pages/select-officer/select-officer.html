@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>选择保险员</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <div class="top-box">
+            <a *ngFor="let x of list;" [ngClass]="x.acv?'active':''" (click)="slide(x)">{{x.name}}</a>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-slides [pager]="false">
+        <ion-slide>
+            <ion-content>
+                <a *ngFor="let x of arr;let indexs=index" (click)="gotoVideo(indexs)">{{x.Text}}</a>
+            </ion-content>
+        </ion-slide>
+        <ion-slide>
+            <ion-content>
+                <a *ngFor="let z of lipei;let indexss=index" (click)="gotoVideos(indexss)">{{z.Text}}</a>
+            </ion-content>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>查看</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">分户信息</p>
+        <div class="main-box">
+            <div>
+                <span>承&emsp;保&emsp;员</span><span>{{Chengbaoyuan}}</span>
+            </div>
+            <div>
+                <span>姓名</span><span>{{obj.FramName}}</span>
+            </div>
+            <div>
+                <span>身份证号码</span><span>{{obj.FramPeopleID}}</span>
+            </div>
+            <div>
+                <span>开户行</span><span>{{obj.FramBank}}</span>
+            </div>
+            <div>
+                <span>银行卡号</span><span>{{obj.banknum}}</span>
+            </div>
+            <div>
+                <span>手机号</span><span>{{obj.FramTel}}</span>
+            </div>
+            <div>
+                <span>标的数量</span><span>{{obj.EarTarNum}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>身份证正面</p>
+                    <img src="{{obj.FramIDFontUrl}}" (click)="look(obj.FramIDFontUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>身份证反面</p>
+                    <img src="{{obj.FramIDFontUrl}}" (click)="look(obj.FramIDFontUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{obj.BankCardUrl}}" (click)="look(obj.BankCardUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>防疫资格证</p>
+                    <img src="{{obj.fyzgzUrl}}" (click)="look(obj.fyzgzUrl)">
+                </div>
+                <div class="float-lf" *ngFor="let k of obj.OtherPicUrl?obj.OtherPicUrl.split(','):[]">
+                    <p>其他</p>
+                    <img src="{{k}}" (click)="look(k)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let s of chengbaolist;let items=index">
+        <div class="gary-box"></div>
+        <p class="titless">承保信息</p>
+        <div class="main-box bott">
+            <div>
+                <span>动&ensp;物&ensp;标&ensp;签&ensp;号</span><span>{{s.name.AnimalId}}</span>
+            </div>
+            <div>
+                <span>类&emsp;&emsp;&emsp;&emsp;&emsp;型</span><span>{{s.name.AnimalType}}</span>
+            </div>
+            <div>
+                <span>品&emsp;&emsp;&emsp;&emsp;&emsp;种</span><span>{{s.name.Varieties}}</span>
+            </div>
+            <div *ngIf="s.name.parity">
+                <span>胎&emsp;&emsp;&emsp;&emsp;&emsp;次</span><span>{{s.name.parity}}</span>
+            </div>
+            <div *ngIf="s.name.AnimalAge">
+                <span>畜&emsp;&emsp;&emsp;&emsp;&emsp;龄</span><span>{{s.name.AnimalAge}}</span>
+            </div>
+            <div *ngIf="s.name.AnimalWeight">
+                <span>体&emsp;&emsp;&emsp;&emsp;&emsp;重</span><span>{{s.name.AnimalWeight}}</span>
+            </div>
+            <div>
+                <span>保&emsp;&emsp;&emsp;&emsp;&emsp;额</span><span>{{s.name.Insuredamount}}</span>
+            </div>
+            <div>
+                <span>费&emsp;&emsp;&emsp;&emsp;&emsp;率</span><span>{{s.name.rate}}</span>
+            </div>
+            <div>
+                <span>农户自缴保险费</span><span>{{s.name.SelfPayPremium}}</span>
+            </div>
+            <div>
+                <span>总&emsp;&emsp;费&emsp;&emsp;用</span><span>{{s.name.TotalPremium}}</span>
+            </div>
+            <div>
+                <span>养&emsp;殖&emsp;地&emsp;点</span><span>{{s.name.breedadd}}</span>
+            </div>
+            <div>
+                <span>养&emsp;殖&emsp;方&emsp;式</span><span>{{s.name.breedType=='1'?'散养':'规模化养殖'}}</span>
+            </div>
+            <div>
+                <span>坐&emsp;&emsp;&emsp;&emsp;&emsp;标</span><span>{{s.name.GPS}}</span>
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>植入部位</p>
+                    <img src="{{s.name.ImplantationSiteUrl}}" (click)="look(s.name.ImplantationSiteUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>正面</p>
+                    <img src="{{s.name.PositiveUrl}}" (click)="look(s.name.PositiveUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>左侧面</p>
+                    <img src="{{s.name.LeftUrl}}" (click)="look(s.name.LeftUrl)">
+                </div>
+                <div class="float-lf">
+                    <p>右侧面</p>
+                    <img src="{{s.name.RightUrl}}" (click)="look(s.name.RightUrl)">
+                </div>
+                <div class="float-lf" *ngFor="let k of s.name.OtherPicUrl?s.name.OtherPicUrl.split(','):[]">
+                    <p>其他</p>
+                    <img src="{{k}}" (click)="look(k)">
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

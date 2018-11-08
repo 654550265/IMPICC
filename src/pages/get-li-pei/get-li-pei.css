@@ -1,0 +1,229 @@
+page-get-li-pei {
+  background-color: #fff; }
+  page-get-li-pei .clear {
+    clear: both; }
+  page-get-li-pei .bg-white .zhengjians {
+    width: 94%;
+    margin: 0 auto;
+    border-bottom: 1px solid #E7E7E9; }
+    page-get-li-pei .bg-white .zhengjians .die-type-block {
+      display: block;
+      color: #333;
+      line-height: 4.5rem; }
+      page-get-li-pei .bg-white .zhengjians .die-type-block span {
+        color: orange; }
+    page-get-li-pei .bg-white .zhengjians .dieType {
+      display: block;
+      width: 100%;
+      line-height: 4.5rem;
+      height: 4.5rem; }
+      page-get-li-pei .bg-white .zhengjians .dieType select {
+        float: left;
+        display: inline-block;
+        width: 47.5%;
+        background-color: #fff;
+        color: #3EBAB4;
+        border: 1px solid #3EBAB4;
+        border-radius: 0.5rem;
+        line-height: 4rem;
+        height: 4rem; }
+      page-get-li-pei .bg-white .zhengjians .dieType select:first-child {
+        margin-right: 5%; }
+  page-get-li-pei .bg-white .pos-put-box {
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+    padding: 1rem 0; }
+    page-get-li-pei .bg-white .pos-put-box .saoyisao {
+      width: 8%;
+      position: absolute;
+      top: 0.7rem;
+      right: 0; }
+    page-get-li-pei .bg-white .pos-put-box .bluetoo {
+      width: 8%;
+      position: absolute;
+      top: 0.7rem;
+      right: 10%; }
+  page-get-li-pei .bg-white .FramPeopleId {
+    width: 30%; }
+  page-get-li-pei .bg-white .textlh {
+    padding-right: 1rem;
+    display: inline-block;
+    background-image: none;
+    width: 60%;
+    padding-left: 0;
+    text-align: right;
+    border: none; }
+  page-get-li-pei .over-box {
+    width: 94%;
+    height: auto;
+    min-height: 8rem;
+    margin: 1rem auto 0 auto; }
+    page-get-li-pei .over-box .other-box {
+      position: relative; }
+      page-get-li-pei .over-box .other-box span {
+        display: block;
+        padding: 1rem 0;
+        color: #333;
+        font-size: 1.6rem; }
+      page-get-li-pei .over-box .other-box img {
+        width: 100%; }
+      page-get-li-pei .over-box .other-box .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.5; }
+      page-get-li-pei .over-box .other-box .same {
+        opacity: 1;
+        position: absolute;
+        background-color: transparent;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        z-index: 103;
+        margin-top: -10px; }
+    page-get-li-pei .over-box .no-bottom {
+      position: relative;
+      float: left;
+      width: 30%;
+      margin-right: 5%;
+      padding: 0;
+      height: 8rem;
+      margin-bottom: 1rem; }
+      page-get-li-pei .over-box .no-bottom img {
+        height: 8rem;
+        width: 100%; }
+      page-get-li-pei .over-box .no-bottom h4 {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 1.9rem;
+        right: -0.5rem;
+        top: -0.5rem;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        border-radius: 50%;
+        z-index: 2; }
+      page-get-li-pei .over-box .no-bottom span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        line-height: 2rem;
+        background-image: none;
+        padding: 0;
+        width: 100%; }
+      page-get-li-pei .over-box .no-bottom p {
+        height: 2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        opacity: .6; }
+    page-get-li-pei .over-box .no-bottom:nth-child(3n+0) {
+      margin-right: 0; }
+  page-get-li-pei .zhengjian {
+    width: 94%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #E7E7E9;
+    position: relative; }
+    page-get-li-pei .zhengjian a {
+      color: #333;
+      width: 50%;
+      display: inline-block;
+      line-height: 4.5rem;
+      background-repeat: no-repeat;
+      background-size: 2rem;
+      background-position: 0.5rem 1.4rem; }
+      page-get-li-pei .zhengjian a span {
+        color: orange; }
+    page-get-li-pei .zhengjian .die {
+      padding: 0;
+      background-image: none; }
+    page-get-li-pei .zhengjian select {
+      position: absolute;
+      color: #3EBAB4;
+      top: 0;
+      right: 0;
+      border: 0;
+      height: 4.5rem;
+      line-height: 4.5rem;
+      background-color: #fff;
+      text-align: right; }
+    page-get-li-pei .zhengjian input {
+      display: inline-block;
+      width: 50%;
+      text-align: right;
+      color: #3EBAB4;
+      border: 0;
+      line-height: 4.5rem;
+      float: right; }
+    page-get-li-pei .zhengjian .unit {
+      float: right;
+      line-height: 4.5rem; }
+    page-get-li-pei .zhengjian .saoyisao {
+      width: 8%;
+      margin-top: 0.7rem;
+      float: right; }
+    page-get-li-pei .zhengjian .bluetoo {
+      width: 8%;
+      margin-top: 0.7rem;
+      float: right; }
+  page-get-li-pei .zhengjian:last-child {
+    border: 0; }
+  page-get-li-pei .puts-box {
+    width: 94%;
+    margin: 0 auto; }
+    page-get-li-pei .puts-box .put-box {
+      overflow: hidden;
+      padding: 1rem 0;
+      border-bottom: 1px solid #E7E7E9; }
+      page-get-li-pei .puts-box .put-box span {
+        display: inline-block;
+        width: 30%;
+        color: #333;
+        padding-left: 1rem;
+        background-image: url("../assets/icon/start_03.png");
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        background-position: 0 0.6rem;
+        font-size: 1.6rem; }
+      page-get-li-pei .puts-box .put-box input {
+        border: 0;
+        width: 70%;
+        text-align: right;
+        color: #3EBAB4;
+        font-size: 1.6rem; }
+      page-get-li-pei .puts-box .put-box input::-webkit-input-placeholder {
+        color: #999; }
+      page-get-li-pei .puts-box .put-box select {
+        border: 0;
+        float: right;
+        color: #3EBAB4;
+        font-size: 1.6rem;
+        background-color: #fff; }
+      page-get-li-pei .puts-box .put-box img {
+        display: block;
+        width: 96%;
+        margin: 1rem auto 0 auto; }
+    page-get-li-pei .puts-box .put-box.no-bottom {
+      border-bottom: 0; }
+      page-get-li-pei .puts-box .put-box.no-bottom img {
+        margin-top: 1rem; }
+  page-get-li-pei .mar {
+    margin-bottom: 5rem; }
+    page-get-li-pei .mar .put-box:last-child span {
+      background-image: none;
+      padding: 0; }
+
+/*# sourceMappingURL=get-li-pei.css.map */

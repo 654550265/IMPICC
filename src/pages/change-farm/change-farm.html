@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{isxubao?'续保':'修改分户信息'}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gary-box"></div>
+    <div class="top-box">
+        <p>
+            <span>承保员&emsp;</span><span>{{Chengbaoyuan}}</span>
+        </p>
+        <p>
+            <span>日期&emsp;</span><span>{{Time}}</span>
+        </p>
+    </div>
+    <div>
+        <div class="gary-box"></div>
+        <p class="titless">分户信息</p>
+        <div class="main-box">
+            <div>
+                <span>姓名</span><input type="text" placeholder="{{FarmList.FramName}}" [(ngModel)]="FarmList.FramName">
+            </div>
+            <div>
+                <span>联系方式</span><input type="text" placeholder="{{FarmList.FramTel}}" [(ngModel)]="FarmList.FramTel">
+            </div>
+            <div>
+                <span>所属银行</span><input type="text" placeholder="{{FarmList.FramBank}}" [(ngModel)]="FarmList.FramBank">
+            </div>
+            <div>
+                <span>银行卡号</span><input type="text" placeholder="{{FarmList.banknum}}" [(ngModel)]="FarmList.banknum">
+            </div>
+            <div *ngIf="FarmList.branch!=null">
+                <span>所属分行</span><input type="text" placeholder="{{FarmList.branch}}" [(ngModel)]="FarmList.branch">
+            </div>
+            <div *ngIf="FarmList.EarTarNum">
+                <span>标的数量</span><input type="text" placeholder="{{FarmList.EarTarNum}}" [(ngModel)]="FarmList.EarTarNum">
+            </div>
+            <div class="float-box">
+                <div class="float-lf">
+                    <p>身份证正面</p>
+                    <img src="{{FarmList.FramIDFontUrl}}" (click)="font('FramIDFontUrl')">
+                    <h4 (click)="closeImg(1)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>身份证反面</p>
+                    <img src="{{FarmList.FramIDBackUrl}}" (click)="font('FramIDBackUrl')">
+                    <h4 (click)="closeImg(2)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>银行卡</p>
+                    <img src="{{FarmList.BankCardUrl}}" (click)="font('BankCardUrl')">
+                    <h4 (click)="closeImg(3)">x</h4>
+                </div>
+                <div class="float-lf">
+                    <p>防疫资格证</p>
+                    <img src="{{FarmList.fyzgzUrl}}" (click)="font('fyzgzUrl')">
+                    <h4 (click)="closeImg(4)">x</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gary-box"></div>
+    <ion-list>
+        <ion-item-sliding *ngFor="let x of AnimalList;let indexs=index;">
+            <ion-item (click)="gotoChangeAnimalPage(indexs)">
+                <h2>动物标签号：{{x.name.AnimalId}}</h2>
+                <h2>
+                    <span>动物类型：{{x.name.AnimalType.split(',')[1]}}</span>
+                    <span>动物品种：{{x.name.Varieties.split(',')[1]}}</span>
+                </h2>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="deleteMess(indexs)">
+                    删除
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <div class="save-btn" (click)="saveBtnSave()">保存</div>
+    </ion-toolbar>
+</ion-footer>
